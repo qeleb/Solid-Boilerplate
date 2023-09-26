@@ -1,0 +1,38 @@
+{
+  "name": "Example Title Here",
+  "short_name": "Short Title",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "description": "Description Here",
+  "icons": [
+    {
+      "src": "icon16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "icon32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "icon48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "icon192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ]
+}

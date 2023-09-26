@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Develop",
+      "command": "yarn dev"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Build",
+      "command": "yarn build"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Test",
+      "command": "yarn test"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Lint",
+      "command": "yarn lint"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "Lint:Fix",
+      "command": "yarn lint:fix"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Temp/cache
+.eslintcache
+
+# Logs
+logs
+*.log
+
+# Node/NPM
+node_modules
+.npm
+.node_repl_history
+npm-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+*.tgz
+
+# yarn
+.yarn-integrity
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Vite
+/vite.config.ts.timestamp-*
+
+# Dist
+dist
+
+# Coverage
+coverage
+*.lcov
+lib-cov
+.nyc_output
+
+# Environment
+*.local
+/secrets.json
+
+# Thunder Client
+thunder-tests/thunderEnvironment.json
+
+# Other
+.idea
+.project
+.classpath
+*.launch
+.settings
+*.sublime-workspace
+.history

@@ -1,0 +1,17 @@
+.About {
+  height: 100%;
+  padding: 2rem;
+  background: dimgray;
+  color: white;
+  text-align: center;
+
+  & > .cards-list {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    align-content: center;
+    width: 100%;
+    max-width: 70rem;
+    margin: auto;
+  }
+}

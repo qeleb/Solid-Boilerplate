@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* Input */
+    "moduleResolution": "node",
+    "types": ["vite/client", "vitest/globals"],
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    /* Output */
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    /* Strict */
+    "strict": true,
+    /*"exactOptionalPropertyTypes": true,*/
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    /*"noUncheckedIndexedAccess": true,*/
+    "forceConsistentCasingInFileNames": true,
+
+    /* Support for JSON, Synthetic default imports, & JSX */
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+
+    /* Path Aliases */
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,16 @@
+.NotFound {
+  display: flex;
+  height: 100%;
+  background: crimson;
+  color: white;
+
+  & > div {
+    margin: auto;
+    text-align: center;
+
+    & > a {
+      color: rgb(184, 215, 255);
+      text-decoration: none;
+    }
+  }
+}
