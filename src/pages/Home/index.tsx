@@ -23,7 +23,7 @@ export const Home = () => {
       </h3>
       <h3>
         Counter: {count()}
-        <button onClick={() => inc()} style={{ margin: '0.25rem', 'margin-right': '0.25rem' }}>
+        <button onClick={() => inc()} style={{ margin: '0.25rem' }}>
           +
         </button>
         <button onClick={() => dec()} style={{ margin: '0.25rem' }}>
