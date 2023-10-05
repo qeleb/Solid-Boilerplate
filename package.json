@@ -37,6 +37,7 @@
     "test:ui": "vitest --coverage --ui",
     "lint": "eslint src && stylelint src/**/*.scss",
     "lint:fix": "eslint --fix src && stylelint --fix src/**/*.scss",
+    "preinstall": "npx only-allow yarn",
     "postinstall": "husky install"
   },
   "devDependencies": {
@@ -53,7 +54,7 @@
     "eslint-plugin-regexp": "^1.15.0",
     "eslint-plugin-solid": "^0.13.0",
     "eslint-plugin-testing-library": "^6.0.2",
-    "eslint-plugin-vitest": "^0.3.1",
+    "eslint-plugin-vitest": "^0.3.2",
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "^14.0.1",
@@ -66,9 +67,9 @@
     "stylelint-config-recommended-scss": "^13.0.0",
     "stylelint-no-unsupported-browser-features": "^7.0.0",
     "stylelint-order": "^6.0.3",
-    "terser": "^5.20.0",
+    "terser": "^5.21.0",
     "typescript": "5.1.6",
-    "vite": "^4.4.9",
+    "vite": "^4.4.10",
     "vite-plugin-checker": "^0.6.2",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-optimize-css-modules": "^1.0.4",
@@ -81,5 +82,5 @@
     "solid-js": "^1.7.12",
     "solidjs-use": "^2.3.0"
   },
-  "packageManager": "yarn@3.6.3"
+  "packageManager": "yarn@3.6.4"
 }
