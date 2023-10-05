@@ -28,7 +28,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
     },
     plugins: [
       solid(),
-      checker({ typescript: true, overlay: false, enableBuild: (ENV.ENV ?? 'local') === 'local' }),
+      checker({ typescript: true, overlay: false, enableBuild: true }),
       createHtmlPlugin({
         entry: '/src/index.tsx', // resolve(__dirname, './src/index.tsx'),
         minify: {
