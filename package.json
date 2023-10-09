@@ -58,6 +58,7 @@
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "^14.0.1",
+    "miragejs": "^0.1.47",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "rollup-plugin-visualizer": "^5.9.2",

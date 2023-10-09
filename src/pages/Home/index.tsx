@@ -1,23 +1,21 @@
-import { useCounter, useMouse, usePreferredDark, usePreferredLanguages } from 'solidjs-use';
+import { createSignal } from 'solid-js';
+import { useCounter, useMouse } from 'solidjs-use';
 import logo from '@/assets/logo.svg';
 import styles from '@/pages/Home/Home.module.scss';
+import { fetchUser, type UserFetchResponse } from '@/services/userService';
 
 export const Home = () => {
-  const languages = usePreferredLanguages();
-  const isDark = usePreferredDark();
   const { x, y } = useMouse();
   const { count, inc, dec } = useCounter();
+  const [userData, setUserData] = createSignal<UserFetchResponse | undefined>();
+
+  fetchUser().then(setUserData);
 
   return (
     <div class={styles.Home}>
       <img src={logo} alt="logo" />
       <h1 style={{ margin: 0 }}>Solid + Vite + TypeScript</h1>
-      <div>Languages: {languages().join(', ')}</div>
-      {isDark() ? (
-        <span style={{ color: 'black' }}>dark mode</span>
-      ) : (
-        <span style={{ color: 'white' }}>light mode</span>
-      )}
+      <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <h3>
         Mouse: {x()} x {y()}
       </h3>

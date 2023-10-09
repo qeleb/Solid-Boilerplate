@@ -2,16 +2,7 @@ import { Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
 
-render(
-  () => (
-    <Router>
-      <App />
-    </Router>
-  ),
-  document.querySelector('body')!
-);
-
-/* Extend JSX for Solid */
+// Extend Solid JSX
 declare module 'solid-js' {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
@@ -23,3 +14,16 @@ declare module 'solid-js' {
     }
   }
 }
+
+// Enable Mock Server
+if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock'))
+  (await import('@/services/mock/mockServer')).createMockServer();
+
+render(
+  () => (
+    <Router>
+      <App />
+    </Router>
+  ),
+  document.querySelector('body')!
+);
