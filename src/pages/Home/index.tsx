@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <div className={styles.Home}>
       <img src={logo} alt="logo" />
-      <h1 style={{ margin: 0 }}>Preact/compat + Vite + TypeScript</h1>
+      <h1 style={{ margin: 0 }}>React + Vite + TypeScript</h1>
       <h3>Hello, {userData?.name ?? 'guest'}!</h3>
       <h3>
         Counter: {count}
