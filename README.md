@@ -1,7 +1,7 @@
-# Solid Boilerplate
+# React Boilerplate
 
-###### **Solid Boilerplate** - _qeleb_
-Solid Boilerplate
+###### **React Boilerplate** - _qeleb_
+React Boilerplate
 
 ---
 <details open><summary><h2>Getting Started</h2></summary>
@@ -47,7 +47,7 @@ Solid Boilerplate
   - `pages/` - Pages
   - `App.tsx` - Parent component
   - `global.d.ts` - Global TypeScript type declarations
-  - `index.tsx` - Solid entry point
+  - `index.tsx` - React entry point
 
 ---
 </details>
@@ -69,7 +69,6 @@ Linting is provided by [ESLint](https://github.com/eslint/eslint) with a custom 
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)
 - [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest)
-- [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid)
 
 ---
 </details>

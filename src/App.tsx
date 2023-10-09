@@ -1,4 +1,4 @@
-import { A, Route, Routes } from '@solidjs/router';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import styles from '@/App.module.scss';
 import { Navbar } from '@/components/Navbar';
 import { About } from '@/pages/About';
@@ -6,22 +6,20 @@ import { Home } from '@/pages/Home';
 import { NotFound } from '@/pages/NotFound';
 
 export const App = () => (
-  <div class={styles.App}>
-    {/* Navbar */}
-    <Navbar>
-      <A href="/" end>
-        Home
-      </A>
-      <A href="/about" end>
-        About
-      </A>
-    </Navbar>
+  <Router>
+    <div className={styles.App}>
+      {/* Navbar */}
+      <Navbar>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </Navbar>
 
-    {/* Pages */}
-    <Routes>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="*" component={NotFound} />
-    </Routes>
-  </div>
+      {/* Pages */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  </Router>
 );

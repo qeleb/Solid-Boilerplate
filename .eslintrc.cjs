@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   ignorePatterns: ['dist/*', 'coverage/*'],
-  plugins: ['@typescript-eslint', 'prettier', 'import', 'regexp', 'vitest', 'testing-library', 'solid'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'regexp', 'vitest', 'testing-library'],
   extends: ['prettier'],
   parser: '@typescript-eslint/parser',
   env: { browser: true, es6: true },
@@ -126,7 +126,7 @@ module.exports = {
     {
       /* TypeScript/JavaScript in src/ rules */
       files: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:solid/typescript'],
+      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -154,8 +154,6 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }], //prettier-ignore
         '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false, variables: false, typedefs: false }], //prettier-ignore
         '@typescript-eslint/no-useless-constructor': 'warn',
-        'solid/reactivity': 'off',
-        'solid/no-innerhtml': 'off',
 
         /* Exceptions to make TypeScript in src/ less strict */
         '@typescript-eslint/no-floating-promises': 'off',

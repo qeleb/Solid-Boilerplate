@@ -7,8 +7,8 @@
     "skipLibCheck": true,
 
     /* Output */
-    "module": "ESNext",
-    "target": "ESNext",
+    "module": "es2022",
+    "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
 
     /* Strict */
@@ -23,8 +23,7 @@
     /* Support for JSON, Synthetic default imports, & JSX */
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsx": "react-jsx",
 
     /* Path Aliases */
     "paths": { "@/*": ["./src/*"] }
