@@ -56,7 +56,6 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       transformMode: { web: [/\.[jt]sx?$/] },
       setupFiles: [resolve(__dirname, './src/__test__/setupTests.ts')],
       include: ['./src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      deps: { inline: ['preact'] },
       alias: {
         react: 'react',
         'react-dom': 'react-dom',
