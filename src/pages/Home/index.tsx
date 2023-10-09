@@ -13,7 +13,7 @@ export const Home = () => {
 
   return (
     <div class={styles.Home}>
-      <img src={logo} alt="logo" />
+      <img prop:src={logo} alt="logo" />
       <h1 style={{ margin: 0 }}>Solid + Vite + TypeScript</h1>
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <h3>
