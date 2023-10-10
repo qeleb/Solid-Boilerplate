@@ -62,7 +62,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "rollup-plugin-visualizer": "^5.9.2",
-    "sass": "^1.69.0",
+    "sass": "^1.69.1",
     "stylelint": "^15.10.3",
     "stylelint-config-hudochenkov": "^9.0.0",
     "stylelint-config-recommended-scss": "^13.0.0",
