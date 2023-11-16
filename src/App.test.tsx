@@ -9,6 +9,6 @@ describe('app', () => {
         <App />
       </Router>
     ));
-    expect(screen.getByText(/Home/)).toBeInTheDocument();
+    expect(screen.getByText('Home')).toBeInTheDocument();
   });
 });

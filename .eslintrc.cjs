@@ -18,10 +18,8 @@ module.exports = {
         'array-callback-return': 'warn',
         'no-cond-assign': ['warn', 'except-parens'],
         'no-control-regex': 'warn',
-        'no-empty-character-class': 'warn',
         'no-ex-assign': 'warn',
         'no-fallthrough': 'warn',
-        'no-invalid-regexp': 'off', // Off for RegExp
         'no-self-assign': 'warn',
         'no-self-compare': 'warn',
         'no-sparse-arrays': 'warn',
@@ -112,12 +110,8 @@ module.exports = {
         'import/newline-after-import': 'warn',
         'import/no-duplicates': 'warn',
         'import/order': ['warn', { alphabetize: { order: 'asc' } }],
-        'regexp/no-missing-g-flag': 'warn',
-        'regexp/no-useless-assertions': 'warn',
-        'regexp/no-extra-lookaround-assertions': 'warn',
         'regexp/prefer-quantifier': 'warn',
         'regexp/prefer-regexp-test': 'warn',
-        'regexp/use-ignore-case': 'warn',
 
         /* Exceptions to make TypeScript less strict */
         '@typescript-eslint/no-non-null-assertion': 'off',

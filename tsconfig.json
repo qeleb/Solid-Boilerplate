@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     /* Input */
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "types": ["vite/client", "vitest/globals"],
     "isolatedModules": true,
     "skipLibCheck": true,
 
     /* Output */
-    "module": "ESNext",
-    "target": "ESNext",
+    "module": "ES2022",
+    "target": "ES2021",
     "lib": ["dom", "dom.iterable", "esnext"],
 
     /* Strict */
