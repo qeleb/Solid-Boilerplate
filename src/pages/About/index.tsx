@@ -3,7 +3,7 @@ import styles from '@/pages/About/About.module.scss';
 
 export const About = () => (
   <div class={styles.About}>
-    <h1>About Page</h1>
+    <h1>About</h1>
     <p>Cards List</p>
     <div class={styles['cards-list']}>
       <Card color="black">Card #1</Card>
