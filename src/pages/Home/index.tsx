@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { useCounter, useMouse } from 'solidjs-use';
-import logo from '@/assets/logo.svg';
+import logo from '@/assets/logo.svg?url';
 import styles from '@/pages/Home/Home.module.scss';
 import { fetchUser, type UserFetchResponse } from '@/services/userService';
 
@@ -13,20 +13,16 @@ export const Home = () => {
 
   return (
     <div class={styles.Home}>
-      <img src={logo} alt="logo" />
-      <h1 style={{ margin: 0 }}>Solid + Vite + TypeScript</h1>
+      <img prop:src={logo} alt="logo" />
+      <h1>Solid + Vite + TypeScript</h1>
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <h3>
         Mouse: {x()} x {y()}
       </h3>
       <h3>
         Counter: {count()}
-        <button onClick={() => inc()} style={{ margin: '0.25rem' }}>
-          +
-        </button>
-        <button onClick={() => dec()} style={{ margin: '0.25rem' }}>
-          -
-        </button>
+        <button onClick={() => inc()}>+</button>
+        <button onClick={() => dec()}>-</button>
       </h3>
       <br />
       <br />

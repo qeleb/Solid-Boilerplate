@@ -20,14 +20,16 @@
     /*"noUncheckedIndexedAccess": true,*/
     "forceConsistentCasingInFileNames": true,
 
-    /* Support for JSON, Synthetic default imports, & JSX */
+    /* Support for JSON, Synthetic default imports, experimental decorators, & JSX */
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
 
     /* Path Aliases */
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "ts-node": { "transpileOnly": true }
 }

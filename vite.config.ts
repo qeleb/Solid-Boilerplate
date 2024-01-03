@@ -1,4 +1,5 @@
 import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
@@ -6,6 +7,7 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import sassDts from 'vite-plugin-sass-dts';
 import solid from 'vite-plugin-solid';
+import svg from 'vite-plugin-svgo';
 import { configDefaults } from 'vitest/config';
 
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
@@ -27,10 +29,19 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
     plugins: [
-      solid(),
+      solid({ typescript: { optimizeConstEnums: true } }),
+      svg({
+        floatPrecision: 2,
+        plugins: [
+          { name: 'preset-default', params: { overrides: { convertPathData: { noSpaceAfterFlags: true }, removeViewBox: false } } }, //prettier-ignore
+          { name: 'removeAttrs', params: { attrs: ['fill', 'fill-rule'] } },
+          'removeDimensions',
+          'removeXMLNS',
+        ],
+      }),
       checker({ typescript: true, overlay: false, enableBuild: true }),
       createHtmlPlugin({
-        entry: '/src/index.tsx', // resolve(__dirname, './src/index.tsx'),
+        entry: '/src/index.tsx', // resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/index.tsx'),
         minify: {
           collapseBooleanAttributes: true, collapseWhitespace: true, decodeEntities: true, minifyCSS: true,
           minifyJS: true, minifyURLs: true, removeComments: true, removeEmptyAttributes: true,
@@ -39,19 +50,26 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       }),
       optimizeCssModules(),
-      sassDts({ enabledMode: ['development', 'production'] }),
-      ENV.ANALYZE === 'true' && visualizer({ template: 'treemap', open: true, gzipSize: true, brotliSize: true, filename: resolve(__dirname, 'dist/analyze.html') }), //prettier-ignore
+      sassDts({ enabledMode: ['development', 'production'], prettierFilePath: resolve(fileURLToPath(new URL('.', import.meta.url)), '.prettierrc') }), //prettier-ignore
+      ENV.ANALYZE === 'true' &&
+        visualizer({
+          template: 'treemap',
+          open: true,
+          gzipSize: true,
+          brotliSize: true,
+          filename: resolve(fileURLToPath(new URL('.', import.meta.url)), 'dist/analyze.html'),
+        }),
     ].filter(Boolean),
-    resolve: { alias: { '@': resolve(__dirname, './src') }, conditions: ['browser', 'development'] },
+    resolve: { alias: { '@': resolve(fileURLToPath(new URL('.', import.meta.url)), 'src') }, dedupe: ['solid-js'] },
     test: {
       globals: true,
       environment: 'jsdom',
-      transformMode: { web: [/\.[jt]sx?$/] },
-      setupFiles: [resolve(__dirname, './src/__test__/setupTests.ts')],
       include: ['./src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+      setupFiles: [resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/__test__/setupTests.ts')],
+      deps: { optimizer: { web: { enabled: false } } },
       coverage: {
         reporter: ['text', 'lcov'],
-        exclude: configDefaults.coverage.exclude!.concat(['src/__test__/setupTests.ts']),
+        exclude: configDefaults.coverage.exclude!.concat(['src/__test__', 'src/services/mock', 'src/index.tsx']),
       },
     },
   });

@@ -1,8 +1,11 @@
-import { Router } from '@solidjs/router';
+import { Route, Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
+import { About } from '@/pages/About';
+import { Home } from '@/pages/Home';
+import { NotFound } from '@/pages/NotFound';
 
-// Extend Solid JSX
+/* Extend Solid JSX */
 declare module 'solid-js' {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
@@ -15,14 +18,17 @@ declare module 'solid-js' {
   }
 }
 
-// Enable Mock Server
+/* Enable Mock Server */
 if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock'))
   (await import('@/services/mock/mockServer')).createMockServer();
 
+/* Render App & Routes */
 render(
   () => (
-    <Router>
-      <App />
+    <Router root={App}>
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="*" component={NotFound} />
     </Router>
   ),
   document.querySelector('body')!

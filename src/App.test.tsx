@@ -4,11 +4,7 @@ import { App } from '@/App';
 
 describe('app', () => {
   it('renders navbar with Home link', () => {
-    render(() => (
-      <Router>
-        <App />
-      </Router>
-    ));
+    render(() => <Router root={App} />);
     expect(screen.getByText('Home')).toBeInTheDocument();
   });
 });

@@ -6,14 +6,19 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   env: { browser: true, es6: true },
   rules: {
-    /* Common Rules */
+    /* Common */
     'prettier/prettier': 'warn',
   },
   overrides: [
     {
-      /* TypeScript/JavaScript rules */
+      /* TypeScript/JavaScript */
       files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:regexp/recommended'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/stylistic',
+        'plugin:regexp/recommended',
+      ],
       rules: {
         'array-callback-return': 'warn',
         'no-cond-assign': ['warn', 'except-parens'],
@@ -95,15 +100,20 @@ module.exports = {
         'no-whitespace-before-property': 'warn',
         'rest-spread-spacing': ['warn', 'never'],
         'unicode-bom': ['warn', 'never'],
-        '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/adjacent-overload-signatures': 'warn',
         '@typescript-eslint/consistent-generic-constructors': 'warn',
         '@typescript-eslint/consistent-type-assertions': 'warn',
-        '@typescript-eslint/consistent-type-imports': ['warn', { fixStyle: 'inline-type-imports' }],
-        '@typescript-eslint/method-signature-style': 'warn',
+        '@typescript-eslint/consistent-type-imports': ['warn', { fixStyle: 'inline-type-imports', disallowTypeAnnotations: false }], //prettier-ignore
+        '@typescript-eslint/no-duplicate-enum-values': 'warn',
+        '@typescript-eslint/no-extra-non-null-assertion': 'warn',
+        '@typescript-eslint/no-inferrable-types': 'warn',
+        '@typescript-eslint/no-namespace': 'warn',
+        '@typescript-eslint/no-this-alias': ['warn', { allowedNames: ['self'] }],
         '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
+        '@typescript-eslint/no-unsafe-declaration-merging': 'warn',
+        '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }], //prettier-ignore
         '@typescript-eslint/prefer-as-const': 'warn',
-        '@typescript-eslint/prefer-function-type': 'warn',
+        '@typescript-eslint/prefer-for-of': 'warn',
         'import/no-empty-named-blocks': 'warn',
         'import/no-useless-path-segments': 'warn',
         'import/first': 'warn',
@@ -114,65 +124,58 @@ module.exports = {
         'regexp/prefer-regexp-test': 'warn',
 
         /* Exceptions to make TypeScript less strict */
-        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/array-type': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'off',
+        '@typescript-eslint/consistent-type-definitions': 'off',
+        '@typescript-eslint/no-confusing-non-null-assertion': 'off',
+        '@typescript-eslint/no-explicit-any': 'off', // Please don't do this though
       },
     },
     {
-      /* TypeScript/JavaScript in src/ rules */
+      /* TypeScript/JavaScript in src/ */
       files: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking', 'plugin:solid/typescript'],
-      parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        tsconfigRootDir: __dirname,
-        project: './tsconfig.json',
-      },
+      extends: ['plugin:solid/typescript'],
+      parserOptions: { ecmaVersion: 'latest', ecmaFeatures: { jsx: true }, tsconfigRootDir: __dirname, project: true },
       rules: {
+        'dot-notation': 'off',
+        'no-implied-eval': 'off',
+        'require-await': 'off',
+        '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/consistent-type-exports': ['warn', { fixMixedExportsWithInlineTypeSpecifier: true }],
+        '@typescript-eslint/dot-notation': 'warn',
+        '@typescript-eslint/no-base-to-string': 'warn',
         '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+        '@typescript-eslint/no-implied-eval': 'error',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
-        '@typescript-eslint/no-inferrable-types': 'warn',
-        '@typescript-eslint/no-this-alias': ['warn', { allowedNames: ['self'] }],
+        '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
+        '@typescript-eslint/no-redeclare': 'warn',
+        '@typescript-eslint/no-throw-literal': 'error',
         '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
         '@typescript-eslint/no-unnecessary-qualifier': 'warn',
         '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
         '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
-        '@typescript-eslint/non-nullable-type-assertion-style': 'warn',
-        '@typescript-eslint/prefer-includes': 'warn',
-        '@typescript-eslint/strict-boolean-expressions': ['warn', { allowNullableBoolean: true, allowNullableString: true, allowNullableNumber: true }], //prettier-ignore
-        '@typescript-eslint/dot-notation': 'warn',
-        '@typescript-eslint/no-array-constructor': 'warn',
-        '@typescript-eslint/no-redeclare': 'warn',
-        '@typescript-eslint/no-throw-literal': 'error',
-        '@typescript-eslint/no-unused-expressions': ['warn', { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }], //prettier-ignore
-        '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }], //prettier-ignore
+        '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
         '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false, variables: false, typedefs: false }], //prettier-ignore
         '@typescript-eslint/no-useless-constructor': 'warn',
+        '@typescript-eslint/no-unused-expressions': ['warn', { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }], //prettier-ignore
+        '@typescript-eslint/non-nullable-type-assertion-style': 'warn',
+        '@typescript-eslint/prefer-includes': 'warn',
+        '@typescript-eslint/prefer-optional-chain': 'warn',
+        '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
+        '@typescript-eslint/require-await': 'warn',
+        '@typescript-eslint/strict-boolean-expressions': ['warn', { allowNullableBoolean: true, allowNullableString: true, allowNullableNumber: true }], //prettier-ignore
         'solid/reactivity': 'off',
         'solid/no-innerhtml': 'off',
-
-        /* Exceptions to make TypeScript in src/ less strict */
-        '@typescript-eslint/no-floating-promises': 'off',
-        '@typescript-eslint/no-for-in-array': 'off',
-        '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
-        '@typescript-eslint/no-unsafe-argument': 'off',
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'off',
-        '@typescript-eslint/unbound-method': 'off',
-        '@typescript-eslint/require-await': 'off',
       },
     },
     {
-      /* Declaration & Config Rules */
+      /* Declaration & Config */
       files: ['**/*.d.ts', '**/*.config.*', '*rc.cjs'],
       env: { browser: true, commonjs: true, es6: true, node: true },
       rules: { '@typescript-eslint/no-unused-vars': 'off' },
     },
     {
-      /* Test Rules */
+      /* Test */
       files: ['**/*.{test,spec}.*'],
       rules: {
         '@typescript-eslint/no-unused-expressions': 'off',
