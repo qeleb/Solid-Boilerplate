@@ -48,6 +48,7 @@ Solid Boilerplate
   - `App.tsx` - Parent component
   - `global.d.ts` - Global TypeScript type declarations
   - `index.tsx` - Solid entry point
+- `index.html` - App HTML entry point
 
 ---
 </details>
