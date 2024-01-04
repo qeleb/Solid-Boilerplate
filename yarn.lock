@@ -995,16 +995,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.1.6":
-  version: 6.1.6
-  resolution: "@testing-library/jest-dom@npm:6.1.6"
+"@testing-library/jest-dom@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@testing-library/jest-dom@npm:6.2.0"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
     aria-query: ^5.0.0
     chalk: ^3.0.0
     css.escape: ^1.5.1
-    dom-accessibility-api: ^0.5.6
+    dom-accessibility-api: ^0.6.3
     lodash: ^4.17.15
     redent: ^3.0.0
   peerDependencies:
@@ -1021,7 +1021,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 8d1a80678027915228b483a116fb9e358d25e2faffcd9a2c40b371752fbd53b5cb87351215866a43dd09393e7d364c46fc43923566b00ef63bbf3576d47da940
+  checksum: 3d46e36b1b7c2cb3c92f64d55d458aab44ae135ac77299df14d14dcf567a286590de58b2f140011b8f7a343f0703ff88f144f27c6ae4921fd612741771d8ee2c
   languageName: node
   linkType: hard
 
@@ -2540,10 +2540,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-accessibility-api@npm:^0.5.6, dom-accessibility-api@npm:^0.5.9":
+"dom-accessibility-api@npm:^0.5.9":
   version: 0.5.16
   resolution: "dom-accessibility-api@npm:0.5.16"
   checksum: 005eb283caef57fc1adec4d5df4dd49189b628f2f575af45decb210e04d634459e3f1ee64f18b41e2dcf200c844bc1d9279d80807e686a30d69a4756151ad248
+  languageName: node
+  linkType: hard
+
+"dom-accessibility-api@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "dom-accessibility-api@npm:0.6.3"
+  checksum: c325b5144bb406df23f4affecffc117dbaec9af03daad9ee6b510c5be647b14d28ef0a4ea5ca06d696d8ab40bb777e5fed98b985976fdef9d8790178fa1d573f
   languageName: node
   linkType: hard
 
@@ -6170,10 +6177,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"seroval@npm:^0.15.1":
-  version: 0.15.1
-  resolution: "seroval@npm:0.15.1"
-  checksum: 9d84fa556178abb716e5611b68daea0da9984953a4585206047a81a6a2e7402b546778bccf53ab6a1bff14cef4b96a68deaca1032cbd25f2daaa57046cc4e168
+"seroval@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "seroval@npm:1.0.2"
+  checksum: 310b3d9e87329a697f795347aa4eb91515d3741e1911fc2e849b39190f333e17895a49d9d070b86aca0d700a67fcc92097343e07cf05f3d9f071dd1e0e48ce5c
   languageName: node
   linkType: hard
 
@@ -6326,7 +6333,7 @@ __metadata:
   dependencies:
     "@solidjs/router": ^0.10.5
     "@solidjs/testing-library": ^0.8.5
-    "@testing-library/jest-dom": ^6.1.6
+    "@testing-library/jest-dom": ^6.2.0
     "@types/node": ^20.10.6
     "@typescript-eslint/eslint-plugin": ^6.17.0
     "@typescript-eslint/parser": ^6.17.0
@@ -6348,7 +6355,7 @@ __metadata:
     prettier: ^3.1.1
     rollup-plugin-visualizer: ^5.12.0
     sass: ^1.69.7
-    solid-js: ^1.8.7
+    solid-js: ^1.8.8
     solidjs-use: ^2.3.0
     stylelint: ^16.1.0
     stylelint-config-hudochenkov: ^10.0.0
@@ -6368,13 +6375,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"solid-js@npm:^1.8.7":
-  version: 1.8.7
-  resolution: "solid-js@npm:1.8.7"
+"solid-js@npm:^1.8.8":
+  version: 1.8.8
+  resolution: "solid-js@npm:1.8.8"
   dependencies:
     csstype: ^3.1.0
-    seroval: ^0.15.1
-  checksum: 44a9780e0f9ba2667e96e340b1ee1f33d8844a0b962c9c986049ec953b5bdf72077b53a90524cc98cef279ee4c9a6f06b820be4c5e81ebe8f110b912f22e2ee2
+    seroval: ^1.0.2
+  checksum: 9f7f7c2fe4dd28e346600e8e18edafcea62ff8cc15935a7723c10fbe2d8a84f6d08add140564cfe397fb1f5a8250bdfb9bb630f91dcf45b9c361899ed0851268
   languageName: node
   linkType: hard
 
