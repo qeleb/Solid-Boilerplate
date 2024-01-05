@@ -14,6 +14,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   const ENV = { ...process.env, ...loadEnv(mode, 'env', '') };
 
   return defineConfig({
+    envDir: 'env',
     build: {
       rollupOptions: { output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' } }, //prettier-ignore
       target: 'es2020',
