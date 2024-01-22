@@ -20,7 +20,7 @@
     /*"noUncheckedIndexedAccess": true,*/
     "forceConsistentCasingInFileNames": true,
 
-    /* Support for JSON, Synthetic default imports, experimental decorators, & JSX */
+    /* Support for JSON, synthetic default imports, experimental decorators, & JSX */
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
