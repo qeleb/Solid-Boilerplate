@@ -16,18 +16,22 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   return defineConfig({
     envDir: 'env',
     build: {
-      rollupOptions: { output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' } }, //prettier-ignore
+      rollupOptions: {
+        output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' }, //prettier-ignore
+        treeshake: { propertyReadSideEffects: false, tryCatchDeoptimization: false },
+      },
       target: 'es2020',
       minify: 'terser',
+      cssMinify: 'lightningcss',
       terserOptions: {
-        compress: { arguments: true, ecma: 2020, hoist_funs: true, passes: 3, pure_getters: true, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_symbols: true }, //prettier-ignore
+        compress: { arguments: true, ecma: 2020, hoist_funs: true, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_symbols: true }, //prettier-ignore
         format: { comments: false, ecma: 2020, wrap_func_args: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|when|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|effects|tState|disposed|sensitivity|navigatorFactory|keyed)$/ } }, //prettier-ignore
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
     plugins: [
-      solid({ typescript: { optimizeConstEnums: true } }),
+      solid({ babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] } }), //prettier-ignore
       svg({
         floatPrecision: 2,
         plugins: [
@@ -62,9 +66,9 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
     test: {
       globals: true,
       environment: 'jsdom',
-      include: ['./src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+      include: ['src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
       setupFiles: [resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/__test__/setupTests.ts')],
-      deps: { optimizer: { web: { enabled: false } } },
+      deps: { optimizer: { web: { exclude: ['solid-js'] } } },
       coverage: {
         reporter: ['text', 'lcov'],
         exclude: configDefaults.coverage.exclude!.concat(['src/__test__', 'src/services/mock', 'src/index.tsx']),

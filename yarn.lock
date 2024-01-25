@@ -958,12 +958,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.10.9":
-  version: 0.10.9
-  resolution: "@solidjs/router@npm:0.10.9"
+"@solidjs/router@npm:^0.10.10":
+  version: 0.10.10
+  resolution: "@solidjs/router@npm:0.10.10"
   peerDependencies:
     solid-js: ^1.8.6
-  checksum: 69311f60e8376feded608605ca6c1b7577e8460167238f4f14f579dffb4eb6f31e5961e8e0c4f7f1c5ce67fc8c9d2b0fc46bb691af7ce5d5deeeacc2a8648377
+  checksum: 8e4618af1a455ae1324899dfc9530a6217811f3df362186791e202aa71968e3214fdf2056b3f764137e77dced93ce3c74fa19fd45e4c8492f152dfd6108b6d35
   languageName: node
   linkType: hard
 
@@ -995,9 +995,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "@testing-library/jest-dom@npm:6.2.1"
+"@testing-library/jest-dom@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "@testing-library/jest-dom@npm:6.3.0"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
@@ -1024,7 +1024,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 36bb8c23fd102a572bb22e37933c5134c6b4737c9d1ca575d2abde64bd5ffbb5f571caa76c1d8ab0b384670fcc680353f1ef563a2d9a6d46d00c47b4eb38969b
+  checksum: cea8aa17895cf4aff573fedee80e8a592611caf7bc724702fc70b3b7bfee94becd3a10873c818d931424018d6fdeeca9d1a2ea5f53b74092ad5e8e09f03dde90
   languageName: node
   linkType: hard
 
@@ -1125,12 +1125,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.5":
-  version: 20.11.5
-  resolution: "@types/node@npm:20.11.5"
+"@types/node@npm:^20.11.6":
+  version: 20.11.6
+  resolution: "@types/node@npm:20.11.6"
   dependencies:
     undici-types: ~5.26.4
-  checksum: a542727de1334ae20a3ca034b0ecf4b464a57ca01efc4f9cf43bd9ab93896125ab3c2de060ecd8f6ae23b86c6bf3463f681b643e69c032c6a662d376c98a6092
+  checksum: 54b3739f42d9c2266fd724d8ecbf50bc64eb0563343b65a6ea874a51a7fc8bb4793bf3a1b2222e40e3b7bd62cf5af5609899bf1a3de8b69748dcac65e63e8bdc
   languageName: node
   linkType: hard
 
@@ -2495,6 +2495,15 @@ __metadata:
   version: 2.0.3
   resolution: "dequal@npm:2.0.3"
   checksum: 8679b850e1a3d0ebbc46ee780d5df7b478c23f335887464023a631d1b9af051ad4a6595a44220f9ff8ff95a8ddccf019b5ad778a976fd7bbf77383d36f412f90
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "detect-libc@npm:1.0.3"
+  bin:
+    detect-libc: ./bin/detect-libc.js
+  checksum: daaaed925ffa7889bd91d56e9624e6c8033911bb60f3a50a74a87500680652969dbaab9526d1e200a4c94acf80fc862a22131841145a0a8482d60a99c24f4a3e
   languageName: node
   linkType: hard
 
@@ -3948,12 +3957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "husky@npm:8.0.3"
+"husky@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "husky@npm:9.0.1"
   bin:
-    husky: lib/bin.js
-  checksum: 837bc7e4413e58c1f2946d38fb050f5d7324c6f16b0fd66411ffce5703b294bd21429e8ba58711cd331951ee86ed529c5be4f76805959ff668a337dbfa82a1b0
+    husky: bin.js
+  checksum: 8f28488e59d3c6944fedb9ba9adb0d4f79f000d44ede2e5ed3a79031995afc261965a47013017480012ad7fa6f54a3023c00ad992c143434bedf4d6134957141
   languageName: node
   linkType: hard
 
@@ -4642,6 +4651,106 @@ __metadata:
     prelude-ls: ^1.2.1
     type-check: ~0.4.0
   checksum: 12c5021c859bd0f5248561bf139121f0358285ec545ebf48bb3d346820d5c61a4309535c7f387ed7d84361cf821e124ce346c6b7cef8ee09a67c1473b46d0fc4
+  languageName: node
+  linkType: hard
+
+"lightningcss-darwin-arm64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-darwin-arm64@npm:1.23.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"lightningcss-darwin-x64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-darwin-x64@npm:1.23.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"lightningcss-freebsd-x64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-freebsd-x64@npm:1.23.0"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"lightningcss-linux-arm-gnueabihf@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm-gnueabihf@npm:1.23.0"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"lightningcss-linux-arm64-gnu@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm64-gnu@npm:1.23.0"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"lightningcss-linux-arm64-musl@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm64-musl@npm:1.23.0"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"lightningcss-linux-x64-gnu@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-x64-gnu@npm:1.23.0"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"lightningcss-linux-x64-musl@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-x64-musl@npm:1.23.0"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"lightningcss-win32-x64-msvc@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-win32-x64-msvc@npm:1.23.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"lightningcss@npm:^1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss@npm:1.23.0"
+  dependencies:
+    detect-libc: ^1.0.3
+    lightningcss-darwin-arm64: 1.23.0
+    lightningcss-darwin-x64: 1.23.0
+    lightningcss-freebsd-x64: 1.23.0
+    lightningcss-linux-arm-gnueabihf: 1.23.0
+    lightningcss-linux-arm64-gnu: 1.23.0
+    lightningcss-linux-arm64-musl: 1.23.0
+    lightningcss-linux-x64-gnu: 1.23.0
+    lightningcss-linux-x64-musl: 1.23.0
+    lightningcss-win32-x64-msvc: 1.23.0
+  dependenciesMeta:
+    lightningcss-darwin-arm64:
+      optional: true
+    lightningcss-darwin-x64:
+      optional: true
+    lightningcss-freebsd-x64:
+      optional: true
+    lightningcss-linux-arm-gnueabihf:
+      optional: true
+    lightningcss-linux-arm64-gnu:
+      optional: true
+    lightningcss-linux-arm64-musl:
+      optional: true
+    lightningcss-linux-x64-gnu:
+      optional: true
+    lightningcss-linux-x64-musl:
+      optional: true
+    lightningcss-win32-x64-msvc:
+      optional: true
+  checksum: c9cf793762a9c30ebf9376f461954e5667e9e034f3a76a5ab4f8823648c4012b5da929b93b54ad240d6fdb002efd82768685602f32a8a9c0b215d8af848ea66a
   languageName: node
   linkType: hard
 
@@ -6346,10 +6455,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "solid-boilerplate@workspace:."
   dependencies:
-    "@solidjs/router": ^0.10.9
+    "@solidjs/router": ^0.10.10
     "@solidjs/testing-library": ^0.8.5
-    "@testing-library/jest-dom": ^6.2.1
-    "@types/node": ^20.11.5
+    "@testing-library/jest-dom": ^6.3.0
+    "@types/node": ^20.11.6
     "@typescript-eslint/eslint-plugin": ^6.19.1
     "@typescript-eslint/parser": ^6.19.1
     "@vitest/coverage-v8": ^1.2.1
@@ -6362,15 +6471,16 @@ __metadata:
     eslint-plugin-solid: ^0.13.1
     eslint-plugin-testing-library: ^6.2.0
     eslint-plugin-vitest: ^0.3.20
-    husky: ^8.0.3
+    husky: ^9.0.1
     jsdom: ^24.0.0
+    lightningcss: ^1.23.0
     lint-staged: ^15.2.0
     miragejs: ^0.1.48
     postcss: ^8.4.33
     prettier: ^3.2.4
     rollup-plugin-visualizer: ^5.12.0
     sass: ^1.70.0
-    solid-js: ^1.8.11
+    solid-js: ^1.8.12
     solidjs-use: ^2.3.0
     stylelint: ^16.2.0
     stylelint-config-hudochenkov: ^10.0.0
@@ -6384,20 +6494,20 @@ __metadata:
     vite-plugin-html: ^3.2.2
     vite-plugin-optimize-css-modules: ^1.0.6
     vite-plugin-sass-dts: ^1.3.17
-    vite-plugin-solid: ^2.8.3
+    vite-plugin-solid: 2.8.2
     vite-plugin-svgo: ^1.4.0
     vitest: ^1.2.1
   languageName: unknown
   linkType: soft
 
-"solid-js@npm:^1.8.11":
-  version: 1.8.11
-  resolution: "solid-js@npm:1.8.11"
+"solid-js@npm:^1.8.12":
+  version: 1.8.12
+  resolution: "solid-js@npm:1.8.12"
   dependencies:
     csstype: ^3.1.0
     seroval: ^1.0.3
     seroval-plugins: ^1.0.3
-  checksum: 3c6c40cbcca668a0ea1d338c4a48113fb32e93ad8a90db43762a0b57d41c954c32ca922ef2154358216ac699ef4b2625049563f850b0523fb562c62396d0b25f
+  checksum: 427a7e1d7b33c9ac58fb49f473e269f873a5c0958cde73bf8f609bda8c9eb10e4a4d01b1f3cdc821acf5c60a8f2eca5778eba5a90e7f1a1839d8459a74d5ac72
   languageName: node
   linkType: hard
 
@@ -7370,9 +7480,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-solid@npm:^2.8.3":
-  version: 2.8.3
-  resolution: "vite-plugin-solid@npm:2.8.3"
+"vite-plugin-solid@npm:2.8.2":
+  version: 2.8.2
+  resolution: "vite-plugin-solid@npm:2.8.2"
   dependencies:
     "@babel/core": ^7.23.3
     "@babel/preset-typescript": ^7.23.3
@@ -7382,10 +7492,9 @@ __metadata:
     solid-refresh: ^0.6.3
     vitefu: ^0.2.5
   peerDependencies:
-    "@testing-library/jest-dom": ^5.16.6 || ^5.17.0 || ^6.*
     solid-js: ^1.7.2
     vite: ^3.0.0 || ^4.0.0 || ^5.0.0
-  checksum: 86ee777c2fcf8f0f1f9afdd4f165122f535ed44a8d8c352327fcca8174ce670b30e6a9baa1c3c799e69eaa33f48a99a2edfa59c64cb86132b4c3b9f02d1a8f1a
+  checksum: 33266b2f88bf6e8e83868cf44d4d223f29b76d218d32e8f95cf8aeaa03010414104ab43f689233e9777371e632c3631036d292fc3fc7eba7c6d4be9f34e18d16
   languageName: node
   linkType: hard
 
