@@ -38,7 +38,7 @@
     "lint": "eslint src && stylelint src/**/*.scss",
     "lint:fix": "eslint --fix src && stylelint --fix src/**/*.scss",
     "preinstall": "npx only-allow yarn",
-    "postinstall": "husky install"
+    "postinstall": "husky"
   },
   "devDependencies": {
     "@solidjs/testing-library": "^0.8.5",
@@ -56,7 +56,7 @@
     "eslint-plugin-solid": "^0.13.1",
     "eslint-plugin-testing-library": "^6.2.0",
     "eslint-plugin-vitest": "^0.3.20",
-    "husky": "^8.0.3",
+    "husky": "^9.0.6",
     "jsdom": "^24.0.0",
     "lightningcss": "^1.23.0",
     "lint-staged": "^15.2.0",
@@ -68,7 +68,7 @@
     "stylelint": "^16.2.0",
     "stylelint-config-hudochenkov": "^10.0.0",
     "stylelint-config-recommended-scss": "^14.0.0",
-    "stylelint-no-unsupported-browser-features": "^8.0.0",
+    "stylelint-no-unsupported-browser-features": "^8.0.1",
     "stylelint-order": "^6.0.4",
     "terser": "^5.27.0",
     "typescript": "^5.3.3",

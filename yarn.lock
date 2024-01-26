@@ -3957,12 +3957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "husky@npm:8.0.3"
+"husky@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "husky@npm:9.0.6"
   bin:
-    husky: lib/bin.js
-  checksum: 837bc7e4413e58c1f2946d38fb050f5d7324c6f16b0fd66411ffce5703b294bd21429e8ba58711cd331951ee86ed529c5be4f76805959ff668a337dbfa82a1b0
+    husky: bin.js
+  checksum: e198c90a59d460cf860c33e0a4c3927ecfb645d4fd4c2de3fbcd5fb56b858a923af452508d549f6ed020bb48de08290912cd77c006dd2a83e551c24c17340d5b
   languageName: node
   linkType: hard
 
@@ -6471,7 +6471,7 @@ __metadata:
     eslint-plugin-solid: ^0.13.1
     eslint-plugin-testing-library: ^6.2.0
     eslint-plugin-vitest: ^0.3.20
-    husky: ^8.0.3
+    husky: ^9.0.6
     jsdom: ^24.0.0
     lightningcss: ^1.23.0
     lint-staged: ^15.2.0
@@ -6485,7 +6485,7 @@ __metadata:
     stylelint: ^16.2.0
     stylelint-config-hudochenkov: ^10.0.0
     stylelint-config-recommended-scss: ^14.0.0
-    stylelint-no-unsupported-browser-features: ^8.0.0
+    stylelint-no-unsupported-browser-features: ^8.0.1
     stylelint-order: ^6.0.4
     terser: ^5.27.0
     typescript: ^5.3.3
@@ -6804,16 +6804,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-no-unsupported-browser-features@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "stylelint-no-unsupported-browser-features@npm:8.0.0"
+"stylelint-no-unsupported-browser-features@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "stylelint-no-unsupported-browser-features@npm:8.0.1"
   dependencies:
     doiuse: ^6.0.2
-    lodash.pick: ^4.4.0
     postcss: ^8.4.32
   peerDependencies:
     stylelint: ^16.0.2
-  checksum: 3626984a219acb2b573260386b1397eeb47799b0de528c0cdf5b8c80df3fe4b7db4c3dcd3f3c5d5d943a70fb525c3106669883f97cc091fd6428f4dd44bce836
+  checksum: 37d69d5a911469b4c31a6a8286a11a96da4e11bda7e4cb30a65672e03166804634f82e5fe480e3821536c3980f95226e893bc79e73c9f2232a296f11f8bf2db3
   languageName: node
   linkType: hard
 
