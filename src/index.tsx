@@ -31,5 +31,5 @@ render(
       <Route path="*" component={NotFound} />
     </Router>
   ),
-  document.querySelector('body')!
+  document.body
 );
