@@ -24,14 +24,18 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       minify: 'terser',
       cssMinify: 'lightningcss',
       terserOptions: {
-        compress: { arguments: true, ecma: 2020, hoist_funs: true, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_symbols: true }, //prettier-ignore
-        format: { comments: false, ecma: 2020, wrap_func_args: false },
+        ecma: 2020,
+        compress: { arguments: true, hoist_funs: true, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_symbols: true }, //prettier-ignore
+        format: { comments: false, wrap_func_args: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|when|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|effects|tState|disposed|sensitivity|navigatorFactory|keyed)$/ } }, //prettier-ignore
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
     plugins: [
-      solid({ babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] } }), //prettier-ignore
+      solid({
+        solid: { omitNestedClosingTags: true },
+        babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] },
+      }),
       svg({
         floatPrecision: 2,
         plugins: [
