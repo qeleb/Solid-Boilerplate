@@ -25,7 +25,6 @@ export const Home = () => {
         <button onClick={() => dec()}>-</button>
       </h3>
       <br />
-      <br />
       made by qeleb
     </div>
   );

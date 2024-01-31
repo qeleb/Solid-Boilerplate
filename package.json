@@ -41,9 +41,9 @@
     "postinstall": "husky"
   },
   "devDependencies": {
-    "@solidjs/testing-library": "^0.8.5",
-    "@testing-library/jest-dom": "^6.3.0",
-    "@types/node": "^20.11.10",
+    "@solidjs/testing-library": "^0.8.6",
+    "@testing-library/jest-dom": "^6.4.0",
+    "@types/node": "^20.11.13",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
     "@vitest/coverage-v8": "^1.2.2",
@@ -55,7 +55,7 @@
     "eslint-plugin-regexp": "^2.2.0",
     "eslint-plugin-solid": "^0.13.1",
     "eslint-plugin-testing-library": "^6.2.0",
-    "eslint-plugin-vitest": "^0.3.20",
+    "eslint-plugin-vitest": "^0.3.21",
     "husky": "^9.0.7",
     "jsdom": "^24.0.0",
     "lightningcss": "^1.23.0",
