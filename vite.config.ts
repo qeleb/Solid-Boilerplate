@@ -17,7 +17,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
     envDir: 'env',
     build: {
       rollupOptions: {
-        output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' }, //prettier-ignore
+        output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' },
         treeshake: { tryCatchDeoptimization: false },
       },
       target: 'es2020',
