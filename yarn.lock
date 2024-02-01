@@ -1125,12 +1125,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.13":
-  version: 20.11.13
-  resolution: "@types/node@npm:20.11.13"
+"@types/node@npm:^20.11.14":
+  version: 20.11.14
+  resolution: "@types/node@npm:20.11.14"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 76fbe4dbcce9ecb602c1e0528124bb113e9ece58d417e96710b7ba96dd67cd0bb050272218dc796be36c0d8c29d7c55da44311be429daa4253c3a00f1b3840ff
+  checksum: 656644db447386dbefb97e76861f1f69e32995196503f6e215261ef2fd92f065c15b60f506c5e930c33a5c3a0d9513e0a93eb319c146b38ec2d5f9bde45b8886
   languageName: node
   linkType: hard
 
@@ -4768,29 +4768,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.2.0":
-  version: 15.2.0
-  resolution: "lint-staged@npm:15.2.0"
+"lint-staged@npm:^15.2.1":
+  version: 15.2.1
+  resolution: "lint-staged@npm:15.2.1"
   dependencies:
     chalk: 5.3.0
     commander: 11.1.0
     debug: 4.3.4
     execa: 8.0.1
     lilconfig: 3.0.0
-    listr2: 8.0.0
+    listr2: 8.0.1
     micromatch: 4.0.5
     pidtree: 0.6.0
     string-argv: 0.3.2
     yaml: 2.3.4
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 4fb178b8d3ff454f7874697dfbd41017630f61a06296d12ac9dfd578d078c70aff7108b67fab38af94896ef2740a1e7541c1512d0d3c688ed90e6c3af3530f0d
+  checksum: d2b0361b311cb3384e58a5d4bfd5d34e6ff6ad41e5ea5dcc87c65379ea6e280c84f0a037df147355963dcf4d3dc1487795e3132c38e1bc5511b25889f405e189
   languageName: node
   linkType: hard
 
-"listr2@npm:8.0.0":
-  version: 8.0.0
-  resolution: "listr2@npm:8.0.0"
+"listr2@npm:8.0.1":
+  version: 8.0.1
+  resolution: "listr2@npm:8.0.1"
   dependencies:
     cli-truncate: ^4.0.0
     colorette: ^2.0.20
@@ -4798,7 +4798,7 @@ __metadata:
     log-update: ^6.0.0
     rfdc: ^1.3.0
     wrap-ansi: ^9.0.0
-  checksum: 5cb110a710d14488c71d2207fc5141256abb1f21cbe5ebc12177ae640f94e040a1ef8c031b70ff9f24c4a8fa57c0825a54b534e52bdfaffc122a81082faae8ed
+  checksum: 4dfeabfa037b3981d0edbf30789971ba727ba4cfcc13051ceaff7a1b3d26509ef2d946015c65c600b0775ec9d1ef58a81937d94c9c03de464b654f429cc7c3ed
   languageName: node
   linkType: hard
 
@@ -4821,10 +4821,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.debounce@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "lodash.debounce@npm:4.0.8"
-  checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+"lodash-es@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
   languageName: node
   linkType: hard
 
@@ -4832,13 +4832,6 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: ad580b4bdbb7ca1f7abf7e1bce63a9a0b98e370cf40194b03380a46b4ed799c9573029599caebc1b14e3f24b111aef72b96674a56cfa105e0f5ac70546cdc005
-  languageName: node
-  linkType: hard
-
-"lodash.pick@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "lodash.pick@npm:4.4.0"
-  checksum: 2c36cab7da6b999a20bd3373b40e31a3ef81fa264f34a6979c852c5bc8ac039379686b27380f0cb8e3781610844fafec6949c6fbbebc059c98f8fa8570e3675f
   languageName: node
   linkType: hard
 
@@ -6458,7 +6451,7 @@ __metadata:
     "@solidjs/router": ^0.10.10
     "@solidjs/testing-library": ^0.8.6
     "@testing-library/jest-dom": ^6.4.0
-    "@types/node": ^20.11.13
+    "@types/node": ^20.11.14
     "@typescript-eslint/eslint-plugin": ^6.20.0
     "@typescript-eslint/parser": ^6.20.0
     "@vitest/coverage-v8": ^1.2.2
@@ -6474,7 +6467,7 @@ __metadata:
     husky: ^9.0.7
     jsdom: ^24.0.0
     lightningcss: ^1.23.0
-    lint-staged: ^15.2.0
+    lint-staged: ^15.2.1
     miragejs: ^0.1.48
     postcss: ^8.4.33
     prettier: ^3.2.4
@@ -6490,7 +6483,7 @@ __metadata:
     terser: ^5.27.0
     typescript: ^5.3.3
     vite: ^5.0.12
-    vite-plugin-checker: ^0.6.2
+    vite-plugin-checker: ^0.6.3
     vite-plugin-html: ^3.2.2
     vite-plugin-optimize-css-modules: ^1.0.6
     vite-plugin-sass-dts: ^1.3.17
@@ -7382,9 +7375,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-checker@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "vite-plugin-checker@npm:0.6.2"
+"vite-plugin-checker@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "vite-plugin-checker@npm:0.6.3"
   dependencies:
     "@babel/code-frame": ^7.12.13
     ansi-escapes: ^4.3.0
@@ -7393,8 +7386,7 @@ __metadata:
     commander: ^8.0.0
     fast-glob: ^3.2.7
     fs-extra: ^11.1.0
-    lodash.debounce: ^4.0.8
-    lodash.pick: ^4.4.0
+    lodash-es: ^4.17.21
     npm-run-path: ^4.0.1
     semver: ^7.5.0
     strip-ansi: ^6.0.0
@@ -7430,7 +7422,7 @@ __metadata:
       optional: true
     vue-tsc:
       optional: true
-  checksum: 83306deba88ff4b9a2e2bf0a74962bb45117736c51b9fa2de005b9d7b020d69fec480ac7638e774d1316b065ca442ae4cf3641b98c118652324fb31ce28fd783
+  checksum: 21d73b00400cf80f7da4dfb66ec52546e00416fe68bbd0c54fd27ed73b47ca762f6095b16bc9cbf90694d213a98a071861907d239235fce309b4fcb01077bf37
   languageName: node
   linkType: hard
 
