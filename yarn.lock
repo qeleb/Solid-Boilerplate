@@ -958,12 +958,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.10.10":
-  version: 0.10.10
-  resolution: "@solidjs/router@npm:0.10.10"
+"@solidjs/router@npm:^0.11.2":
+  version: 0.11.2
+  resolution: "@solidjs/router@npm:0.11.2"
   peerDependencies:
     solid-js: ^1.8.6
-  checksum: 8e4618af1a455ae1324899dfc9530a6217811f3df362186791e202aa71968e3214fdf2056b3f764137e77dced93ce3c74fa19fd45e4c8492f152dfd6108b6d35
+  checksum: 81d6ce5ee4576fe93b4c6e9365eb872c9cfb9f9280a4674b43e2e7d8ba81877333efe1bf62f9e0aa83df5aa88865ab13f4325eb508d5c66e2881167c8ba9808d
   languageName: node
   linkType: hard
 
@@ -995,9 +995,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@testing-library/jest-dom@npm:6.4.0"
+"@testing-library/jest-dom@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "@testing-library/jest-dom@npm:6.4.1"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
@@ -1024,7 +1024,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: e1c314cf1c74f26b1dea632fd1e2168afb62ef8b0320e294fa0dbfa58356021dcefe453d6165c102c5105dfca7502b18109cbcb061cbcb91b97826f59a1bbf9d
+  checksum: 66cd945fc81181289835f24791ae4de4913ac4e4fd8bc2e2ee7393ad7298bc3c2fc5acd6951c5b2212a03ebe914c6924c3da6e46225126387cb2200554004b67
   languageName: node
   linkType: hard
 
@@ -1125,12 +1125,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.14":
-  version: 20.11.14
-  resolution: "@types/node@npm:20.11.14"
+"@types/node@npm:^20.11.16":
+  version: 20.11.16
+  resolution: "@types/node@npm:20.11.16"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 656644db447386dbefb97e76861f1f69e32995196503f6e215261ef2fd92f065c15b60f506c5e930c33a5c3a0d9513e0a93eb319c146b38ec2d5f9bde45b8886
+  checksum: 51f0831c1219bf4698e7430aeb9892237bd851deeb25ce23c5bb0ceefcc77c3b114e48f4e98d9fc26def5a87ba9d8079f0281dd37bee691140a93f133812c152
   languageName: node
   linkType: hard
 
@@ -3957,12 +3957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.0.7":
-  version: 9.0.7
-  resolution: "husky@npm:9.0.7"
+"husky@npm:^9.0.10":
+  version: 9.0.10
+  resolution: "husky@npm:9.0.10"
   bin:
-    husky: bin.js
-  checksum: 42fc1b869a1f5778ba5088706e7280b28a725cc29abad42f8411c54e542890e5936020a8ba886996bde3e7c5573a5cbfd440a51817d0da7db14ce81e102267ed
+    husky: bin.mjs
+  checksum: 55f4b6db6706ff0bc181607d6a64f55310cbb18b4d7db2a5b85608c87a80abafc14ac3a8c4d0b44d6272f4a62d4c2d3d5491d6a13e2cc7ac4895309e5e5f0ec2
   languageName: node
   linkType: hard
 
@@ -4818,13 +4818,6 @@ __metadata:
   dependencies:
     p-locate: ^5.0.0
   checksum: 72eb661788a0368c099a184c59d2fee760b3831c9c1c33955e8a19ae4a21b4116e53fa736dc086cdeb9fce9f7cc508f2f92d2d3aae516f133e16a2bb59a39f5a
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
   languageName: node
   linkType: hard
 
@@ -6448,10 +6441,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "solid-boilerplate@workspace:."
   dependencies:
-    "@solidjs/router": ^0.10.10
+    "@solidjs/router": ^0.11.2
     "@solidjs/testing-library": ^0.8.6
-    "@testing-library/jest-dom": ^6.4.0
-    "@types/node": ^20.11.14
+    "@testing-library/jest-dom": ^6.4.1
+    "@types/node": ^20.11.16
     "@typescript-eslint/eslint-plugin": ^6.20.0
     "@typescript-eslint/parser": ^6.20.0
     "@vitest/coverage-v8": ^1.2.2
@@ -6464,7 +6457,7 @@ __metadata:
     eslint-plugin-solid: ^0.13.1
     eslint-plugin-testing-library: ^6.2.0
     eslint-plugin-vitest: ^0.3.21
-    husky: ^9.0.7
+    husky: ^9.0.10
     jsdom: ^24.0.0
     lightningcss: ^1.23.0
     lint-staged: ^15.2.1
@@ -6475,7 +6468,7 @@ __metadata:
     sass: ^1.70.0
     solid-js: ^1.8.12
     solidjs-use: ^2.3.0
-    stylelint: ^16.2.0
+    stylelint: ^16.2.1
     stylelint-config-hudochenkov: ^10.0.0
     stylelint-config-recommended-scss: ^14.0.0
     stylelint-no-unsupported-browser-features: ^8.0.1
@@ -6483,7 +6476,7 @@ __metadata:
     terser: ^5.27.0
     typescript: ^5.3.3
     vite: ^5.0.12
-    vite-plugin-checker: ^0.6.3
+    vite-plugin-checker: ^0.6.4
     vite-plugin-html: ^3.2.2
     vite-plugin-optimize-css-modules: ^1.0.6
     vite-plugin-sass-dts: ^1.3.17
@@ -6836,9 +6829,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "stylelint@npm:16.2.0"
+"stylelint@npm:^16.2.1":
+  version: 16.2.1
+  resolution: "stylelint@npm:16.2.1"
   dependencies:
     "@csstools/css-parser-algorithms": ^2.5.0
     "@csstools/css-tokenizer": ^2.2.3
@@ -6880,7 +6873,7 @@ __metadata:
     write-file-atomic: ^5.0.1
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: dbc9ef12d3e1027ba1daf2f0d413e16127d32ea128b47d2c273be1476b329926f4698dc390eea56beb25fc8ebd9e2a7664a868df706d4e12e94ad6a4d1697d77
+  checksum: 0b84d7218b43bc89978cac40edb5dc0a0f8f7c7a60e3f932fe91392bcf79da165b5694a386247fefb51569eb26535071bf5c7f3cbba0bd094e2590c1b2494717
   languageName: node
   linkType: hard
 
@@ -7375,9 +7368,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-checker@npm:^0.6.3":
-  version: 0.6.3
-  resolution: "vite-plugin-checker@npm:0.6.3"
+"vite-plugin-checker@npm:^0.6.4":
+  version: 0.6.4
+  resolution: "vite-plugin-checker@npm:0.6.4"
   dependencies:
     "@babel/code-frame": ^7.12.13
     ansi-escapes: ^4.3.0
@@ -7386,7 +7379,6 @@ __metadata:
     commander: ^8.0.0
     fast-glob: ^3.2.7
     fs-extra: ^11.1.0
-    lodash-es: ^4.17.21
     npm-run-path: ^4.0.1
     semver: ^7.5.0
     strip-ansi: ^6.0.0
@@ -7422,7 +7414,7 @@ __metadata:
       optional: true
     vue-tsc:
       optional: true
-  checksum: 21d73b00400cf80f7da4dfb66ec52546e00416fe68bbd0c54fd27ed73b47ca762f6095b16bc9cbf90694d213a98a071861907d239235fce309b4fcb01077bf37
+  checksum: 2bd1467ec03e9d9ba7bf6da8bfb6ebed232c55d5253c9ccc4fdd6f38c0cb621e637b76426a3730e37574b351a0386791f37893f6768b700731168acfb12a9d61
   languageName: node
   linkType: hard
 
