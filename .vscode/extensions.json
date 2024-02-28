@@ -6,6 +6,6 @@
     "usernamehw.errorlens",
     "yoavbls.pretty-ts-errors",
     "wallabyjs.console-ninja",
-    "zixuanchen.vitest-explorer"
+    "vitest.explorer"
   ]
 }
