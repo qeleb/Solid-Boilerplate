@@ -41,7 +41,7 @@ Solid Boilerplate
 - `dist/` - Code output
 - `public/` - Static files
 - `src/` - Project source code
-  - `__tests__/` - Unit test files
+  - `__test__/` - Unit test files
   - `assets/` - assets
   - `components/` - UI components
   - `pages/` - Pages
