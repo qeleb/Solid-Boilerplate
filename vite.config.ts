@@ -75,6 +75,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       deps: { optimizer: { web: { exclude: ['solid-js'] } } },
       coverage: {
         reporter: ['text', 'lcov'],
+        include: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
         exclude: configDefaults.coverage.exclude!.concat(['src/__test__', 'src/services/mock', 'src/index.tsx']),
       },
     },
