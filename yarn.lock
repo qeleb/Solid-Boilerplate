@@ -3156,9 +3156,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest@npm:^0.3.25":
-  version: 0.3.25
-  resolution: "eslint-plugin-vitest@npm:0.3.25"
+"eslint-plugin-vitest@npm:^0.3.26":
+  version: 0.3.26
+  resolution: "eslint-plugin-vitest@npm:0.3.26"
   dependencies:
     "@typescript-eslint/utils": ^7.1.1
   peerDependencies:
@@ -3169,7 +3169,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 6ca771a77b677be4ea8263879e1770d9d062d4b8f897a48cde4c05a7051eb9714908abfb964d4cf78c22a4e5350fce5467f277e41b9a75d3907418bae4ef01e2
+  checksum: 4abb4cdfe63b75232a011e1502aca113dce80baa9114868910c36f01483b0e8d188828817dde1f55ef49e182fc30af9eb34be59d86f81da17d60cabad81675a1
   languageName: node
   linkType: hard
 
@@ -4126,9 +4126,9 @@ __metadata:
   linkType: hard
 
 "ip@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ip@npm:2.0.0"
-  checksum: cfcfac6b873b701996d71ec82a7dd27ba92450afdb421e356f44044ed688df04567344c36cbacea7d01b1c39a4c732dc012570ebe9bebfb06f27314bca625349
+  version: 2.0.1
+  resolution: "ip@npm:2.0.1"
+  checksum: d765c9fd212b8a99023a4cde6a558a054c298d640fec1020567494d257afd78ca77e37126b1a3ef0e053646ced79a816bf50621d38d5e768cdde0431fa3b0d35
   languageName: node
   linkType: hard
 
@@ -6526,7 +6526,7 @@ __metadata:
     eslint-plugin-regexp: ^2.3.0
     eslint-plugin-solid: ^0.13.1
     eslint-plugin-testing-library: ^6.2.0
-    eslint-plugin-vitest: ^0.3.25
+    eslint-plugin-vitest: ^0.3.26
     husky: ^9.0.11
     jsdom: ^24.0.0
     lightningcss: ^1.24.0

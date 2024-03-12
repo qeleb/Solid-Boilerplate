@@ -37,6 +37,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] },
       }),
       svg({
+        multipass: true,
         floatPrecision: 2,
         plugins: [
           { name: 'preset-default', params: { overrides: { convertPathData: { noSpaceAfterFlags: true }, removeViewBox: false } } }, //prettier-ignore
