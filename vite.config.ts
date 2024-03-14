@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
@@ -32,6 +32,18 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
     plugins: [
+      {
+        name: 'vite-plugin-optimize-solid-css-modules',
+        enforce: 'pre',
+        transform(code, id) {
+          if (/\.tsx$/.test(id))
+            code = code.replace(
+              /class=\{([a-zA-Z '"`[\].-]+|(?:`(?:\$\{[a-zA-Z '"`[\].-]+\}\s*)+)`)\}/g, // eslint-disable-line regexp/no-useless-non-capturing-group
+              'class={/*@once*/$1}' //TODO: Tighten regex to avoid store. Allow 1 ./space?
+            );
+          return { code, map: null };
+        },
+      } as Plugin,
       solid({
         solid: { omitNestedClosingTags: true },
         babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] },
