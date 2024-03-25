@@ -1,6 +1,8 @@
+@use '@/variables.scss' as *;
+
 .Home {
-  height: 100%;
-  color: white;
+  padding: calc($navbar-height + 1rem) 1rem 1rem;
+  background: white;
   text-align: center;
 
   & > img {
@@ -12,11 +14,10 @@
   }
 
   & > h3 > button {
-    width: 2rem;
-    margin: 0.25rem;
-    border: none;
+    width: 4rem;
+    margin: 0.5rem;
     border-radius: 4px;
     background: rgb(184, 215, 255);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 }

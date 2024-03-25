@@ -1,6 +1,9 @@
+@use '@/variables.scss' as *;
+
 .NotFound {
   display: flex;
   height: 100%;
+  padding: calc($navbar-height + 1rem) 1rem 1rem;
   background: crimson;
   color: white;
 
@@ -10,7 +13,6 @@
 
     & > a {
       color: rgb(184, 215, 255);
-      text-decoration: none;
     }
   }
 }

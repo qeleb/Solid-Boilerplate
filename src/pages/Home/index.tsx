@@ -16,16 +16,14 @@ export const Home = () => {
       <img prop:src={logo} alt="logo" />
       <h1>Solid + Vite + TypeScript</h1>
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
-      <h3>
+      <p>
         Mouse: {x()} x {y()}
-      </h3>
+      </p>
       <h3>
         Counter: {count()}
-        <button onClick={() => inc()}>+</button>
         <button onClick={() => dec()}>-</button>
+        <button onClick={() => inc()}>+</button>
       </h3>
-      <br />
-      made by qeleb
     </div>
   );
 };

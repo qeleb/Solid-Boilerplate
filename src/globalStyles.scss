@@ -1,0 +1,24 @@
+@use '@/variables.scss' as *;
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent; // Remove gray highlights on links (iOS)
+  -webkit-text-size-adjust: 100%; // Keep font-size after rotation (iOS)
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}

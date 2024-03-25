@@ -1,6 +1,7 @@
+@use '@/variables.scss' as *;
+
 .About {
-  height: 100%;
-  padding: 2rem;
+  padding: calc($navbar-height + 1rem) 1rem 1rem;
   background: dimgray;
   color: white;
   text-align: center;
