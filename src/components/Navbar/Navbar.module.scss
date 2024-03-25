@@ -75,7 +75,7 @@
     display: none;
     flex-flow: column;
     height: 100%;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     box-shadow: 5px 3px 8px 0 rgba(0, 0, 0, 0.06);
     transition: all 0.45s;
     clip-path: inset(0 0 100% 0);
@@ -113,6 +113,7 @@
   /* stylelint-disable-next-line order/order */
   @media screen and (max-width: 960px) {
     & > .nav-main {
+      justify-content: space-between;
       padding: 1rem max(calc(50% - 620px), 2rem);
 
       & > button {
