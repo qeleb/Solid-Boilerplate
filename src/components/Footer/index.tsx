@@ -16,7 +16,7 @@ export const Footer = () => (
         <A href="missing-page2">ANOTHER MISSING PAGE</A>
       </div>
     </div>
-    <div class={styles.copyright}>
+    <div class={styles.bottom}>
       designed by qeleb
       <a href="https://github.com/qeleb" aria-label="Developer GitHub">
         <IconGithub />

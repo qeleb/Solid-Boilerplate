@@ -1,5 +1,5 @@
 declare const classNames: {
   readonly main: 'main';
-  readonly copyright: 'copyright';
+  readonly bottom: 'bottom';
 };
 export = classNames;
