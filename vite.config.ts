@@ -83,10 +83,10 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         name: 'vite-plugin-minify-assets',
         enforce: 'post',
         writeBundle: ({ dir }) => void setTimeout(() => {
-            const files = readdirSync(dir!);
-            files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), { encoding: 'utf-8' }))
-            files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), { encoding: 'utf-8' }))
-          }), //prettier-ignore
+          const files = readdirSync(dir!);
+          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), { encoding: 'utf-8' }))
+          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), { encoding: 'utf-8' }))
+        }), //prettier-ignore
       } as Plugin,
     ].filter(Boolean),
     resolve: { alias: { '@': resolve(fileURLToPath(new URL('.', import.meta.url)), 'src') }, dedupe: ['solid-js'] },
