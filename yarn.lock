@@ -980,15 +980,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/testing-library@npm:^0.8.6":
-  version: 0.8.6
-  resolution: "@solidjs/testing-library@npm:0.8.6"
+"@solidjs/testing-library@npm:^0.8.7":
+  version: 0.8.7
+  resolution: "@solidjs/testing-library@npm:0.8.7"
   dependencies:
     "@testing-library/dom": ^9.3.4
   peerDependencies:
     "@solidjs/router": ">=0.9.0"
     solid-js: ">=1.0.0"
-  checksum: 5aab55dc378aa7a546c086fd0a5004a8bcd7f0ffca372bf8c7673f2ad9defe100570162d40150736f5b116a36256dc0a1366d1cba2e5bcdeb8e53a83322e5768
+  peerDependenciesMeta:
+    "@solidjs/router":
+      optional: true
+  checksum: e6aed9ff2b77eb5725761afe319ed1e15d74b9eecfbd80b1eb3c2805cdce1d22687694383c04433cbb3264237562e5964bcb219f4a58226c56c9c655cdc0f22d
   languageName: node
   linkType: hard
 
@@ -5019,14 +5022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdn-data@npm:2.0.28":
-  version: 2.0.28
-  resolution: "mdn-data@npm:2.0.28"
-  checksum: f51d587a6ebe8e426c3376c74ea6df3e19ec8241ed8e2466c9c8a3904d5d04397199ea4f15b8d34d14524b5de926d8724ae85207984be47e165817c26e49e0aa
-  languageName: node
-  linkType: hard
-
-"mdn-data@npm:2.0.30":
+"mdn-data@npm:2.0.28, mdn-data@npm:2.0.30":
   version: 2.0.30
   resolution: "mdn-data@npm:2.0.30"
   checksum: d6ac5ac7439a1607df44b22738ecf83f48e66a0874e4482d6424a61c52da5cde5750f1d1229b6f5fa1b80a492be89465390da685b11f97d62b8adcc6e88189aa
@@ -6497,7 +6493,7 @@ __metadata:
   resolution: "solid-boilerplate@workspace:."
   dependencies:
     "@solidjs/router": ^0.13.1
-    "@solidjs/testing-library": ^0.8.6
+    "@solidjs/testing-library": ^0.8.7
     "@testing-library/jest-dom": ^6.4.2
     "@types/node": ^20.11.30
     "@typescript-eslint/eslint-plugin": ^7.4.0
@@ -6523,12 +6519,12 @@ __metadata:
     sass: ^1.72.0
     solid-js: ^1.8.16
     solidjs-use: ^2.3.0
-    stylelint: ^16.3.0
+    stylelint: ^16.3.1
     stylelint-config-hudochenkov: ^10.0.0
     stylelint-config-recommended-scss: ^14.0.0
     stylelint-no-unsupported-browser-features: ^8.0.1
     stylelint-order: ^6.0.4
-    terser: ^5.29.2
+    terser: ^5.30.0
     typescript: ^5.4.3
     vite: ^5.2.6
     vite-plugin-checker: ^0.6.4
@@ -6891,9 +6887,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "stylelint@npm:16.3.0"
+"stylelint@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "stylelint@npm:16.3.1"
   dependencies:
     "@csstools/css-parser-algorithms": ^2.6.1
     "@csstools/css-tokenizer": ^2.2.4
@@ -6936,7 +6932,7 @@ __metadata:
     write-file-atomic: ^5.0.1
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 76d82c6f22b929d1297f312dfbf97e9a74193ef0d8e1ef30fc5ecbab23540ff6766da159154543a5267d25cfa724db5e1d34144f2a083add7ed72993ee423f7a
+  checksum: b3ab398fcabcac36b4a788fbb3e3b9248cdb6c6c36f791687b4e44e56f7e9b3ebde1fc7354ce93978e28cfc4fb47fef3262b7c5f948ff92782b90c459f466a4e
   languageName: node
   linkType: hard
 
@@ -7043,9 +7039,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.10.0, terser@npm:^5.29.2":
-  version: 5.29.2
-  resolution: "terser@npm:5.29.2"
+"terser@npm:^5.10.0, terser@npm:^5.30.0":
+  version: 5.30.0
+  resolution: "terser@npm:5.30.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -7053,7 +7049,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 2310d04e530903ed4da6168c4c90ab65965c5f1f8919733772119ff560e9e9be2def070c9659f7d96f2e28489c4378241c4cef1917f05b9524587436fdd5a802
+  checksum: a5c3b35675ddc96f355e7d27c012c7408f5cb89c6cb47079817414e765ef594900439169f92641500b8f0b7abbbc61bc52c394e1a53dfea87b5ea01ff56eeadd
   languageName: node
   linkType: hard
 
