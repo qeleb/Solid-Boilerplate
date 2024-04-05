@@ -1134,12 +1134,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.30":
-  version: 20.11.30
-  resolution: "@types/node@npm:20.11.30"
+"@types/node@npm:^20.12.5":
+  version: 20.12.5
+  resolution: "@types/node@npm:20.12.5"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 7597767aa3e44b0f1bf62efa522dd17741135f283c11de6a20ead8bb7016fb4999cc30adcd8f2bb29ebb216906c92894346ccd187de170927dc1e212d2c07c81
+  checksum: 38358c091392bb3def1136772ada4ccd39a9429d459160b5ab728b690d2f15f2212eafd9e65ce716e270f70a4e6927ebffccfefc08dabdf68f4016c1fc8a7938
   languageName: node
   linkType: hard
 
@@ -1324,7 +1324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:7.5.0, @typescript-eslint/utils@npm:^7.2.0":
+"@typescript-eslint/utils@npm:7.5.0, @typescript-eslint/utils@npm:^7.4.0":
   version: 7.5.0
   resolution: "@typescript-eslint/utils@npm:7.5.0"
   dependencies:
@@ -3189,11 +3189,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "eslint-plugin-vitest@npm:0.4.0"
+"eslint-plugin-vitest@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "eslint-plugin-vitest@npm:0.4.1"
   dependencies:
-    "@typescript-eslint/utils": ^7.2.0
+    "@typescript-eslint/utils": ^7.4.0
   peerDependencies:
     eslint: ">=8.0.0"
     vitest: "*"
@@ -3202,7 +3202,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 2fad800e941e166f141672240abd1dc2ec35217d8880f3b1dc850fc116240c81e3623630ad4e312d0f9729b2e4d0894bedec155d1e023cb29df3770e09167151
+  checksum: d1b160d45901f81be7c9518e0542e8424afff099ae755ff885d3b560adf357e09f9fd910ce6cb4c72572399ab5564fc4b3a43405a5b5a019e6aa6fa01995dc72
   languageName: node
   linkType: hard
 
@@ -6495,7 +6495,7 @@ __metadata:
     "@solidjs/router": ^0.13.1
     "@solidjs/testing-library": ^0.8.7
     "@testing-library/jest-dom": ^6.4.2
-    "@types/node": ^20.11.30
+    "@types/node": ^20.12.5
     "@typescript-eslint/eslint-plugin": ^7.5.0
     "@typescript-eslint/parser": ^7.5.0
     "@vitest/coverage-v8": ^1.4.0
@@ -6507,7 +6507,7 @@ __metadata:
     eslint-plugin-regexp: ^2.4.0
     eslint-plugin-solid: ^0.13.2
     eslint-plugin-testing-library: ^6.2.0
-    eslint-plugin-vitest: ^0.4.0
+    eslint-plugin-vitest: ^0.4.1
     husky: ^9.0.11
     jsdom: ^24.0.0
     lightningcss: ^1.24.1

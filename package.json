@@ -43,7 +43,7 @@
   "devDependencies": {
     "@solidjs/testing-library": "^0.8.7",
     "@testing-library/jest-dom": "^6.4.2",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.5",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "@vitest/coverage-v8": "^1.4.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-regexp": "^2.4.0",
     "eslint-plugin-solid": "^0.13.2",
     "eslint-plugin-testing-library": "^6.2.0",
-    "eslint-plugin-vitest": "^0.4.0",
+    "eslint-plugin-vitest": "^0.4.1",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
     "lightningcss": "^1.24.1",

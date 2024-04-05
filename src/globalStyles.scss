@@ -4,6 +4,12 @@
 * {
   box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Custom Scrollbar for Firefox */ /* stylelint-disable-next-line order/order */
+  @-moz-document url-prefix() {
+    scrollbar-color: rgba(0, 0, 0, 0.4) #00000000; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+    scrollbar-width: thin; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+  }
 }
 
 html,
@@ -21,4 +27,26 @@ a {
 button {
   border: none;
   cursor: pointer;
+}
+
+/* Custom Scrollbars for Chrome/Edge/Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, 0.45);
+  }
 }
