@@ -32,6 +32,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
+    css: { devSourcemap: true },
     plugins: [
       {
         name: 'vite-plugin-optimize-solid-css-modules',
