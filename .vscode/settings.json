@@ -14,7 +14,5 @@
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
-  "errorLens.delay": 1000,
-  "vitest.enable": true,
-  "vitest.commandLine": "npx vitest --watch"
+  "errorLens.delay": 1000
 }
