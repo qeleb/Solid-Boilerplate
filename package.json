@@ -41,13 +41,14 @@
     "postinstall": "husky"
   },
   "devDependencies": {
+    "@babel/plugin-transform-typescript": "^7.24.5",
     "@solidjs/testing-library": "^0.8.7",
     "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
-    "@vitest/coverage-v8": "^1.5.2",
-    "@vitest/ui": "^1.5.2",
+    "@vitest/coverage-v8": "^1.5.3",
+    "@vitest/ui": "^1.5.3",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -64,7 +65,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.75.0",
+    "sass": "^1.76.0",
     "stylelint": "^16.4.0",
     "stylelint-config-hudochenkov": "^10.0.0",
     "stylelint-config-recommended-scss": "^14.0.0",
@@ -77,9 +78,9 @@
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-optimize-css-modules": "^1.0.6",
     "vite-plugin-sass-dts": "^1.3.18",
-    "vite-plugin-solid": "2.8.2",
+    "vite-plugin-solid": "^2.10.2",
     "vite-plugin-svgo": "^1.4.0",
-    "vitest": "^1.5.2"
+    "vitest": "^1.5.3"
   },
   "dependencies": {
     "@solidjs/router": "^0.13.2",
