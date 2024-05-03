@@ -1,4 +1,4 @@
-import { Router } from '@solidjs/router';
+import { type RouteDefinition, Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
 import { About } from '@/pages/About';
@@ -25,18 +25,12 @@ declare module 'solid-js' {
 if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock'))
   (await import('@/services/mock/mockServer')).createMockServer();
 
-/* Render App & Routes */
-render(
-  () => (
-    <Router root={App}>
-      {
-        [
-          { path: '/', component: Home },
-          { path: '/about', component: About },
-          { path: '*', component: NotFound },
-        ] as any
-      }
-    </Router>
-  ),
-  document.body
-);
+/* Routes */
+const routes: RouteDefinition[] = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  { path: '*', component: NotFound },
+];
+
+/* Render */
+render(() => <Router root={App}>{routes as any}</Router>, document.body);
