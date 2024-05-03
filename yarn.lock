@@ -957,12 +957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:0.11.3":
-  version: 0.11.3
-  resolution: "@solidjs/router@npm:0.11.3"
+"@solidjs/router@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@solidjs/router@npm:0.10.1"
   peerDependencies:
     solid-js: ^1.8.6
-  checksum: 2f7444313536ee35288e0c92a63c1b4c7f3c456cbbe8c3c6cfe25efe7e859e38aaa81c4fdcd73845bbf8a1b43d8eea72360901fd650f16937545a369d669c663
+  checksum: 4051728b470a23f68258ed655d3b19a79242ee6832108fa74bf5e059e60533c888ce48e2c51ace67cf583738628eedaf82cc7daeaf1c4cfa717cf9899f29e3c0
   languageName: node
   linkType: hard
 
@@ -6420,7 +6420,7 @@ __metadata:
   resolution: "solid-boilerplate@workspace:."
   dependencies:
     "@babel/plugin-transform-typescript": ^7.24.5
-    "@solidjs/router": 0.11.3
+    "@solidjs/router": 0.10.1
     "@solidjs/testing-library": ^0.8.7
     "@testing-library/jest-dom": 6.4.2
     "@types/node": ^20.12.8
