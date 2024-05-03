@@ -1,4 +1,4 @@
-import { Route, Router } from '@solidjs/router';
+import { Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
 import { About } from '@/pages/About';
@@ -29,9 +29,13 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock'))
 render(
   () => (
     <Router root={App}>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="*" component={NotFound} />
+      {
+        [
+          { path: '/', component: Home },
+          { path: '/about', component: About },
+          { path: '*', component: NotFound },
+        ] as any
+      }
     </Router>
   ),
   document.body
