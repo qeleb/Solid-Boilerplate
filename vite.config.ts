@@ -38,7 +38,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         name: 'vite-plugin-optimize-solid-css-modules',
         enforce: 'pre',
         transform(code, id) {
-          if (/\.[jt]sx$/.test(id))
+          if (/\.[mc]?[jt]sx$/.test(id))
             code = code.replace(
               /class=\{([a-zA-Z '"`[\].-]+|(?:`(?:\$\{[a-zA-Z '"`[\].-]+\}\s*)+)`)\}/g, // eslint-disable-line regexp/no-useless-non-capturing-group
               'class={/*@once*/$1}' //TODO: Tighten regex to avoid store. Allow 1 ./space?
