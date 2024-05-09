@@ -85,7 +85,9 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         generateBundle(_options, bundle) {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
-            // Optional Chaining
+            // Window object
+            .replace(/window\.([a-z]{3}[a-zA-Z]*)/g, '$1')
+            // Optional chaining
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|[\w$ ]=)([_a-zA-Z$][\w$]*)(\??)\.([_a-zA-Z$][\w$]*)&&\1\??\.\3\??\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1$2.$3?.$4') // a.b&&a.b.c ==> a?.b?.c
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|[\w$ ]=)([_a-zA-Z$][\w$]*(?:\??\.[_a-zA-Z$][\w$]*)*)&&\1(?:(\()|(\??\.))/g, '$1?.$2') // a&&a.b ==> a?.b //TODO: Improve
             // SolidJS
