@@ -6,7 +6,9 @@ import { IconMenu } from '@/components/svg';
 
 export const NavbarItems = () => (
   <>
-    <A href="/">Home</A>
+    <A href="/" end>
+      Home
+    </A>
     <A href="/about">About</A>
   </>
 );
@@ -19,7 +21,7 @@ export const Navbar = () => {
   return (
     <nav class={`${styles.Navbar} ${showMenu() ? styles.show : ''}`}>
       <div class={styles['nav-main']}>
-        <A href="/">
+        <A href="/" end>
           <img prop:src={iconLogo} alt="Solid Boilerplate" />
         </A>
 
