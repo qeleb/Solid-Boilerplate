@@ -32,7 +32,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
-    css: { devSourcemap: true, modules: { generateScopedName: (n, f) => `${f.replace(/(^.*\/|\..+$)/g, '')}_${n}` } },
+    css: { devSourcemap: true },
     plugins: [
       {
         name: 'vite-plugin-optimize-solid-css-modules',
@@ -82,7 +82,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }),
       {
         name: 'vite-plugin-remove-junk',
-        generateBundle: (_options, bundle) => {
+        generateBundle(_options, bundle) {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
             .replace(/const ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, 'throw ""')
@@ -97,8 +97,8 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           if (o.code.split('nomodule').length < 4) o.code = o.code.replace(',nomodule:{$:"noModule",SCRIPT:1}', '');
           if (o.code.split('playsinline').length < 4) o.code = o.code.replace(',playsinline:{$:"playsInline",VIDEO:1}', ''); //prettier-ignore
           if (o.code.split('readonly').length < 4) o.code = o.code.replace(',readonly:{$:"readOnly",INPUT:1,TEXTAREA:1}', ''); //prettier-ignore
-          (o.code as string).match(/=new Set\(\[["a-zA-Z,]*\]\)/g)?.forEach(set =>
-            set.match(/"[a-z]{2}[a-zA-Z]+"/g)?.forEach(prop => {
+          (o.code as string).match(/(?<==new Set\(\[)(?:"[a-z]{2}[a-zA-Z]{2,}",?)+\]\)/g)?.forEach(set =>
+            set.match(/"[a-z]{2}[a-zA-Z]{2,}"/g)?.forEach(prop => {
               if (o.code.split(prop.replace(/["']/g, '')).length < 3)
                 o.code = o.code.replace(`${prop},`, '').replace(`,${prop}`, '');
             })
@@ -108,11 +108,11 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       {
         name: 'vite-plugin-minify-assets',
         enforce: 'post',
-        writeBundle: ({ dir }) => void setTimeout(() => {
+        writeBundle({ dir }) {
           const files = readdirSync(dir!);
           files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), { encoding: 'utf-8' }))
           files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), { encoding: 'utf-8' }))
-        }), //prettier-ignore
+        }, //prettier-ignore
       } as Plugin,
     ].filter(Boolean),
     resolve: { alias: { '@': resolve(fileURLToPath(new URL('.', import.meta.url)), 'src') }, dedupe: ['solid-js'] },
