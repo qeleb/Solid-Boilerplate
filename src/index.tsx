@@ -33,4 +33,4 @@ const routes: RouteDefinition[] = [
 ];
 
 /* Render */
-render(() => <Router root={App}>{routes as any}</Router>, document.body);
+render(() => <Router root={App} children={routes as any} />, document.body);
