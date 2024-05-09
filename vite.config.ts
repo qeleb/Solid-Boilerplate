@@ -87,7 +87,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           o.code = o.code
             .replace(/const ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, 'throw 0')
             .replace(/`Stale read from <\$\{e\}>.`/, '0')
-            .replace(/if\(!([$\w]+)\(([$\w]+)\)\)throw ([$\w]+)\("Show"\);/, '')
+            .replace(/if\(![$\w]+\([$\w]+\)\)throw [$\w]+\("Show"\);/, '')
             .replace(/if\("POST"!==\w+\.target\.method\.toUpperCase\(\)\)throw Error\("Only POST forms are supported for Actions"\);/, "")
             .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
             .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("<A> and 'use' router primitives can be only used inside a Route\."\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
