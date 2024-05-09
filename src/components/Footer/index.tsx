@@ -1,5 +1,6 @@
 import { A } from '@solidjs/router';
 import styles from '@/components/Footer/Footer.module.scss';
+import { NavbarItems } from '@/components/Navbar';
 import { IconGithub } from '@/components/svg';
 
 export const Footer = () => (
@@ -7,8 +8,7 @@ export const Footer = () => (
     <div class={styles.main}>
       <div>
         <h6>SOLID BOILERPLATE</h6>
-        <A href="/">HOME</A>
-        <A href="/about">ABOUT</A>
+        <NavbarItems />
       </div>
       <div>
         <h6>MORE LINKS</h6>
