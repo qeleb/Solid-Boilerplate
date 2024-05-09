@@ -85,7 +85,12 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         generateBundle(_options, bundle) {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
+            // Optional Chaining
+            .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|[\w$ ]=)([_a-zA-Z$][\w$]*)(\??)\.([_a-zA-Z$][\w$]*)&&\1\??\.\3\??\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1$2.$3?.$4') // a.b&&a.b.c ==> a?.b?.c
+            .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|[\w$ ]=)([_a-zA-Z$][\w$]*(?:\??\.[_a-zA-Z$][\w$]*)*)&&\1(?:(\()|(\??\.))/g, '$1?.$2') // a&&a.b ==> a?.b //TODO: Improve
+            // SolidJS
             .replace(/const ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, 'throw 0')
+            // Router
             .replace(/`Stale read from <\$\{e\}>.`/, '0')
             .replace(/if\(![$\w]+\([$\w]+\)\)throw [$\w]+\("Show"\);/, '')
             .replace(/if\("POST"!==\w+\.target\.method\.toUpperCase\(\)\)throw Error\("Only POST forms are supported for Actions"\);/, "")
