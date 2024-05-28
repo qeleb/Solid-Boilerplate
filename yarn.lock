@@ -4496,14 +4496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"known-css-properties@npm:^0.30.0":
-  version: 0.30.0
-  resolution: "known-css-properties@npm:0.30.0"
-  checksum: 8d682c31f324b18bdad8688aafe16de7e038b63fb5e70579c247fa72cec27797312ab7be241b96485eedd1b8a2f1e5f7481768efb0ce944d7ec0c0441b2b6e5a
-  languageName: node
-  linkType: hard
-
-"known-css-properties@npm:^0.31.0":
+"known-css-properties@npm:^0.30.0, known-css-properties@npm:^0.31.0":
   version: 0.31.0
   resolution: "known-css-properties@npm:0.31.0"
   checksum: 814979212974f229f33ece048a54c3da5b689cbf1275fcfda83b9317a3826605c5d85b28ed68d9b62300a8eb9db61708a662ef6ec2ec12029f3139d117ebb2a1
