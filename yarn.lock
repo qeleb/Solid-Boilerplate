@@ -2627,9 +2627,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.784
-  resolution: "electron-to-chromium@npm:1.4.784"
-  checksum: f0e12b6778ba5d32a363c413b492928b130aa24efde132e635fa166dca4a215a6a04cc15167845083308bf509171bc6a2b99dfd897680638c72b83ab15718329
+  version: 1.4.787
+  resolution: "electron-to-chromium@npm:1.4.787"
+  checksum: 0cfac6acabd8d779a4f1a3a47b91bfddf0275f2448a800830953caa46d3ccdbf548054f86c97196de147dd7abdbc2491e2628364f353d1852d9045502aa87f0f
   languageName: node
   linkType: hard
 
@@ -6080,16 +6080,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.77.2":
-  version: 1.77.2
-  resolution: "sass@npm:1.77.2"
+"sass@npm:^1.77.4":
+  version: 1.77.4
+  resolution: "sass@npm:1.77.4"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: fd75b1f255a30ecd4ee79fa020830d7bf426dd15de2f47cf9610130707dc2a029da3677ca0a6c89e8d4626b0a2816456bb7fb706cb518cfbf2e7c0038ef7a4b8
+  checksum: 415d76960e35d78310ffc33bc61fdb2b35a54bb2823dfc4eff50eee960096dacc210d7ef7ae6695120e1a4f005f269719c34d58c77c54ff7787516bda6a89e55
   languageName: node
   linkType: hard
 
@@ -6319,7 +6319,7 @@ __metadata:
     postcss: ^8.4.38
     prettier: ^3.2.5
     rollup-plugin-visualizer: ^5.12.0
-    sass: ^1.77.2
+    sass: ^1.77.4
     solid-js: 1.8.5
     solidjs-use: ^2.3.0
     stylelint: ^16.6.1
