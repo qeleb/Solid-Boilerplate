@@ -50,7 +50,12 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       } as Plugin,
       solid({
         solid: { omitNestedClosingTags: true },
-        babel: { plugins: [['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }]] },
+        babel: {
+          plugins: [
+            ['@babel/plugin-transform-typescript', { optimizeConstEnums: true, isTSX: true }],
+            mode === 'production' && ['react-remove-properties', { properties: ['data-testid', 'data-test-id'] }],
+          ].filter(Boolean) as any,
+        },
       }),
       svg({
         multipass: true,

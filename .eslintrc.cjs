@@ -166,6 +166,7 @@ module.exports = {
         '@typescript-eslint/strict-boolean-expressions': ['warn', { allowNullableBoolean: true, allowNullableString: true, allowNullableNumber: true }], //prettier-ignore
         'solid/reactivity': 'off',
         'solid/no-innerhtml': 'off',
+        'solid/style-prop': ['warn', { allowString: true }],
       },
     },
     {
