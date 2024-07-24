@@ -93,7 +93,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
             // Window object
-            .replace(/window\.(addEventListener|alert|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|BscreenX|screenY|scrollTo|setTimeout)/g, '$1') // eslint-disable-line regexp/no-dupe-disjunctions
+            .replace(/window\.(addEventListener|alert|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|screenX|screenY|scrollTo|setTimeout)/g, '$1') // eslint-disable-line regexp/no-dupe-disjunctions
             // Optional chaining
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.([_a-zA-Z$][\w$]*)/g, '$1?.$2') // a&&b ==> a?.b
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.?([[(])/g, '$1?.$2') // a&&a(b) ==> a?.(b)
