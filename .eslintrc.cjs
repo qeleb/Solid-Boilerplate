@@ -109,6 +109,7 @@ module.exports = {
         '@typescript-eslint/no-inferrable-types': 'warn',
         '@typescript-eslint/no-namespace': 'warn',
         '@typescript-eslint/no-this-alias': ['warn', { allowedNames: ['self'] }],
+        '@typescript-eslint/no-unnecessary-parameter-property-assignment': 'warn',
         '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
         '@typescript-eslint/no-unsafe-declaration-merging': 'warn',
         '@typescript-eslint/no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true }], //prettier-ignore
@@ -135,7 +136,7 @@ module.exports = {
       /* TypeScript/JavaScript in src/ */
       files: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
       extends: ['plugin:solid/typescript'],
-      parserOptions: { ecmaVersion: 'latest', ecmaFeatures: { jsx: true }, tsconfigRootDir: __dirname, project: true },
+      parserOptions: { ecmaVersion: 'latest', ecmaFeatures: { jsx: true }, tsconfigRootDir: __dirname, projectService: true }, //prettier-ignore
       rules: {
         'dot-notation': 'off',
         'no-implied-eval': 'off',
@@ -143,26 +144,33 @@ module.exports = {
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/consistent-type-exports': ['warn', { fixMixedExportsWithInlineTypeSpecifier: true }],
         '@typescript-eslint/dot-notation': 'warn',
+        '@typescript-eslint/no-array-delete': 'warn',
         '@typescript-eslint/no-base-to-string': 'warn',
         '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+        '@typescript-eslint/no-empty-object-type': ['warn', { allowObjectTypes: 'always' }],
         '@typescript-eslint/no-implied-eval': 'error',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
         '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
         '@typescript-eslint/no-redeclare': 'warn',
-        '@typescript-eslint/no-throw-literal': 'error',
         '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
         '@typescript-eslint/no-unnecessary-qualifier': 'warn',
+        '@typescript-eslint/no-unnecessary-template-expression': 'warn',
         '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
         '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
         '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
+        '@typescript-eslint/no-unsafe-unary-minus': 'warn',
         '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false, variables: false, typedefs: false }], //prettier-ignore
         '@typescript-eslint/no-useless-constructor': 'warn',
         '@typescript-eslint/no-unused-expressions': ['warn', { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }], //prettier-ignore
         '@typescript-eslint/non-nullable-type-assertion-style': 'warn',
+        '@typescript-eslint/only-throw-error': 'error',
         '@typescript-eslint/prefer-includes': 'warn',
         '@typescript-eslint/prefer-optional-chain': 'warn',
-        '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
+        '@typescript-eslint/prefer-promise-reject-errors': 'warn',
+        '@typescript-eslint/prefer-regexp-exec': 'warn',
+        '@typescript-eslint/prefer-string-starts-ends-with': ['warn', { allowSingleElementEquality: 'always' }],
         '@typescript-eslint/require-await': 'warn',
+        '@typescript-eslint/return-await': ['warn', 'in-try-catch'],
         '@typescript-eslint/strict-boolean-expressions': ['warn', { allowNullableBoolean: true, allowNullableString: true, allowNullableNumber: true }], //prettier-ignore
         'solid/reactivity': 'off',
         'solid/no-innerhtml': 'off',
