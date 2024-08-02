@@ -45,7 +45,7 @@
     "@babel/plugin-transform-typescript": "^7.25.2",
     "@solidjs/testing-library": "^0.8.9",
     "@testing-library/jest-dom": "^6.4.8",
-    "@types/node": "^20.14.13",
+    "@types/node": "^20.14.14",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "@vitest/coverage-v8": "^2.0.5",
