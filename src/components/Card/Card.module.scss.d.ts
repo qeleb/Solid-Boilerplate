@@ -1,4 +1,4 @@
 declare const classNames: {
   readonly Card: 'Card';
 };
-export = classNames;
+export default classNames;

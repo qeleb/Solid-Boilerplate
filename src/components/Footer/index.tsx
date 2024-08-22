@@ -18,7 +18,7 @@ export const Footer = () => (
     </div>
     <div class={styles.bottom}>
       designed by qeleb
-      <a href="https://github.com/qeleb" aria-label="Developer GitHub">
+      <a href="//github.com/qeleb" aria-label="Developer GitHub">
         <IconGithub />
       </a>
     </div>

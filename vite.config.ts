@@ -34,7 +34,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
-    css: { devSourcemap: true },
+    css: { preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true },
     plugins: [
       {
         name: 'vite-plugin-optimize-solid-css-modules',
@@ -78,7 +78,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       }),
       optimizeCssModules(),
-      sassDts({ enabledMode: ['development', 'production'], prettierFilePath: resolve(fileURLToPath(new URL('.', import.meta.url)), '.prettierrc') }), //prettier-ignore
+      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(fileURLToPath(new URL('.', import.meta.url)), '.prettierrc') }), //prettier-ignore
       ENV.ANALYZE === 'true' &&
         visualizer({
           template: 'treemap',
