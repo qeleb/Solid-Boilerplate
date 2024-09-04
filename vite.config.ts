@@ -34,7 +34,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
     },
-    css: { preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true },
+    css: { modules: { exportGlobals: true }, preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true }, //prettier-ignore
     plugins: [
       {
         name: 'vite-plugin-optimize-solid-css-modules',
