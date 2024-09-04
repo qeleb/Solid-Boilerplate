@@ -93,5 +93,5 @@
     "caniuse-lite": "1.0.30001654",
     "svgo": "^3.3.2"
   },
-  "packageManager": "yarn@3.8.3"
+  "packageManager": "yarn@3.8.5"
 }
