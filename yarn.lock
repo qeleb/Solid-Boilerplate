@@ -1077,12 +1077,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.16.4":
-  version: 20.16.4
-  resolution: "@types/node@npm:20.16.4"
+"@types/node@npm:^20.16.5":
+  version: 20.16.5
+  resolution: "@types/node@npm:20.16.5"
   dependencies:
     undici-types: ~6.19.2
-  checksum: 533315175e2d46a38cb220e3fb41ecfb33625b95cae1120e001eab0aa23330ff02a4dc44e15fca39fd420a802da3b20b3e5d30a21daf5e4853ea48c16ec76a8e
+  checksum: f38b7bd8c4993dcf38943afa2ffdd7dfd18fc94f8f3f28d0c1045a10d39871a6cc1b8f8d3bf0c7ed848457d0e1d283482f6ca125579c13fed1b7575d23e8e8f5
   languageName: node
   linkType: hard
 
@@ -1923,10 +1923,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001487, caniuse-lite@npm:^1.0.30001646":
-  version: 1.0.30001655
-  resolution: "caniuse-lite@npm:1.0.30001655"
-  checksum: 3739c8f6d0fb55cff3c631d28c4fdafc81ab28756ce17a373428042c06f84a5877288d89fbe41be5ac494dd5092dca38ab91c9304e81935b9f2938419d2c23b3
+"caniuse-lite@npm:1.0.30001654":
+  version: 1.0.30001654
+  resolution: "caniuse-lite@npm:1.0.30001654"
+  checksum: f60559a40d307fd7d55f85f2963a41ea1b8df3aab1d8557bfbd14c6b32f8951623824eab82182f87cc5a3c40c29968fc2eb4057e896d2d09c54e8adad1082065
   languageName: node
   linkType: hard
 
@@ -5597,14 +5597,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.21, postcss@npm:^8.4.32, postcss@npm:^8.4.41, postcss@npm:^8.4.43, postcss@npm:^8.4.44":
-  version: 8.4.44
-  resolution: "postcss@npm:8.4.44"
+"postcss@npm:^8.4.21, postcss@npm:^8.4.32, postcss@npm:^8.4.41, postcss@npm:^8.4.43, postcss@npm:^8.4.45":
+  version: 8.4.45
+  resolution: "postcss@npm:8.4.45"
   dependencies:
     nanoid: ^3.3.7
     picocolors: ^1.0.1
     source-map-js: ^1.2.0
-  checksum: 64d9ce78253696bb64e608a54b362c9ddb537d3b38b58223ebce8260d6110d4e798ef1b3d57d8c28131417d9809187fd51d5c4263113536363444f8635e11bdb
+  checksum: 3223cdad4a9392c0b334ee3ee7e4e8041c631cb6160609cef83c18d2b2580e931dd8068ab13cc6000c1a254d57492ac6c38717efc397c5dcc9756d06bc9c44f3
   languageName: node
   linkType: hard
 
@@ -6474,7 +6474,7 @@ __metadata:
     "@solidjs/router": 0.10.1
     "@solidjs/testing-library": ^0.8.9
     "@testing-library/jest-dom": ^6.5.0
-    "@types/node": ^20.16.4
+    "@types/node": ^20.16.5
     "@typescript-eslint/eslint-plugin": ^8.4.0
     "@typescript-eslint/parser": ^8.4.0
     "@vitest/coverage-v8": ^2.0.5
@@ -6493,7 +6493,7 @@ __metadata:
     lightningcss: ^1.26.0
     lint-staged: ^15.2.10
     miragejs: ^0.1.48
-    postcss: ^8.4.44
+    postcss: ^8.4.45
     prettier: ^3.3.3
     rollup-plugin-visualizer: ^5.12.0
     sass: "npm:sass-embedded@^1.78.0"
@@ -6512,7 +6512,7 @@ __metadata:
     vite-plugin-optimize-css-modules: ^1.1.0
     vite-plugin-sass-dts: ^1.3.25
     vite-plugin-solid: ^2.10.2
-    vite-plugin-svgo: ^1.4.0
+    vite-plugin-svgo: 1.4.0
     vitest: ^2.0.5
   languageName: unknown
   linkType: soft
@@ -7512,7 +7512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-svgo@npm:^1.4.0":
+"vite-plugin-svgo@npm:1.4.0":
   version: 1.4.0
   resolution: "vite-plugin-svgo@npm:1.4.0"
   dependencies:
