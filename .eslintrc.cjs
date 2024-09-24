@@ -21,6 +21,7 @@ module.exports = {
       ],
       rules: {
         'array-callback-return': 'warn',
+        'arrow-body-style': 'warn',
         'no-cond-assign': ['warn', 'except-parens'],
         'no-control-regex': 'warn',
         'no-ex-assign': 'warn',

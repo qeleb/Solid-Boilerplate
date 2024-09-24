@@ -61,8 +61,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         multipass: true,
         floatPrecision: 2,
         plugins: [
-          { name: 'preset-default', params: { overrides: { convertPathData: { noSpaceAfterFlags: true }, removeViewBox: false } } }, //prettier-ignore
-          { name: 'removeAttrs', params: { attrs: ['fill', 'fill-rule'] } },
+          { name: 'preset-default', params: { overrides: { convertPathData: { noSpaceAfterFlags: true }, mergePaths: { force: true, noSpaceAfterFlags: true } } } }, //prettier-ignore
           'removeDimensions',
           'removeXMLNS',
         ],
