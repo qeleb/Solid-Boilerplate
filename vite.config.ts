@@ -3,6 +3,7 @@
 import { readFileSync as read, readdirSync, writeFileSync as write } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { checker } from 'vite-plugin-checker';
@@ -19,7 +20,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   return defineConfig({
     envDir: 'env',
     build: {
-      target: 'es2021',
+      target: browserslistToEsbuild(),
       rollupOptions: {
         output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' },
         treeshake: { tryCatchDeoptimization: false },
