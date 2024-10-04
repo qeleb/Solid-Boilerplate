@@ -148,7 +148,7 @@ module.exports = {
         '@typescript-eslint/no-array-delete': 'warn',
         '@typescript-eslint/no-base-to-string': 'warn',
         '@typescript-eslint/no-duplicate-type-constituents': 'warn',
-        '@typescript-eslint/no-empty-object-type': ['warn', { allowObjectTypes: 'always' }],
+        '@typescript-eslint/no-empty-object-type': ['warn', { allowInterfaces: 'with-single-extends', allowObjectTypes: 'always' }], //prettier-ignore
         '@typescript-eslint/no-implied-eval': 'error',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
         '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
