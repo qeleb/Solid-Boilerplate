@@ -15,7 +15,7 @@ import svg from 'vite-plugin-svgo';
 import { configDefaults } from 'vitest/config';
 
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
-  const ENV = { ...process.env, ...loadEnv(mode, 'env', '') };
+  const ENV = { ...process.env, ...loadEnv(mode, 'env') };
 
   return defineConfig({
     envDir: 'env',
