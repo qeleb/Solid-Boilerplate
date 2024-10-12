@@ -129,8 +129,8 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         enforce: 'post',
         writeBundle({ dir }) {
           const files = readdirSync(dir!);
-          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), { encoding: 'utf-8' }))
-          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), { encoding: 'utf-8' }))
+          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), 'utf-8'))
+          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), 'utf-8'))
         }, //prettier-ignore
       } as Plugin,
     ].filter(Boolean),
