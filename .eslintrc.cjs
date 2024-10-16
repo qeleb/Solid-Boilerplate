@@ -21,7 +21,6 @@ module.exports = {
       ],
       rules: {
         'array-callback-return': 'warn',
-        'arrow-body-style': 'warn',
         'no-cond-assign': ['warn', 'except-parens'],
         'no-control-regex': 'warn',
         'no-ex-assign': 'warn',
@@ -187,6 +186,7 @@ module.exports = {
     {
       /* Test */
       files: ['**/*.{test,spec}.*'],
+      settings: { vitest: { typecheck: true } },
       rules: {
         '@typescript-eslint/no-unused-expressions': 'off',
         'vitest/consistent-test-filename': ['warn', { pattern: '\\.test\\.tsx?$' }],
