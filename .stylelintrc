@@ -1,21 +1,43 @@
 {
   "extends": ["stylelint-config-recommended-scss", "stylelint-config-hudochenkov/order"],
   "plugins": ["stylelint-no-unsupported-browser-features"],
-  "ignoreFiles": ["node_modules", "dist/**", "coverage/**"],
+  "defaultSeverity": "warning",
+  "ignoreFiles": ["node_modules/**", "dist/**", "coverage/**"],
   "rules": {
-    "no-descending-specificity": null,
-    "length-zero-no-unit": [true, { "ignore": ["custom-properties"] }],
-    "function-name-case": "lower",
-    "selector-type-case": "lower",
-    "at-rule-empty-line-before": ["always", { "except": ["first-nested"], "ignore": ["after-comment"] }],
-    "rule-empty-line-before": ["always-multi-line", { "except": ["first-nested"], "ignore": ["after-comment"] }],
+    "at-rule-empty-line-before": [
+      "always",
+      { "except": ["blockless-after-same-name-blockless", "first-nested"], "ignore": ["after-comment"] }
+    ],
+    "color-function-notation": "modern",
+    "color-hex-length": "short",
+    "comment-whitespace-inside": "always",
     "declaration-block-no-redundant-longhand-properties": true,
-    "shorthand-property-no-redundant-values": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-name-case": "lower",
+    "function-url-quotes": "always",
+    "hue-degree-notation": "angle",
+    "import-notation": "url",
+    "keyframe-selector-notation": "percentage-unless-within-keyword-only-block",
+    "length-zero-no-unit": [true, { "ignore": ["custom-properties"] }],
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-range-notation": "context",
+    "no-descending-specificity": null,
+    "property-disallowed-list": ["clip", "flex-direction"],
+    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
+    "rule-empty-line-before": ["always-multi-line", { "except": ["first-nested"], "ignore": ["after-comment"] }],
+    "selector-attribute-quotes": "always",
+    "selector-no-vendor-prefix": true,
+    "selector-not-notation": "complex",
     "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["local", "global"] }],
-    "scss/at-import-no-partial-leading-underscore": null,
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-type-case": "lower",
+    "shorthand-property-no-redundant-values": true,
+    "value-keyword-case": "lower",
+    "value-no-vendor-prefix": true,
+    "scss/no-unused-private-members": true,
     "plugin/no-unsupported-browser-features": [
       true,
-      { "severity": "warning", "ignorePartialSupport": true, "ignore": ["css-nesting"] }
+      { "ignorePartialSupport": true, "ignore": ["css-nesting", "css-media-range-syntax"] }
     ]
   }
 }

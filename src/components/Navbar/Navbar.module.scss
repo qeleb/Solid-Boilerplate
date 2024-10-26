@@ -25,7 +25,7 @@
     height: $navbar-height;
     padding: 1rem max(calc(50% - 620px), 2rem);
     background: #fafafad0;
-    box-shadow: 5px 3px 8px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 5px 3px 8px 0 rgb(0 0 0 / 0.06);
     font-weight: 700;
     font-size: 1.25rem;
     transition: backdrop-filter 0.2s ease;
@@ -74,7 +74,7 @@
     flex-flow: column;
     height: 100%;
     padding-bottom: 1rem;
-    box-shadow: 5px 3px 8px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 5px 3px 8px 0 rgb(0 0 0 / 0.06);
     transition: all 0.45s;
     clip-path: inset(0 0 100% 0);
 
@@ -88,7 +88,7 @@
   }
 
   &.show {
-    box-shadow: 5px 3px 8px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 5px 3px 8px 0 rgb(0 0 0 / 0.06);
     transition-delay: 0s, 0.28s;
     transition-duration: 0.45s, 0.45s;
     -webkit-backdrop-filter: blur(6px);
@@ -107,7 +107,7 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @media screen and (max-width: 960px) {
+  @media screen and (width <= 960px) {
     & > .nav-main {
       justify-content: space-between;
       padding: 1rem max(calc(50% - 620px), 2rem);

@@ -64,7 +64,7 @@ footer {
   }
 
   /* stylelint-disable-next-line order/order */
-  @media screen and (max-width: 1024px) {
+  @media screen and (width <= 1024px) {
     padding: 0 max(calc(50% - 620px), 2rem);
 
     .main {
