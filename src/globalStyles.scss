@@ -9,7 +9,7 @@
 
   /* Custom scrollbar for Firefox */ /* stylelint-disable-next-line order/order */
   @-moz-document url-prefix() {
-    scrollbar-color: rgb(0 0 0 / 0.4) #0000; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+    scrollbar-color: #0006 #0000; /* stylelint-disable-line plugin/no-unsupported-browser-features */
     scrollbar-width: thin; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
 }
@@ -37,18 +37,18 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(0 0 0 / 0);
+  background: #0000;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background: rgb(0 0 0 / 0.3);
+  background: #0004;
 
   &:hover {
-    background: rgb(0 0 0 / 0.4);
+    background: #0006;
   }
 
   &:active {
-    background: rgb(0 0 0 / 0.45);
+    background: #0007;
   }
 }
