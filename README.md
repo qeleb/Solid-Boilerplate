@@ -27,7 +27,6 @@ Solid Boilerplate
 
 ### Test
 1. 🧪 `yarn test` - run unit tests & generate coverage report in `coverage/`
-1. 🧾 `yarn test:ui` - open unit test UI
 
 ### Lint
 1. 🧹 `yarn lint` - lint files in `src/`
