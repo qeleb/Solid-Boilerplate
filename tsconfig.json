@@ -28,8 +28,7 @@
     "jsxImportSource": "solid-js",
 
     /* Path Aliases */
-    "paths": { "@/*": ["./src/*"] },
+    "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src"],
-  "ts-node": { "transpileOnly": true },
+  "include": ["src"]
 }
