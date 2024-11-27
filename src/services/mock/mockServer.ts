@@ -1,4 +1,4 @@
-import { createServer, type Registry, Response as MockResponse, type Server } from 'miragejs';
+import { type Registry, Response as MockResponse, type Server, createServer } from 'miragejs';
 import type { AnyFactories, AnyModels } from 'miragejs/-types';
 
 let testServer: Server<Registry<AnyModels, AnyFactories>> | undefined;

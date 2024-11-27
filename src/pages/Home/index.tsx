@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js';
 import { useCounter, useMouse } from 'solidjs-use';
 import logo from '@/assets/logo.svg?url';
 import styles from '@/pages/Home/Home.module.scss';
-import { fetchUser, type UserFetchResponse } from '@/services/userService';
+import { type UserFetchResponse, fetchUser } from '@/services/userService';
 
 export const Home = () => {
   const { x, y } = useMouse();

@@ -120,7 +120,7 @@ module.exports = {
         'import/first': 'warn',
         'import/newline-after-import': 'warn',
         'import/no-duplicates': 'warn',
-        'import/order': ['warn', { alphabetize: { order: 'asc' }, 'newlines-between': 'never' }],
+        'import/order': ['warn', { alphabetize: { order: 'asc' }, named: true, 'newlines-between': 'never' }],
         'regexp/prefer-quantifier': 'warn',
         'regexp/prefer-regexp-test': 'warn',
 

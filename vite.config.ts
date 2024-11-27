@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, loadEnv, type Plugin } from 'vite';
+import { type Plugin, defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
