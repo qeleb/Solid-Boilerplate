@@ -77,7 +77,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           removeStyleLinkTypeAttributes: true, sortAttributes: true, useShortDoctype: true,
         }, //prettier-ignore
       }),
-      optimizeCssModules(),
+      optimizeCssModules({ dictionary: 'etionraldfps0gx-1chbum4v6w25k9y873zjHCONADLYqBEFGIJKMPQRSTUVWXZ_' }),
       sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(fileURLToPath(new URL('.', import.meta.url)), '.prettierrc') }), //prettier-ignore
       ENV.ANALYZE === 'true' &&
         visualizer({
