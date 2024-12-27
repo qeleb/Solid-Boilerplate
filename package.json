@@ -46,7 +46,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@types/node": "^22.10.2",
     "@vitest/coverage-v8": "^2.1.8",
-    "@vitest/eslint-plugin": "1.1.20",
+    "@vitest/eslint-plugin": "1.1.21",
     "@vitest/ui": "^2.1.8",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "browserslist-to-esbuild": "^2.1.1",
@@ -64,7 +64,7 @@
     "miragejs": "^0.1.48",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
-    "rollup-plugin-visualizer": "^5.12.0",
+    "rollup-plugin-visualizer": "^5.13.1",
     "sass-embedded": "^1.83.0",
     "stylelint": "^16.12.0",
     "stylelint-config-hudochenkov": "^11.0.0",
@@ -91,6 +91,7 @@
   "resolutions": {
     "@babel/helper-module-imports": "^7.25.9",
     "aria-query": "^5.3.2",
+    "esbuild": "^0.24.2",
     "known-css-properties": "^0.34.0",
     "mdn-data": "^2.13.0",
     "svgo": "^3.3.2"
