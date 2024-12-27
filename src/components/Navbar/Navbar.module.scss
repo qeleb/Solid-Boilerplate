@@ -6,6 +6,7 @@
   right: 0;
   left: 0;
   z-index: 9;
+  pointer-events: none;
   transition:
     backdrop-filter 0.45s ease 0s allow-discrete,
     box-shadow 0.28s ease;
@@ -18,14 +19,18 @@
     }
   }
 
-  & > .nav-main {
+  & > div /* Main & Extension */ {
     display: flex;
+    box-shadow: 5px 3px 8px 0 #0001;
+    pointer-events: visible;
+  }
+
+  & > .nav-main {
     gap: 2rem;
     align-items: center;
     height: $navbar-height;
     padding: 1rem max(calc(50% - 620px), 2rem);
     background: #fafafad0;
-    box-shadow: 5px 3px 8px 0 #0001;
     font-weight: 700;
     font-size: 1.25rem;
     transition: backdrop-filter 0.2s ease;
@@ -46,7 +51,7 @@
       transition: all 0.15s ease;
       stroke-width: 2;
 
-      @media only screen and (hover: hover) {
+      @media (hover: hover) {
         &:hover {
           stroke-width: 3;
         }
@@ -70,11 +75,10 @@
   }
 
   & > .nav-extension {
-    display: none;
     flex-flow: column;
     height: 100%;
     padding-bottom: 1rem;
-    box-shadow: 5px 3px 8px 0 #0001;
+    visibility: hidden;
     transition: all 0.45s;
     clip-path: inset(0 0 100% 0);
 
@@ -88,7 +92,7 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @media screen and (width <= 960px) {
+  @media (width <= 960px) {
     & > .nav-main {
       justify-content: space-between;
       padding: 1rem max(calc(50% - 620px), 2rem);
@@ -102,27 +106,24 @@
       }
     }
 
-    &.show > .nav-extension {
-      display: flex;
-    }
-  }
+    &.show {
+      box-shadow: 5px 3px 8px 0 #0001;
+      transition-delay: 0s, 0.28s;
+      transition-duration: 0.45s, 0.45s;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
 
-  &.show {
-    box-shadow: 5px 3px 8px 0 #0001;
-    transition-delay: 0s, 0.28s;
-    transition-duration: 0.45s, 0.45s;
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+      & > .nav-main {
+        box-shadow: none;
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+      }
 
-    & > .nav-main {
-      box-shadow: none;
-      -webkit-backdrop-filter: blur(0);
-      backdrop-filter: blur(0);
-    }
-
-    & > .nav-extension {
-      background: #fafafad0;
-      clip-path: inset(0);
+      & > .nav-extension {
+        background: #fafafad0;
+        visibility: visible;
+        clip-path: inset(0);
+      }
     }
   }
 }
