@@ -14,6 +14,8 @@ import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
 import { configDefaults } from 'vitest/config';
 
+const path_root = fileURLToPath(new URL('.', import.meta.url));
+
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   const ENV = { ...process.env, ...loadEnv(mode, 'env') };
 
@@ -69,7 +71,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       }),
       checker({ typescript: true, overlay: false, enableBuild: true }),
       createHtmlPlugin({
-        entry: '/src/index.tsx', // resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/index.tsx'),
+        entry: '/src/index.tsx', // resolve(path_root, 'src/index.tsx'),
         minify: {
           collapseBooleanAttributes: true, collapseWhitespace: true, decodeEntities: true, minifyCSS: true,
           minifyJS: true, minifyURLs: true, removeComments: true, removeEmptyAttributes: true,
@@ -78,14 +80,14 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       }),
       optimizeCssModules({ dictionary: 'etionraldfps0gx-1chbum4v6w25k9y873zjHCONADLYqBEFGIJKMPQRSTUVWXZ_' }),
-      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(fileURLToPath(new URL('.', import.meta.url)), '.prettierrc') }), //prettier-ignore
+      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(path_root, '.prettierrc') }), //prettier-ignore
       ENV.ANALYZE === 'true' &&
         visualizer({
           template: 'treemap',
           open: true,
           gzipSize: true,
           brotliSize: true,
-          filename: resolve(fileURLToPath(new URL('.', import.meta.url)), 'dist/analyze.html'),
+          filename: resolve(path_root, 'dist/analyze.html'),
         }),
       {
         name: 'vite-plugin-remove-junk',
@@ -134,18 +136,19 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       } as Plugin,
     ].filter(Boolean),
-    resolve: { alias: { '@': resolve(fileURLToPath(new URL('.', import.meta.url)), 'src') }, dedupe: ['solid-js'] },
+    resolve: { alias: { '@': resolve(path_root, 'src') }, conditions: ['browser', 'development|production'] },
     test: {
       globals: true,
       environment: 'jsdom',
       include: ['src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      setupFiles: [resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/__test__/setupTests.ts')],
-      deps: { optimizer: { web: { exclude: ['solid-js'] } } },
+      setupFiles: [resolve(path_root, 'src/__test__/setupTests.ts')],
       coverage: {
         reporter: ['text', 'lcov'],
         include: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
         exclude: configDefaults.coverage.exclude!.concat(['**/__test__/', 'src/services/mock', 'src/index.tsx']),
+        clean: false,
       },
+      poolOptions: { threads: { useAtomics: true } },
     },
   });
 };
