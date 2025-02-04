@@ -136,7 +136,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       } as Plugin,
     ].filter(Boolean),
-    resolve: { alias: { '@': resolve(path_root, 'src') }, conditions: ['browser', 'development|production'] },
+    resolve: { alias: { '@': resolve(path_root, 'src') } },
     test: {
       globals: true,
       include: ['src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
