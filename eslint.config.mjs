@@ -11,7 +11,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config([
   {
-    ignores: ['dist/*', 'coverage/*', 'public/*.js'],
+    ignores: ['dist/**', 'coverage/**', 'public/*.js'],
     plugins: { '@typescript-eslint': tseslint.plugin, prettier, '@vitest': vitest, 'testing-library': testingLibrary },
     extends: [prettierRecommended],
     languageOptions: { globals: globals.browser, parser: tseslint.parser },
@@ -20,7 +20,7 @@ export default tseslint.config([
   {
     /* TypeScript/JavaScript */
     files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-    ignores: ['dist/*', 'coverage/*', 'public/*.js'],
+    ignores: ['dist/**', 'coverage/**', 'public/*.js'],
     extends: [js.configs.recommended, tseslint.configs.recommended, tseslint.configs.stylistic, importPlugin.flatConfigs.warnings, regexp.configs['flat/recommended']], //prettier-ignore
     rules: {
       'array-callback-return': 'warn',
