@@ -9,7 +9,7 @@
       "presentation": { "reveal": "never", "panel": "new" },
       "runOptions": { "runOn": "folderOpen" },
       "detail": "Run ESLint for all files in the workspace folder",
-      "options": { "configFile": ".eslintrc.cjs" }
+      "options": { "configFile": "eslint.config.mjs" }
     }
   ]
 }
