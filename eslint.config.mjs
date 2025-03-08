@@ -178,8 +178,8 @@ export default tseslint.config([
       '@typescript-eslint/require-await': 'warn',
       '@typescript-eslint/return-await': ['warn', 'in-try-catch'],
       // '@typescript-eslint/strict-boolean-expressions': ['warn', { allowNullableBoolean: true, allowNullableString: true, allowNullableNumber: true }], //prettier-ignore
-      'solid/reactivity': 'off',
       'solid/no-innerhtml': 'off',
+      'solid/reactivity': 'off',
       'solid/style-prop': ['warn', { allowString: true }],
     },
   },
