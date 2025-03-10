@@ -56,12 +56,7 @@ export default tseslint.config([
       'no-mixed-operators': [
         'warn',
         {
-          groups: [
-            ['&', '|', '^', '~', '<<', '>>', '>>>'],
-            ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
-            ['&&', '||'],
-            ['in', 'instanceof'],
-          ],
+          groups: [['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], //prettier-ignore
           allowSamePrecedence: false,
         },
       ],
