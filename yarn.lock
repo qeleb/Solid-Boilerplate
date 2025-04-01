@@ -888,6 +888,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-swc@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@rollup/plugin-swc@npm:0.4.0"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    smob: ^1.4.0
+  peerDependencies:
+    "@swc/core": ^1.3.0
+    rollup: ^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 9ab99ba548a9b4697243b449e60ffb2ffae8bb3a87aa8b2795bb7f6905bddfc462bf49045d9d7e2c2f0d7a8ed9096b257d4ba334c0870e16d6faac46bfb5ad7d
+  languageName: node
+  linkType: hard
+
 "@rollup/pluginutils@npm:^4.2.0":
   version: 4.2.1
   resolution: "@rollup/pluginutils@npm:4.2.1"
@@ -895,6 +911,22 @@ __metadata:
     estree-walker: ^2.0.1
     picomatch: ^2.2.2
   checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^5.0.1":
+  version: 5.1.4
+  resolution: "@rollup/pluginutils@npm:5.1.4"
+  dependencies:
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^4.0.2
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: dc0294580effbf68965ed7939c9e469b8c8847b59842e4691fd10d0a8d0b178600bd912694c409ae33600c9059efce72e96f25917cff983afd57f092a7aeb8d2
   languageName: node
   linkType: hard
 
@@ -1082,6 +1114,138 @@ __metadata:
     "@solidjs/router":
       optional: true
   checksum: 1cf4909a5aa0cd27772ed98b3ad58e639f71806def5ec382ef0062ff1d4be5fa935d7d2db7609402fe95c5ec0f2f453fd0aad6c1a6e87793186806cd2f3d67a5
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-darwin-arm64@npm:1.11.16"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-darwin-x64@npm:1.11.16"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.11.16"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.11.16"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-linux-arm64-musl@npm:1.11.16"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-linux-x64-gnu@npm:1.11.16"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-linux-x64-musl@npm:1.11.16"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.11.16"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.11.16"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core-win32-x64-msvc@npm:1.11.16"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:^1.11.16":
+  version: 1.11.16
+  resolution: "@swc/core@npm:1.11.16"
+  dependencies:
+    "@swc/core-darwin-arm64": 1.11.16
+    "@swc/core-darwin-x64": 1.11.16
+    "@swc/core-linux-arm-gnueabihf": 1.11.16
+    "@swc/core-linux-arm64-gnu": 1.11.16
+    "@swc/core-linux-arm64-musl": 1.11.16
+    "@swc/core-linux-x64-gnu": 1.11.16
+    "@swc/core-linux-x64-musl": 1.11.16
+    "@swc/core-win32-arm64-msvc": 1.11.16
+    "@swc/core-win32-ia32-msvc": 1.11.16
+    "@swc/core-win32-x64-msvc": 1.11.16
+    "@swc/counter": ^0.1.3
+    "@swc/types": ^0.1.21
+  peerDependencies:
+    "@swc/helpers": "*"
+  dependenciesMeta:
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  peerDependenciesMeta:
+    "@swc/helpers":
+      optional: true
+  checksum: b5f13e5f62580ab67bb697816eff324b9d882cf173f433771e1986766908b3b7ba141e69e5f6b562788c25e1398aef1fcff48acff6de3d5d1ce211760f0372a3
+  languageName: node
+  linkType: hard
+
+"@swc/counter@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@swc/counter@npm:0.1.3"
+  checksum: df8f9cfba9904d3d60f511664c70d23bb323b3a0803ec9890f60133954173047ba9bdeabce28cd70ba89ccd3fd6c71c7b0bd58be85f611e1ffbe5d5c18616598
+  languageName: node
+  linkType: hard
+
+"@swc/types@npm:^0.1.21":
+  version: 0.1.21
+  resolution: "@swc/types@npm:0.1.21"
+  dependencies:
+    "@swc/counter": ^0.1.3
+  checksum: 857621e50ec78407bfeaa92663be86fc9ee2c9c103ccffd7f48c55b6f3c67a82e270f6524c7974c2c608a2ed0fcf4f00c20f61c8d1fdfd2aa55b2c42a28223f1
   languageName: node
   linkType: hard
 
@@ -3184,7 +3348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1":
+"estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -6514,6 +6678,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"smob@npm:^1.4.0":
+  version: 1.5.0
+  resolution: "smob@npm:1.5.0"
+  checksum: 436b99477ace208e44bd7cd7933532958acca507320724a8e57c730accc47c5d77e538fbc554ded145f1e3411ac0c4b55f6782bceaa5839671104fd68d4bdc7f
+  languageName: node
+  linkType: hard
+
 "socks-proxy-agent@npm:^8.0.3":
   version: 8.0.5
   resolution: "socks-proxy-agent@npm:8.0.5"
@@ -6540,8 +6711,10 @@ __metadata:
   resolution: "solid-boilerplate@workspace:."
   dependencies:
     "@babel/plugin-transform-typescript": ^7.27.0
+    "@rollup/plugin-swc": ^0.4.0
     "@solidjs/router": 0.10.1
     "@solidjs/testing-library": ^0.8.10
+    "@swc/core": ^1.11.16
     "@testing-library/jest-dom": ^6.6.3
     "@types/node": ^22.13.17
     "@vitest/coverage-v8": ^3.1.1

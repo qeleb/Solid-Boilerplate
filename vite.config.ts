@@ -3,6 +3,7 @@
 import { readFileSync as read, readdirSync, writeFileSync as write } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import swcPlugin from '@rollup/plugin-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type Plugin, defineConfig, loadEnv } from 'vite';
@@ -31,7 +32,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       cssMinify: 'lightningcss',
       terserOptions: {
         ecma: 2020,
-        compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 4, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true, unsafe_symbols: true }, //prettier-ignore
+        compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true }, //prettier-ignore
         format: { comments: false, wrap_func_args: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|when|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|effects|tState|disposed|sensitivity|navigatorFactory|keyed|intent)$/ } }, //prettier-ignore
       },
@@ -104,6 +105,8 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)(\??)\.([_a-zA-Z$][\w$]*)(\??)\.?([_a-zA-Z$][\w$]*)&&\1\2\.\3\.\5\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1$2.$3$4.$5?.$6') // a.b.c&&a.b.c.d ==> a?.b?.c?.d
             // Solid
             .replace(/(?:const|let) ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, '')
+            .replace(/[$\w]+\.[$\w]+\?([$\w]+\(\)):\(\)=>\{if\([$\w]+\([$\w]+\)\(\)\?\.\[0\]!==[$\w]+\)throw"Stale read from <Match>\.";return \1\}/, '$1') // Remove Keyed Match
+            .replace(/\{if\(![$\w]+\([$\w]+\)\)throw"Stale read from <Show>\.";return ([$\w]+\.[$\w]+)\}/, '$1') // Remove Keyed Show
             .replace(/,[$\w]+=([$\w]+)=>`Stale read from <\$\{\1\}>\.`/, '')
             .replace(/\{if\(![$\w]+\([$\w]+\)\)throw [$\w]+\("Show"\);return\s+([$\w]+)\.([$\w]+);?\}/, '$1.$2')
             // Solid router
@@ -126,6 +129,13 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           );
         },
       } as Plugin,
+      swcPlugin({
+        include: /\.js$/,
+        swc: {
+          minify: true,
+          jsc: { minify: { compress: { passes: 3, unsafe_methods: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true } } }, //prettier-ignore
+        },
+      }),
       {
         name: 'vite-plugin-minify-assets',
         enforce: 'post',
