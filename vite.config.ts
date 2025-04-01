@@ -31,7 +31,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       cssMinify: 'lightningcss',
       terserOptions: {
         ecma: 2020,
-        compress: { arguments: true, hoist_funs: true, passes: 4, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true, unsafe_symbols: true }, //prettier-ignore
+        compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 4, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true, unsafe_symbols: true }, //prettier-ignore
         format: { comments: false, wrap_func_args: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|when|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|effects|tState|disposed|sensitivity|navigatorFactory|keyed|intent)$/ } }, //prettier-ignore
       },
