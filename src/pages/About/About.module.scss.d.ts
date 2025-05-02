@@ -1,5 +1,5 @@
 declare const classNames: {
   readonly About: 'About';
-  readonly 'cards-list': 'cards-list';
+  readonly cardsList: 'cardsList';
 };
 export default classNames;

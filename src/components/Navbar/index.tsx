@@ -1,8 +1,7 @@
 import { A, useBeforeLeave } from '@solidjs/router';
 import { createSignal } from 'solid-js';
-import iconLogo from '@/assets/logo.svg?url';
 import styles from '@/components/Navbar/Navbar.module.scss';
-import { IconMenu } from '@/components/svg';
+import { IconLogo, IconMenu } from '@/components/svg';
 
 export const NavbarItems = () => (
   <>
@@ -20,9 +19,9 @@ export const Navbar = () => {
 
   return (
     <nav class={`${styles.Navbar} ${showMenu() ? styles.show : ''}`}>
-      <div class={styles['nav-main']}>
+      <div class={styles.navMain}>
         <A href="/" end>
-          <img prop:src={iconLogo} alt="Solid Boilerplate" />
+          <IconLogo ariaLabel="Solid Boilerplate" />
         </A>
 
         {/* Mobile Only */}
@@ -35,7 +34,7 @@ export const Navbar = () => {
           <NavbarItems />
         </div>
       </div>
-      <div class={styles['nav-extension']}>
+      <div class={styles.navExtension}>
         <NavbarItems />
       </div>
     </nav>

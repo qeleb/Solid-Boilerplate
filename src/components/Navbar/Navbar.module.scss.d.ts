@@ -1,7 +1,7 @@
 declare const classNames: {
   readonly Navbar: 'Navbar';
-  readonly 'nav-main': 'nav-main';
-  readonly 'nav-extension': 'nav-extension';
+  readonly navMain: 'navMain';
+  readonly navExtension: 'navExtension';
   readonly show: 'show';
 };
 export default classNames;

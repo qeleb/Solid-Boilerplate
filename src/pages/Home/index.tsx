@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { useCounter, useMouse } from 'solidjs-use';
-import logo from '@/assets/logo.svg?url';
+import { IconLogo } from '@/components/svg';
 import styles from '@/pages/Home/Home.module.scss';
 import { type UserFetchResponse, fetchUser } from '@/services/userService';
 
@@ -13,7 +13,7 @@ export const Home = () => {
 
   return (
     <div class={styles.Home}>
-      <img prop:src={logo} alt="logo" />
+      <IconLogo ariaLabel="Solid Logo" />
       <h1>Solid + Vite + TypeScript</h1>
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <p>

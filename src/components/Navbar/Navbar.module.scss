@@ -25,7 +25,7 @@
     pointer-events: visible;
   }
 
-  & > .nav-main {
+  & > .navMain {
     gap: 2rem;
     align-items: center;
     height: $navbar-height;
@@ -38,7 +38,7 @@
     backdrop-filter: blur(6px);
 
     & > a,
-    & > a > img {
+    & > a > svg {
       height: 100%;
     }
 
@@ -74,7 +74,7 @@
     }
   }
 
-  & > .nav-extension {
+  & > .navExtension {
     flex-flow: column;
     height: 100%;
     padding-bottom: 1rem;
@@ -93,7 +93,7 @@
 
   /* stylelint-disable-next-line order/order */
   @media (width <= 960px) {
-    & > .nav-main {
+    & > .navMain {
       justify-content: space-between;
       padding: 1rem max(calc(50% - 620px), 2rem);
 
@@ -113,13 +113,13 @@
       -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
 
-      & > .nav-main {
+      & > .navMain {
         box-shadow: none;
         -webkit-backdrop-filter: blur(0);
         backdrop-filter: blur(0);
       }
 
-      & > .nav-extension {
+      & > .navExtension {
         background: #fafafad0;
         visibility: visible;
         clip-path: inset(0);

@@ -1,4 +1,6 @@
+import { template } from 'solid-js/web';
 import iconGithub from '@/assets/github.svg';
+import iconLogo from '@/assets/logo.svg';
 import iconMenu from '@/assets/menu.svg';
 
 /* SVG Component */
@@ -11,5 +13,6 @@ const createSVG =
     );
 
 /* Icons */
-export const IconGithub = createSVG(iconGithub);
-export const IconMenu = createSVG(iconMenu);
+export const IconGithub = template(iconGithub);
+export const IconLogo = createSVG(iconLogo);
+export const IconMenu = template(iconMenu);
