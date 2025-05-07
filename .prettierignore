@@ -1,6 +1,7 @@
+.yarn
 coverage
 dist
-.yarn
+.yarnrc.yml
 package-lock.json
-yarn.lock
 README.md
+yarn.lock
