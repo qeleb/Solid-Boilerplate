@@ -128,6 +128,11 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             })
           );
         },
+        writeBundle({ dir }) {
+          const files = readdirSync(dir!);
+          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), 'utf-8'))
+          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), 'utf-8'))
+        }, //prettier-ignore
       } as Plugin,
       swcPlugin({
         include: /\.js$/,
@@ -136,15 +141,6 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           jsc: { minify: { compress: { passes: 3, unsafe_methods: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true } } }, //prettier-ignore
         },
       }),
-      {
-        name: 'vite-plugin-minify-assets',
-        enforce: 'post',
-        writeBundle({ dir }) {
-          const files = readdirSync(dir!);
-          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), 'utf-8'))
-          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), 'utf-8'))
-        }, //prettier-ignore
-      } as Plugin,
     ].filter(Boolean),
     resolve: { alias: { '@': resolve(path_root, 'src') } },
     test: {
