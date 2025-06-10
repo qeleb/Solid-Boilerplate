@@ -9,6 +9,6 @@ describe('about page', () => {
         <Route component={About} />
       </Router>
     ));
-    expect(screen.getByText('About')).toBeInTheDocument();
+    screen.getByText('About');
   });
 });

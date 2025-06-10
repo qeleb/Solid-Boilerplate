@@ -5,6 +5,6 @@ import { App } from '@/App';
 describe('app', () => {
   it('renders navbar with Home link', () => {
     render(() => <Router root={App} />);
-    expect(screen.getByText('designed by qeleb')).toBeInTheDocument();
+    screen.getByText('designed by qeleb');
   });
 });

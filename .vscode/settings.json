@@ -14,5 +14,6 @@
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
+  "stylelint.snippet": ["css", "scss"],
   "errorLens.delay": 1000
 }

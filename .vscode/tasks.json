@@ -2,14 +2,39 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "problemMatcher": ["$eslint-stylish"],
-      "label": "ESLint: lint workspace folder",
-      "script": "lint",
-      "presentation": { "reveal": "never", "panel": "new" },
+      "label": "ESLint: Lint workspace",
+      "detail": "Run ESLint for all workspace files",
+      "presentation": { "reveal": "never", "close": true },
       "runOptions": { "runOn": "folderOpen" },
-      "detail": "Run ESLint for all files in the workspace folder",
-      "options": { "configFile": "eslint.config.mjs" }
+      "type": "npm",
+      "script": "lint-code",
+      "problemMatcher": "$eslint-stylish"
+    },
+    {
+      "label": "Stylelint: Lint workspace",
+      "detail": "Run Stylelint for all workspace files",
+      "presentation": { "reveal": "never", "close": true },
+      "runOptions": { "runOn": "folderOpen" },
+      "type": "npm",
+      "script": "lint-styles",
+      "problemMatcher": [
+        {
+          "owner": "Stylelint",
+          "severity": "warning",
+          "pattern": [
+            { "regexp": "^([^\\s].*)$", "file": 1 },
+            { "regexp": "^\\s+(\\d+):(\\d+)\\s+⚠\\s+(.*[^\\s])\\s+([\\w\/-]+)$", "line": 1, "column": 2, "message": 3, "code": 4, "loop": true } //prettier-ignore
+          ]
+        },
+        {
+          "owner": "Stylelint",
+          "severity": "error",
+          "pattern": [
+            { "regexp": "^([^\\s].*)$", "file": 1 },
+            { "regexp": "^\\s+(\\d+):(\\d+)\\s+✖\\s+(.*[^\\s])\\s+([\\w\/-]+)$", "line": 1, "column": 2, "message": 3, "code": 4, "loop": true } //prettier-ignore
+          ]
+        }
+      ]
     }
   ]
 }

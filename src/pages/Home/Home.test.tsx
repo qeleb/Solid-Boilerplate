@@ -9,6 +9,6 @@ describe('home page', () => {
         <Route component={Home} />
       </Router>
     ));
-    expect(screen.getByText(/Hello, .+/)).toBeInTheDocument();
+    screen.getByText(/Hello, .+/);
   });
 });

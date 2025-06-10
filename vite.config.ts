@@ -6,14 +6,14 @@ import { fileURLToPath } from 'node:url';
 import swcPlugin from '@rollup/plugin-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { type Plugin, defineConfig, loadEnv } from 'vite';
+import { type Plugin, type UserConfig, defineConfig, loadEnv } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import sassDts from 'vite-plugin-sass-dts';
 import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
-import { configDefaults } from 'vitest/config';
+import { type ViteUserConfig, configDefaults } from 'vitest/config';
 
 const path_root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -155,5 +155,5 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       poolOptions: { threads: { useAtomics: true } },
     },
-  });
+  } as UserConfig & { test: ViteUserConfig['test'] });
 };

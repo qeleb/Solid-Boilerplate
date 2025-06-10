@@ -9,6 +9,6 @@ describe('not found page', () => {
         <Route component={NotFound} />
       </Router>
     ));
-    expect(screen.getByText('404: Page not found')).toBeInTheDocument();
+    screen.getByText('404: Page not found');
   });
 });
