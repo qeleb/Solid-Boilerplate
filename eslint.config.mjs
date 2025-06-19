@@ -87,6 +87,7 @@ export default tseslint.config([
       'no-with': 'warn',
       'object-shorthand': 'warn',
       'operator-assignment': 'warn',
+      'prefer-const': 'warn',
       'prefer-exponentiation-operator': 'warn',
       'prefer-numeric-literals': 'warn',
       'prefer-object-spread': 'warn',
