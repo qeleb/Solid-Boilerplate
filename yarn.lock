@@ -2847,9 +2847,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.160":
-  version: 1.5.170
-  resolution: "electron-to-chromium@npm:1.5.170"
-  checksum: 10/7d9d86aadc3d444e5fa743c512fe8da566f6c8fd02fd1d79dd966577b60a13838e642eab8db2075418b476deb9d5ca6d8d89a07da06fdcf4e12964e1c8101521
+  version: 1.5.171
+  resolution: "electron-to-chromium@npm:1.5.171"
+  checksum: 10/6d58ff50407107d7e86e7beb8d0361358f90dbc10c7d92a2ff9cdfbaf27a65165c00ae05a345ab32fa6e371ff9c7d1fef1441d57adfa8f59701c56734745c0a1
   languageName: node
   linkType: hard
 
@@ -6672,7 +6672,7 @@ __metadata:
     stylelint-config-recommended-scss: "npm:^15.0.1"
     stylelint-no-unsupported-browser-features: "npm:^8.0.4"
     stylelint-order: "npm:^7.0.0"
-    terser: "npm:^5.42.0"
+    terser: "npm:^5.43.1"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.34.1"
     vite: "npm:^6.3.5"
@@ -7194,9 +7194,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.10.0, terser@npm:^5.42.0":
-  version: 5.42.0
-  resolution: "terser@npm:5.42.0"
+"terser@npm:^5.10.0, terser@npm:^5.43.1":
+  version: 5.43.1
+  resolution: "terser@npm:5.43.1"
   dependencies:
     "@jridgewell/source-map": "npm:^0.3.3"
     acorn: "npm:^8.14.0"
@@ -7204,7 +7204,7 @@ __metadata:
     source-map-support: "npm:~0.5.20"
   bin:
     terser: bin/terser
-  checksum: 10/c2375f84c36dd908699c0c46ed38b47efc0eaaf824dbd579f55f776b7d65168a162c10adbb0638bd0d4517e05a578af038a5d3d25a5acd033c6652fa6d100be9
+  checksum: 10/c0a0fd62319e0ce66e800f57ae12ef4ca45f12e9422dac160b866f0d890d01f8b547c96de2557b8443d96953db36be5d900e8006436ef9f628dbd38082e8fe5d
   languageName: node
   linkType: hard
 
@@ -7682,7 +7682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^6.3.5":
+"vite@npm:<7":
   version: 6.3.5
   resolution: "vite@npm:6.3.5"
   dependencies:
