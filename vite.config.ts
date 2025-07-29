@@ -2,7 +2,6 @@
 
 import { readFileSync as read, readdirSync, writeFileSync as write } from 'node:fs';
 import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import swcPlugin from '@rollup/plugin-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -14,8 +13,6 @@ import sassDts from 'vite-plugin-sass-dts';
 import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
 import { type ViteUserConfig, configDefaults } from 'vitest/config';
-
-const path_root = fileURLToPath(new URL('.', import.meta.url));
 
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   const ENV = { ...process.env, ...loadEnv(mode, 'env') };
@@ -72,7 +69,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       }),
       checker({ typescript: true, overlay: false, enableBuild: true }),
       createHtmlPlugin({
-        entry: '/src/index.tsx', // resolve(path_root, 'src/index.tsx'),
+        entry: '/src/index.tsx', // resolve(import.meta.dirname, 'src/index.tsx'),
         minify: {
           collapseBooleanAttributes: true, collapseWhitespace: true, decodeEntities: true, minifyCSS: true,
           minifyJS: true, minifyURLs: true, removeComments: true, removeEmptyAttributes: true,
@@ -81,14 +78,14 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       }),
       optimizeCssModules({ dictionary: 'etionraldfps0gx-1chbum4v6w25k9y873zjHCONADLYqBEFGIJKMPQRSTUVWXZ_' }),
-      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(path_root, '.prettierrc') }), //prettier-ignore
+      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(import.meta.dirname, '.prettierrc') }), //prettier-ignore
       ENV.ANALYZE === 'true' &&
         visualizer({
           template: 'treemap',
           open: true,
           gzipSize: true,
           brotliSize: true,
-          filename: resolve(path_root, 'dist/analyze.html'),
+          filename: resolve(import.meta.dirname, 'dist/analyze.html'),
         }),
       {
         name: 'vite-plugin-remove-junk',
@@ -142,11 +139,11 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         },
       }),
     ].filter(Boolean),
-    resolve: { alias: { '@': resolve(path_root, 'src') } },
+    resolve: { alias: { '@': resolve(import.meta.dirname, 'src') } },
     test: {
       globals: true,
       include: ['src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-      setupFiles: [resolve(path_root, 'src/__test__/setupTests.ts')],
+      setupFiles: [resolve(import.meta.dirname, 'src/__test__/setupTests.ts')],
       coverage: {
         reporter: ['text', 'lcov'],
         include: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
