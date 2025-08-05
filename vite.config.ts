@@ -1,15 +1,16 @@
 /* eslint-disable regexp/no-super-linear-backtracking */
 
-import { readFileSync as read, readdirSync, writeFileSync as write } from 'node:fs';
+import { readFileSync as read, readdirSync } from 'node:fs';
+import { writeFile as write } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import swcPlugin from '@rollup/plugin-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { type Plugin, type UserConfig, defineConfig, loadEnv } from 'vite';
+import { patchCssModules } from 'vite-css-modules';
 import { checker } from 'vite-plugin-checker';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
-import sassDts from 'vite-plugin-sass-dts';
 import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
 import { type ViteUserConfig, configDefaults } from 'vitest/config';
@@ -33,10 +34,11 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         format: { comments: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|when|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|effects|tState|disposed|sensitivity|navigatorFactory|keyed|intent)$/ } }, //prettier-ignore
       },
-      modulePreload: { polyfill: false }, // Delete this line if outputting more than 1 chunk
+      modulePreload: { polyfill: false },
     },
     css: { modules: { exportGlobals: true }, preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true }, //prettier-ignore
     plugins: [
+      patchCssModules({ exportMode: 'default', generateSourceTypes: true }),
       {
         name: 'vite-plugin-optimize-solid-css-modules',
         enforce: 'pre',
@@ -78,15 +80,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         }, //prettier-ignore
       }),
       optimizeCssModules({ dictionary: 'etionraldfps0gx-1chbum4v6w25k9y873zjHCONADLYqBEFGIJKMPQRSTUVWXZ_' }),
-      sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(import.meta.dirname, '.prettierrc') }), //prettier-ignore
-      ENV.ANALYZE === 'true' &&
-        visualizer({
-          template: 'treemap',
-          open: true,
-          gzipSize: true,
-          brotliSize: true,
-          filename: resolve(import.meta.dirname, 'dist/analyze.html'),
-        }),
+      ENV.ANALYZE === 'true' && visualizer({ open: true, gzipSize: true, brotliSize: true, filename: resolve(import.meta.dirname, 'dist/analyze.html') }), //prettier-ignore
       {
         name: 'vite-plugin-remove-junk',
         generateBundle(_options, bundle) {
@@ -125,11 +119,13 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             })
           );
         },
-        writeBundle({ dir }) {
+        async writeBundle({ dir }) {
           const files = readdirSync(dir!);
-          files.filter(x => x.endsWith('.json')).forEach(x => write(`${dir}/${x}`, JSON.stringify(JSON.parse(read(`${dir}/${x}`, 'utf-8'))), 'utf-8'))
-          files.filter(x => x.endsWith('.css') || x.endsWith('.js')).forEach(x => write(`${dir}/${x}`, read(`${dir}/${x}`, 'utf-8').trim(), 'utf-8'))
-        }, //prettier-ignore
+          await Promise.all([
+            ...files.filter(f => f.endsWith('.json')).map(f => write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf-8'))), 'utf-8')),
+            ...files.filter(f => f.endsWith('.css') || f.endsWith('.js')).map(f => write(`${dir}/${f}`, read(`${dir}/${f}`, 'utf-8').trim(), 'utf-8'))
+          ]); //prettier-ignore
+        },
       } as Plugin,
       swcPlugin({
         include: /\.js$/,
