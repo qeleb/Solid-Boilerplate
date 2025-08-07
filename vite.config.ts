@@ -1,6 +1,6 @@
 /* eslint-disable regexp/no-super-linear-backtracking */
 
-import { readFileSync as read, readdirSync } from 'node:fs';
+import { readFileSync as read, readdirSync as readDir } from 'node:fs';
 import { writeFile as write } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import swcPlugin from '@rollup/plugin-swc';
@@ -83,6 +83,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       ENV.ANALYZE === 'true' && visualizer({ open: true, gzipSize: true, brotliSize: true, filename: resolve(import.meta.dirname, 'dist/analyze.html') }), //prettier-ignore
       {
         name: 'vite-plugin-remove-junk',
+        enforce: 'post',
         generateBundle(_options, bundle) {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
@@ -106,7 +107,10 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
             .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("<A> and 'use' router primitives can be only used inside a Route\."\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
             .replace(/if\(void 0===([$\w]+)\)throw Error\(\1\+" is not a valid base path"\);/, "")
-            .replace(/if\(void 0===[$\w]+\)throw Error\(`Path '\$\{[$\w]+\}' is not a routable path`\);if\([$\w]+\.length>=100\)throw Error\("Too many redirects"\);/, ""); //prettier-ignore
+            .replace(/if\(void 0===[$\w]+\)throw Error\(`Path '\$\{[$\w]+\}' is not a routable path`\);if\([$\w]+\.length>=100\)throw Error\("Too many redirects"\);/, "")
+            .trim(); //prettier-ignore
+
+          // Remove Solid junk
           if (o.code.split('formnovalidate').length < 4) o.code = o.code.replace(',formnovalidate:{$:"formNoValidate",BUTTON:1,INPUT:1}', ''); //prettier-ignore
           if (o.code.split('ismap').length < 4) o.code = o.code.replace(',ismap:{$:"isMap",IMG:1}', '');
           if (o.code.split('nomodule').length < 4) o.code = o.code.replace(',nomodule:{$:"noModule",SCRIPT:1}', '');
@@ -118,14 +122,12 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
                 o.code = o.code.replace(`${prop},`, '').replace(`,${prop}`, '');
             })
           );
+
+          // Trim whitespace
+          (Object.values(bundle).filter(x => x.type === "chunk" && !x.isEntry) as any).forEach( x => (x.code = x.code.trim())); //prettier-ignore
+          (Object.values(bundle).filter(x => x.fileName?.includes('.css') && 'source' in x) as any).forEach( x => (x.source = x.source.trim())); //prettier-ignore
         },
-        async writeBundle({ dir }) {
-          const files = readdirSync(dir!);
-          await Promise.all([
-            ...files.filter(f => f.endsWith('.json')).map(f => write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf-8'))), 'utf-8')),
-            ...files.filter(f => f.endsWith('.css') || f.endsWith('.js')).map(f => write(`${dir}/${f}`, read(`${dir}/${f}`, 'utf-8').trim(), 'utf-8'))
-          ]); //prettier-ignore
-        },
+        writeBundle: async ({ dir }) => void Promise.all(readDir(dir!).filter(f => f.endsWith('.json')).map(f => write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf-8'))), 'utf-8'))), //prettier-ignore
       } as Plugin,
       swcPlugin({
         include: /\.js$/,
