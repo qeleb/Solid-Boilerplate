@@ -31,5 +31,7 @@ window.alert = (...args) => console.log(...args);
 
 // Mock server
 let mockServer: Server<Registry<AnyModels, AnyFactories>>;
+
 beforeAll(() => void (mockServer = createMockServer()));
+
 afterAll(() => mockServer.shutdown());

@@ -1,3 +1,4 @@
+import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import vitest from '@vitest/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
@@ -9,7 +10,7 @@ import testingLibrary from 'eslint-plugin-testing-library';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config([
+export default defineConfig([
   {
     ignores: ['dist/**', 'coverage/**', 'public/*.js'],
     plugins: { '@typescript-eslint': tseslint.plugin, prettier, '@vitest': vitest, 'testing-library': testingLibrary },
@@ -187,12 +188,13 @@ export default tseslint.config([
   },
   {
     /* Test */
-    files: ['**/*.{test,spec}.*'],
+    files: ['**/*.{test,spec}.*', '**/__test__/setupTests.ts'],
     settings: { vitest: { typecheck: true } },
     rules: {
       '@typescript-eslint/no-unused-expressions': 'off',
       '@vitest/consistent-test-filename': ['warn', { pattern: '\\.test\\.tsx?$' }],
       '@vitest/consistent-test-it': ['warn', { fn: 'it' }],
+      '@vitest/consistent-vitest-vi': 'warn',
       '@vitest/expect-expect': ['error', { assertFunctionNames: ['expect', 'screen.findBy*', 'screen.getBy*'] }],
       '@vitest/max-nested-describe': ['error', { max: 3 }],
       '@vitest/no-alias-methods': 'warn',
@@ -202,6 +204,7 @@ export default tseslint.config([
       '@vitest/no-duplicate-hooks': 'error',
       '@vitest/no-focused-tests': 'warn',
       '@vitest/no-identical-title': 'error',
+      '@vitest/no-importing-vitest-globals': 'warn',
       '@vitest/no-standalone-expect': 'warn',
       '@vitest/no-test-return-statement': 'warn',
       '@vitest/padding-around-after-all-blocks': 'warn',
