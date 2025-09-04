@@ -1,6 +1,6 @@
-import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import vitest from '@vitest/eslint-plugin';
+import { defineConfig } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
 import prettier from 'eslint-plugin-prettier';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -213,6 +213,7 @@ export default defineConfig([
       '@vitest/padding-around-before-each-blocks': 'warn',
       '@vitest/padding-around-describe-blocks': 'warn',
       '@vitest/padding-around-test-blocks': 'warn',
+      '@vitest/prefer-called-once': 'warn',
       '@vitest/prefer-comparison-matcher': 'warn',
       '@vitest/prefer-equality-matcher': 'warn',
       '@vitest/prefer-lowercase-title': 'warn',
