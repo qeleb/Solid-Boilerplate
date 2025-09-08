@@ -64,8 +64,9 @@ ____|Required|____|Recommended
 > Additionally, <a href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree"><img src="https://gruntfuggly.gallerycdn.vsassets.io/extensions/gruntfuggly/todo-tree/0.0.223/1675289441988/Microsoft.VisualStudio.Services.Icons.Default" alt="Todo Tree" width="20">Todo Tree</a> is great for seeing an overview of the TODO's & NOTE's in the project.
 
 ### Linting
-Linting is provided by [ESLint](https://github.com/eslint/eslint) with a custom configurations & the following plugins:
+Linting is provided by [ESLint](https://github.com/eslint/eslint) with a custom configuration & the following plugins:
 - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+- [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)
 - [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest)
