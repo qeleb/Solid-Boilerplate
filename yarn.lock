@@ -789,19 +789,19 @@ __metadata:
   linkType: hard
 
 "@jridgewell/trace-mapping@npm:^0.3.23, @jridgewell/trace-mapping@npm:^0.3.24, @jridgewell/trace-mapping@npm:^0.3.25, @jridgewell/trace-mapping@npm:^0.3.28, @jridgewell/trace-mapping@npm:^0.3.30":
-  version: 0.3.30
-  resolution: "@jridgewell/trace-mapping@npm:0.3.30"
+  version: 0.3.31
+  resolution: "@jridgewell/trace-mapping@npm:0.3.31"
   dependencies:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
-  checksum: 10/f9fabe1122058f4fedc242bdc43fcaacb6b222c6fb712b7904c37704dcb16e50e07ca137ff99043da44292b18a8720296ff97f7703e960678b8ef51d0db4d250
+  checksum: 10/da0283270e691bdb5543806077548532791608e52386cfbbf3b9e8fb00457859d1bd01d512851161c886eb3a2f3ce6fd9bcf25db8edf3bddedd275bd4a88d606
   languageName: node
   linkType: hard
 
-"@keyv/serialize@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@keyv/serialize@npm:1.1.0"
-  checksum: 10/73b88b69e07847b67d443efcd4949955aa7ac0f998f68e6cfe9053307c1ea3caeabe3f6f1c6a99b1b32bb9a6698c8a5c452f96246fe77d98f1cba0c2faae4616
+"@keyv/serialize@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@keyv/serialize@npm:1.1.1"
+  checksum: 10/e3b2cb1377863342acedd5ff785af3e69269bee9b44707c617d1c8bc14eeb5ac763159d6455903ffe92f143c2238e1e783c4f113f9c8910eacccf172894472da
   languageName: node
   linkType: hard
 
@@ -1735,11 +1735,11 @@ __metadata:
   linkType: hard
 
 "ansi-escapes@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "ansi-escapes@npm:7.0.0"
+  version: 7.1.0
+  resolution: "ansi-escapes@npm:7.1.0"
   dependencies:
     environment: "npm:^1.0.0"
-  checksum: 10/2d0e2345087bd7ae6bf122b9cc05ee35560d40dcc061146edcdc02bc2d7c7c50143cd12a22e69a0b5c0f62b948b7bc9a4539ee888b80f5bd33cdfd82d01a70ab
+  checksum: 10/bf0d36c2b350f4fb5759742f83000fa1bae35b610f05aa528db65f626620b34100a048906308d98ea385e1447997417f3f594456c45c3aa30f52f3f450a30ed3
   languageName: node
   linkType: hard
 
@@ -2819,9 +2819,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.211":
-  version: 1.5.215
-  resolution: "electron-to-chromium@npm:1.5.215"
-  checksum: 10/fc594ad4ae4a8f49966a78dbb92db189ffdfa793e8d27241e3db9e289ff6be697a499d424f7628d12468481682da2639fb3b330b666f9901792ef1c20c2ff368
+  version: 1.5.216
+  resolution: "electron-to-chromium@npm:1.5.216"
+  checksum: 10/d24a10bcc07adde1e894a29d77ac7740a32f54a354a501c2f1b53e11b8f6d33afa5c619399794092232a8237a99c8e46fcf4e7d9c0c49118a2ba5527f9c2b874
   languageName: node
   linkType: hard
 
@@ -3685,9 +3685,9 @@ __metadata:
   linkType: hard
 
 "get-east-asian-width@npm:^1.0.0, get-east-asian-width@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "get-east-asian-width@npm:1.3.1"
-  checksum: 10/b9a5e2e42f5fc29c073595e15e245f0e9c7ac8d50388f36adef24fbb6bb7c1775392967bc78d96ce84cffb33b1a7bbec88d2b608130a99c35e148a99a60a8ad4
+  version: 1.4.0
+  resolution: "get-east-asian-width@npm:1.4.0"
+  checksum: 10/c9ae85bfc2feaf4cc71cdb236e60f1757ae82281964c206c6aa89a25f1987d326ddd8b0de9f9ccd56e37711b9fcd988f7f5137118b49b0b45e19df93c3be8f45
   languageName: node
   linkType: hard
 
@@ -3791,10 +3791,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "globals@npm:16.3.0"
-  checksum: 10/accb0939d993a1c461df8d961ce9911a9a96120929e0a61057ae8e75b7df0a8bf8089da0f4e3a476db0211156416fbd26e222a56f74b389a140b34481c0a72b0
+"globals@npm:^16.4.0":
+  version: 16.4.0
+  resolution: "globals@npm:16.4.0"
+  checksum: 10/1627a9f42fb4c82d7af6a0c8b6cd616e00110908304d5f1ddcdf325998f3aed45a4b29d8a1e47870f328817805263e31e4f1673f00022b9c2b210552767921cf
   languageName: node
   linkType: hard
 
@@ -4677,11 +4677,11 @@ __metadata:
   linkType: hard
 
 "keyv@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "keyv@npm:5.5.0"
+  version: 5.5.1
+  resolution: "keyv@npm:5.5.1"
   dependencies:
-    "@keyv/serialize": "npm:^1.1.0"
-  checksum: 10/577dc09d8972669a331009c9b1f9e9da8d9090908377208e1b1583e38ce8d2de6f4999e83cd8a31f4bdcc258bd5973f1515bcee10f678a9b8aca378611ed9a65
+    "@keyv/serialize": "npm:^1.1.1"
+  checksum: 10/89d7732f81d08fb5663bf95b5948818fa52c8d1b2bd0d5991d219e6fbbfd272ca09bc50ad88a4533fee0ad327f22837427779764b8b4b0e0d2bda41422019344
   languageName: node
   linkType: hard
 
@@ -6659,7 +6659,7 @@ __metadata:
     eslint-plugin-regexp: "npm:^2.10.0"
     eslint-plugin-solid: "npm:^0.14.5"
     eslint-plugin-testing-library: "npm:^7.6.8"
-    globals: "npm:^16.3.0"
+    globals: "npm:^16.4.0"
     husky: "npm:^9.1.7"
     jsdom: "npm:^26.1.0"
     lightningcss: "npm:^1.30.1"

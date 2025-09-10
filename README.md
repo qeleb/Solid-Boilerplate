@@ -23,7 +23,7 @@ Solid Boilerplate
 1. 🖥 `yarn preview` - start local production server
 
 ### Build
-1. 🔨 `yarn build` - build for production & output to `dist/` with Vite (Esbuild)
+1. 🔨 `yarn build` - build for production & output to `dist/` with Vite
 
 ### Test
 1. 🧪 `yarn test` - run unit tests & generate coverage report in `coverage/`
