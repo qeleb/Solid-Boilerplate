@@ -7,6 +7,7 @@
     "skipLibCheck": true,
 
     /* Output */
+    "noEmit": true,
     "module": "ESNext",
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
