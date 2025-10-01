@@ -124,8 +124,8 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           );
 
           // Trim whitespace
-          (Object.values(bundle).filter(x => x.type === "chunk" && !x.isEntry) as any).forEach( x => (x.code = x.code.trim())); //prettier-ignore
-          (Object.values(bundle).filter(x => x.fileName?.includes('.css') && 'source' in x) as any).forEach( x => (x.source = x.source.trim())); //prettier-ignore
+          Object.values(bundle).filter(x => x.type === "chunk" && !x.isEntry).forEach((x: any) => (x.code = x.code.trim())); //prettier-ignore
+          Object.values(bundle).filter(x => x.fileName?.includes('.css') && 'source' in x).forEach((x: any) => (x.source = x.source.trim())); //prettier-ignore
         },
         writeBundle: async ({ dir }) => void Promise.all(readDir(dir!).filter(f => f.endsWith('.json')).map(f => write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf-8'))), 'utf-8'))), //prettier-ignore
       } as Plugin,
