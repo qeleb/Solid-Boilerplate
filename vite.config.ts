@@ -148,6 +148,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         exclude: configDefaults.coverage.exclude!.concat(['**/__test__/', 'src/services/mock', 'src/index.tsx']),
         clean: false,
       },
+      pool: 'vmThreads',
       poolOptions: { threads: { useAtomics: true } },
     },
   } as UserConfig & { test: ViteUserConfig['test'] });
