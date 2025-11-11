@@ -6,8 +6,9 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const Card: string;
+declare const Card: string;
 
-export default {
-	Card
+declare const __default_export__: {
+	Card: typeof Card;
 };
+export default __default_export__;

@@ -6,10 +6,11 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const About: string;
-const cardsList: string;
+declare const About: string;
+declare const cardsList: string;
 
-export default {
-	About,
-	cardsList
+declare const __default_export__: {
+	About: typeof About;
+	cardsList: typeof cardsList;
 };
+export default __default_export__;

@@ -24,7 +24,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       target: browserslistToEsbuild(),
       rollupOptions: {
         output: { entryFileNames: '[hash:6].js', chunkFileNames: '[hash:6].js', assetFileNames: '[hash:6][extname]' },
-        treeshake: { tryCatchDeoptimization: false },
+        treeshake: { propertyReadSideEffects: false, tryCatchDeoptimization: false },
       },
       minify: 'terser',
       cssMinify: 'lightningcss',

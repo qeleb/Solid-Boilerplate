@@ -6,8 +6,9 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const NotFound: string;
+declare const NotFound: string;
 
-export default {
-	NotFound
+declare const __default_export__: {
+	NotFound: typeof NotFound;
 };
+export default __default_export__;

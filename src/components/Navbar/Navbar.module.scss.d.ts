@@ -6,14 +6,15 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const Navbar: string;
-const navMain: string;
-const navExtension: string;
-const show: string;
+declare const Navbar: string;
+declare const navMain: string;
+declare const navExtension: string;
+declare const show: string;
 
-export default {
-	Navbar,
-	navMain,
-	navExtension,
-	show
+declare const __default_export__: {
+	Navbar: typeof Navbar;
+	navMain: typeof navMain;
+	navExtension: typeof navExtension;
+	show: typeof show;
 };
+export default __default_export__;

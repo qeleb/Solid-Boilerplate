@@ -6,10 +6,11 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const main: string;
-const bottom: string;
+declare const main: string;
+declare const bottom: string;
 
-export default {
-	main,
-	bottom
+declare const __default_export__: {
+	main: typeof main;
+	bottom: typeof bottom;
 };
+export default __default_export__;

@@ -6,8 +6,9 @@
  * https://npmjs.com/vite-css-modules
  */
 
-const Home: string;
+declare const Home: string;
 
-export default {
-	Home
+declare const __default_export__: {
+	Home: typeof Home;
 };
+export default __default_export__;
