@@ -49,9 +49,9 @@
     "@swc/core": "1.13.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/node": "^22.19.1",
-    "@vitest/coverage-v8": "^4.0.14",
+    "@vitest/coverage-v8": "^3.2.4",
     "@vitest/eslint-plugin": "1.5.0",
-    "@vitest/ui": "^4.0.14",
+    "@vitest/ui": "^3.2.4",
     "babel-plugin-react-remove-properties": "^0.3.1",
     "browserslist-to-esbuild": "^2.1.1",
     "eslint": "^9.39.1",
@@ -86,7 +86,7 @@
     "vite-plugin-optimize-css-modules": "^1.2.0",
     "vite-plugin-solid": "^2.11.10",
     "vite-plugin-svgo": "^2.0.0",
-    "vitest": "^4.0.14"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@solidjs/router": "0.10.1",
@@ -101,5 +101,5 @@
     "known-css-properties": "^0.37.0",
     "mdn-data": "latest"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.12.0"
 }
