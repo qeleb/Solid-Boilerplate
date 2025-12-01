@@ -88,7 +88,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
             // Window object
-            .replace(/\bwindow\.(addEventListener|alert|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|screenX|screenY|scrollTo|setTimeout)\b/g, '$1')
+            .replace(/\bwindow\.(CustomStateSet|ElementInternals|addEventListener|alert|clearInterval|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|screenX|screenY|scrollTo|setInterval|setTimeout)\b/g, '$1')
             // Optional chaining
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.([_a-zA-Z$][\w$]*)/g, '$1?.$2') // a&&a.b ==> a?.b
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.?([[(])/g, '$1?.$2') // a&&a(b) ==> a?.(b)
@@ -98,9 +98,8 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             // Solid
             .replace(/(?:const|let) ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, '')
             .replace(/[$\w]+\.[$\w]+\?([$\w]+\(\)):\(\)=>\{if\([$\w]+\([$\w]+\)\(\)\?\.\[0\]!==[$\w]+\)throw"Stale read from <Match>\.";return \1\}/, '$1') // Remove Keyed Match
-            .replace(/\{if\(![$\w]+\([$\w]+\)\)throw"Stale read from <Show>\.";return ([$\w]+\.[$\w]+)\}/, '$1') // Remove Keyed Show
-            .replace(/,[$\w]+=([$\w]+)=>`Stale read from <\$\{\1\}>\.`/, '')
-            .replace(/\{if\(![$\w]+\([$\w]+\)\)throw [$\w]+\("Show"\);return\s+([$\w]+)\.([$\w]+);?\}/, '$1.$2')
+            .replace(/\{if\(![$\w]+\([$\w]+\)\)throw"Stale read from <Show>\.";return ([$\w]+(?:\.[$\w]+|\(\)))\}/, '$1') // Remove Keyed Show
+            // .replace(/else if\((["'])oncapture:\1===([$\w]+)\.slice\(0,10\)\)\{(?:const|let) ([$\w]+)=\2\.slice\(10\);([$\w]+)&&([$\w]+)\.removeEventListener\(\3,\4,!0\),([$\w]+)&&\5\.addEventListener\(\3,\6,!0\)\}/, '') // Remove runtime on:capture
             // Solid router
             .replace(/if\("POST"!==\w+\.target\.method\.toUpperCase\(\)\)throw Error\("Only POST forms are supported for Actions"\);/, "")
             .replace(/\(([$\w]+)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
@@ -111,11 +110,25 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             .trim(); //prettier-ignore
 
           // Remove Solid junk
-          if (o.code.split('formnovalidate').length < 4) o.code = o.code.replace(',formnovalidate:{$:"formNoValidate",BUTTON:1,INPUT:1}', ''); //prettier-ignore
-          if (o.code.split('ismap').length < 4) o.code = o.code.replace(',ismap:{$:"isMap",IMG:1}', '');
-          if (o.code.split('nomodule').length < 4) o.code = o.code.replace(',nomodule:{$:"noModule",SCRIPT:1}', '');
-          if (o.code.split('playsinline').length < 4) o.code = o.code.replace(',playsinline:{$:"playsInline",VIDEO:1}', ''); //prettier-ignore
-          if (o.code.split('readonly').length < 4) o.code = o.code.replace(',readonly:{$:"readOnly",INPUT:1,TEXTAREA:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bform[Nn]o[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(/,formnovalidate:\{\$:"formNoValidate",[$\w]+:1,INPUT:1\}/g, ''); //prettier-ignore
+          if ((o.code.match(/\bno[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',novalidate:{$:"noValidate",FORM:1}', ''); /*TODO: FIX */ //prettier-ignore
+          if ((o.code.match(/\bis[Mm]ap\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',ismap:{$:"isMap",IMG:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bno[Mm]odule\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',nomodule:{$:"noModule",SCRIPT:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bplays[Ii]nline\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',playsinline:{$:"playsInline",VIDEO:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bread[Oo]nly\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',readonly:{$:"readOnly",INPUT:1,TEXTAREA:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bad[Aa]uction[Hh]eaders\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',adauctionheaders:{$:"adAuctionHeaders",IFRAME:1}', ''); //prettier-ignore
+          if ((o.code.match(/\ballow[Ff]ullscreen\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',allowfullscreen:{$:"allowFullscreen",IFRAME:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bbrowsing[Tt]opics\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',browsingtopics:{$:"browsingTopics",IMG:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bdefault[Cc]hecked\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',defaultchecked:{$:"defaultChecked",INPUT:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bdefault[Mm]uted\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',defaultmuted:{$:"defaultMuted",AUDIO:1,VIDEO:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bdefault[Ss]elected\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',defaultselected:{$:"defaultSelected",OPTION:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bdisable[Pp]icture[Ii]n[Pp]icture\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',disablepictureinpicture:{$:"disablePictureInPicture",VIDEO:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bdisable[Rr]emote[Pp]layback\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',disableremoteplayback:{$:"disableRemotePlayback",AUDIO:1,VIDEO:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bpreserves[Pp]itch\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',preservespitch:{$:"preservesPitch",AUDIO:1,VIDEO:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bshadow[Rr]oot[Cc]lonable\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',shadowrootclonable:{$:"shadowRootClonable",TEMPLATE:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bshadow[Rr]oot[Dd]elegates[Ff]ocus\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',shadowrootdelegatesfocus:{$:"shadowRootDelegatesFocus",TEMPLATE:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bshadow[Rr]oot[Ss]erializable\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',shadowrootserializable:{$:"shadowRootSerializable",TEMPLATE:1}', ''); //prettier-ignore
+          if ((o.code.match(/\bshared[Ss]torage[Ww]ritable\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',sharedstoragewritable:{$:"sharedStorageWritable",IFRAME:1,IMG:1}', ''); //prettier-ignore
           (o.code as string).match(/(?<==new Set\(\[)(?:"[a-z]{2}[a-zA-Z]{2,}",?)+\]\)/g)?.forEach(set =>
             set.match(/"[a-z]{2}[a-zA-Z]{2,}"/g)?.forEach(prop => {
               if (o.code.split(prop.replace(/["']/g, '')).length < 3)
