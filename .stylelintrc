@@ -22,7 +22,7 @@
     "media-feature-name-no-vendor-prefix": true,
     "media-feature-range-notation": "context",
     "no-descending-specificity": null,
-    "no-invalid-position-declaration": [true, { "severity": "error " }],
+    "no-invalid-position-declaration": [true, { "severity": "error" }],
     "property-disallowed-list": ["flex-direction"],
     "property-no-deprecated": [true, { "ignoreProperties": ["word-wrap"] }],
     "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
