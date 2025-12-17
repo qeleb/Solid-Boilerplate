@@ -2,9 +2,14 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.eol": "\n",
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "prettier.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.ts": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.prettier": "explicit"
+  },
   "javascript.format.enable": false,
   "typescript.format.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
