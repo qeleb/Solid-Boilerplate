@@ -6,14 +6,14 @@ import { resolve } from 'node:path';
 import swcPlugin from '@rollup/plugin-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { type Plugin, type UserConfig, defineConfig, loadEnv } from 'vite';
+import { type Plugin, defineConfig, loadEnv } from 'vite';
 import { patchCssModules } from 'vite-css-modules';
 import { checker } from 'vite-plugin-checker';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
-import { type ViteUserConfig, configDefaults } from 'vitest/config';
+import { configDefaults } from 'vitest/config';
 
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   const ENV = { ...process.env, ...loadEnv(mode, 'env') };
@@ -36,7 +36,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       },
       modulePreload: { polyfill: false },
     },
-    css: { modules: { exportGlobals: true }, preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true }, //prettier-ignore
+    css: { modules: { exportGlobals: true }, devSourcemap: true },
     plugins: [
       patchCssModules({ exportMode: 'default', generateSourceTypes: true }),
       {
@@ -87,7 +87,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         generateBundle(_options, bundle) {
           const o: any = Object.values(bundle).find(x => (x as any)?.isEntry && 'code' in x);
           o.code = o.code
-            // Window object
+            // Window
             .replace(/\bwindow\.(CustomStateSet|ElementInternals|addEventListener|alert|clearInterval|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|screenX|screenY|scrollTo|setInterval|setTimeout)\b/g, '$1')
             // Optional chaining
             .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.([_a-zA-Z$][\w$]*)/g, '$1?.$2') // a&&a.b ==> a?.b
@@ -164,5 +164,5 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       pool: 'vmThreads',
       poolOptions: { threads: { useAtomics: true } },
     },
-  } as UserConfig & { test: ViteUserConfig['test'] });
+  });
 };
