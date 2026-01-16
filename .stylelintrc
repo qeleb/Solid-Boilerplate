@@ -12,6 +12,12 @@
     "color-hex-length": "short",
     "comment-whitespace-inside": "always",
     "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-property-value-disallowed-list": [
+      { "/^overflow(-(x|y|inline|block))?$/i": ["/\\bscroll\\b/i"] },
+      {
+        "message": "Use auto or hidden instead of scroll to avoid issues. https://blog.kizu.dev/never-use-overflow-scroll"
+      }
+    ],
     "font-family-name-quotes": "always-where-recommended",
     "function-name-case": "lower",
     "function-url-quotes": "always",
@@ -22,6 +28,7 @@
     "media-feature-name-no-vendor-prefix": true,
     "media-feature-range-notation": "context",
     "no-descending-specificity": null,
+    "no-duplicate-selectors": true,
     "no-invalid-position-declaration": [true, { "severity": "error" }],
     "property-disallowed-list": ["flex-direction"],
     "property-no-deprecated": [true, { "ignoreProperties": ["word-wrap"] }],

@@ -7,7 +7,7 @@ import '@/globalStyles.scss';
 export const App = (props: RouteSectionProps) => (
   <>
     <Navbar />
-    {/* @once*/ props.children}
+    {/*@once*/ props.children}
     <Footer />
   </>
 );

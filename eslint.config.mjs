@@ -95,7 +95,7 @@ export default defineConfig([
       'prefer-spread': 'warn',
       'prefer-template': 'warn',
       'require-yield': 'warn',
-      'spaced-comment': ['warn', 'always', { markers: ['/', 'TODO:', 'NOTE:', 'FIXME:'], exceptions: ['prettier-ignore'] }], //prettier-ignore
+      'spaced-comment': ['warn', 'always', { markers: ['/', 'TODO:', '@ts-expect-error'], exceptions: ['@once', '@__INLINE__', '@__KEY__', '@__MANGLE_PROP__', '@__NOINLINE__', '@__PURE__', 'prettier-ignore'] }], //prettier-ignore
       strict: ['warn', 'never'],
       'dot-location': ['warn', 'property'],
       'new-parens': 'warn',
