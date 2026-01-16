@@ -169,7 +169,6 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         clean: false,
       },
       pool: 'vmThreads',
-      poolOptions: { threads: { useAtomics: true } },
     },
   });
 };
