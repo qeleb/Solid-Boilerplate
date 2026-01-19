@@ -18,11 +18,7 @@ type DeepKeys<T extends object> = {
   [K in keyof T]: T[K] extends object & { length?: never } ? DeepKeys<T[K]> | never : K;
 }[keyof T];
 
-type DeepPartial<T> = T extends object
-  ? {
-      [P in keyof T]?: DeepPartial<T[P]>;
-    }
-  : T;
+type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;
 
 type SolidEvent<C, T = Element> = Event & { currentTarget: C; target: T };
 type SolidClipboardEvent<C, T = Element> = ClipboardEvent & { currentTarget: C; target: T };
