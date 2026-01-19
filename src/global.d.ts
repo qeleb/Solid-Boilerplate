@@ -2,9 +2,15 @@
 /// <reference types="vite/client" />
 
 /* Environment Variables */
+interface ViteTypeOptions {
+  strictImportMetaEnv: unknown;
+}
+
 interface ImportMetaEnv {
   MODE: 'production' | 'development' | 'test';
   TEST: true | undefined;
+
+  [key: `VITE_${string}`]: string | undefined; // Default
 }
 
 interface ImportMeta {
