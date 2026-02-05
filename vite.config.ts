@@ -162,6 +162,9 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       globals: true,
       include: ['src/**/*.{test,spec}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
       setupFiles: [resolve(import.meta.dirname, 'src/__test__/setupTests.ts')],
+      clearMocks: true,
+      unstubEnvs: true,
+      unstubGlobals: true,
       coverage: {
         reporter: ['text', 'lcov'],
         include: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],

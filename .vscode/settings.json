@@ -2,13 +2,18 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.eol": "\n",
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.ts": "explicit",
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
     "source.fixAll.prettier": "explicit"
+  },
+  "search.exclude": {
+    "**/{node_modules,bower_components,*.code-search}": true,
+    "**/.yarn/{cache,releases}/**": true,
+    "**/*.module.scss.d.ts": true
   },
   "javascript.format.enable": false,
   "typescript.format.enable": false,
