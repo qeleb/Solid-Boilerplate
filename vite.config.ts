@@ -153,7 +153,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         include: /\.js$/,
         swc: {
           minify: true,
-          jsc: { minify: { compress: { passes: 3, unsafe_methods: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true } } }, //prettier-ignore
+          jsc: { minify: { compress: { passes: 0, unsafe_methods: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true } } }, //prettier-ignore
         },
       }),
     ].filter(Boolean),
