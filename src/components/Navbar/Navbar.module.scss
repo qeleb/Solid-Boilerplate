@@ -33,9 +33,9 @@
     background: #fafafad0;
     font-weight: 700;
     font-size: 1.25rem;
-    transition: backdrop-filter 0.2s ease;
-    -webkit-backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); // iOS/Safari <18
     backdrop-filter: blur(6px);
+    transition: backdrop-filter 0.2s ease;
 
     & > a,
     & > a > svg {
@@ -76,11 +76,11 @@
 
   & > .navExtension {
     flex-flow: column;
+    clip-path: inset(0 0 100% 0);
     height: 100%;
     padding-bottom: 1rem;
     visibility: hidden;
     transition: all 0.45s;
-    clip-path: inset(0 0 100% 0);
 
     & > a {
       width: 100%;
@@ -108,21 +108,21 @@
 
     &.show {
       box-shadow: 5px 3px 8px 0 #0001;
+      -webkit-backdrop-filter: blur(6px); // iOS/Safari <18
+      backdrop-filter: blur(6px);
       transition-delay: 0s, 0.28s;
       transition-duration: 0.45s, 0.45s;
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
 
       & > .navMain {
         box-shadow: none;
-        -webkit-backdrop-filter: blur(0);
+        -webkit-backdrop-filter: blur(0); // iOS/Safari <18
         backdrop-filter: blur(0);
       }
 
       & > .navExtension {
+        clip-path: inset(0);
         background: #fafafad0;
         visibility: visible;
-        clip-path: inset(0);
       }
     }
   }

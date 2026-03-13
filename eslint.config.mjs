@@ -50,7 +50,7 @@ export default defineConfig([
       'no-global-assign': 'warn',
       'no-iterator': 'warn',
       'no-label-var': 'warn',
-      'no-labels': ['warn', { allowLoop: true, allowSwitch: false }],
+      'no-labels': ['warn', { allowLoop: true }],
       'no-lone-blocks': 'warn',
       'no-lonely-if': 'warn',
       'no-loop-func': 'warn',
@@ -124,7 +124,7 @@ export default defineConfig([
       'import/first': 'warn',
       'import/newline-after-import': 'warn',
       'import/order': ['warn', { alphabetize: { order: 'asc' }, named: true, 'newlines-between': 'never' }],
-      'regexp/prefer-quantifier': 'warn',
+      'regexp/prefer-quantifier': ['warn', { allows: ['\\d\\d'] }],
       'regexp/prefer-regexp-test': 'warn',
 
       /* Exceptions to make TypeScript less strict */

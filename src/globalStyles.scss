@@ -8,7 +8,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   /* Custom scrollbar for Firefox */ /* stylelint-disable-next-line order/order */
-  @-moz-document url-prefix() {
+  @-moz-document url-prefix() /* stylelint-disable-line at-rule-no-vendor-prefix, order/order */ {
     scrollbar-color: #0006 #0000; /* stylelint-disable-line plugin/no-unsupported-browser-features */
     scrollbar-width: thin; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
