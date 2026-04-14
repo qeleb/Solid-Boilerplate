@@ -3,7 +3,8 @@
 import { readFileSync as read, readdirSync as readDir } from 'node:fs';
 import { writeFile as write } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import swcPlugin from '@rollup/plugin-swc';
+import { minifySync } from '@swc/core';
+import { minifySync as minifyHTML } from '@swc/html';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import postcss from 'postcss';
 import postcssSortMediaQueries from 'postcss-sort-media-queries';
@@ -11,11 +12,11 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { type Plugin, defineConfig, loadEnv } from 'vite';
 import { patchCssModules } from 'vite-css-modules';
 import { checker } from 'vite-plugin-checker';
-import { createHtmlPlugin } from 'vite-plugin-html';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import solid from 'vite-plugin-solid';
 import svg from 'vite-plugin-svgo';
 import { configDefaults } from 'vitest/config';
+import { version } from './package.json';
 
 export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
   const ENV = { ...process.env, ...loadEnv(mode, 'env') };
@@ -32,7 +33,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       cssMinify: 'lightningcss',
       terserOptions: {
         ecma: 2020,
-        compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true }, //prettier-ignore
+        compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true }, //prettier-ignore
         format: { comments: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|tState|disposed|sensitivity|navigatorFactory|keyed|intent)$/ } }, //prettier-ignore
       },
@@ -46,7 +47,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         enforce: 'pre',
         transform: {
           handler: code => ({
-            code: code.replace(/class=\{([a-zA-Z '"`[\].-]+|`(?:\$\{[a-zA-Z '"`[\].-]+\}\s*)+`)\}/g, 'class={/*@once*/$1}') /*TODO: Avoid store & allow 1 ./space */, //prettier-ignore
+            code: code.replace(/class=\{([a-zA-Z "'`[\].-]+|`(?:\$\{[a-zA-Z "'`[\].-]+\}\s*)+`)\}/g, 'class={/*@once*/$1}') /*TODO: Use classes statically & support classList*/, //prettier-ignore
             map: null,
           }),
           filter: { id: /\.[mc]?[jt]sx$/ },
@@ -71,16 +72,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
         ],
       }),
       checker({ typescript: true, overlay: false, enableBuild: true }),
-      createHtmlPlugin({
-        entry: '/src/index.tsx', // resolve(import.meta.dirname, 'src/index.tsx'),
-        minify: {
-          collapseBooleanAttributes: true, collapseWhitespace: true, decodeEntities: true, minifyCSS: true,
-          minifyJS: true, minifyURLs: true, removeComments: true, removeEmptyAttributes: true,
-          removeOptionalTags: true, removeRedundantAttributes: true, removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true, sortAttributes: true, useShortDoctype: true,
-        }, //prettier-ignore
-      }),
-      optimizeCssModules({ dictionary: 'etionraldfps0gx-1chbum4v6w25k9y873zjHCONADLYqBEFGIJKMPQRSTUVWXZ_' }),
+      optimizeCssModules({ dictionary: 'etairon-lspdx0vc1bghufmw2ky45836z79jYHOZBEFGCNAKDLXqIJMPQRSTUVW_' }),
       ENV.ANALYZE === 'true' && visualizer({ open: true, gzipSize: true, brotliSize: true, filename: resolve(import.meta.dirname, 'dist/analyze.html') }), //prettier-ignore
       {
         name: 'vite-plugin-remove-junk',
@@ -90,33 +82,42 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
             .filter(x => x.type === 'chunk' && 'code' in x)
             .forEach(o => {
               o.code = o.code
-                // Window
-                .replace(/\bglobalThis\b/g, 'window')
-                .replace(/\bwindow\.(CustomStateSet|ElementInternals|addEventListener|alert|clearInterval|clearTimeout|confirm|crypto|customElements|document|fetch|history|innerHeight|innerWidth|location|origin|parent|removeEventListener|screen|screenLeft|screenTop|screenX|screenY|scrollTo|setInterval|setTimeout)\b/g, '$1')
-                .replace(/\bclearInterval\b/g, 'clearTimeout')
+                // Globals
+                .replace(/\bglobalThis\b/g, 'window') // globalThis -> window
+                .replace(/\bwindow\.(CustomStateSet|ElementInternals|addEventListener|clearInterval|clearTimeout|crypto|document|fetch|getComputedStyle|location|removeEventListener|requestAnimationFrame|setInterval|setTimeout)/g, '$1')
+                .replace(/\bclearInterval\b/g, 'clearTimeout') // clearInterval -> clearTimeout
+                .replaceAll('"undefined"!=typeof window', 'true') // Window is defined
+                .replace(/([\w$]+)\[\1\.length(-\d+)\]/g, '$1.at($2)') // Array.at, String.at
+                .replaceAll('(new Date).getTime', 'Date.now') // Date.now
+                // Unused catch binding
+                // .replace(/catch\(([\w$])+\)(\{(?:(?!\b\1\b)[^}{])*\})/g, "catch$2") // Fails on unmatched }
                 // Optional chaining
                 .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|\|\||[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.([_a-zA-Z$][\w$]*)/g, '$1?.$2') // a&&a.b ==> a?.b
                 .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)&&\1\??\.?([[(])/g, '$1?.$2') // a&&a(b) ==> a?.(b)
                 .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)\[([\w$]+)\]&&\1\[\2\]\??\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1[$2]?.$3') // a[b]&&a[b].c ==> a[b]?.c
                 .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)(\??)\.([_a-zA-Z$][\w$]*)&&\1\??\.\3\??\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1$2.$3?.$4') // a.b&&a.b.c ==> a?.b?.c
                 .replace(/(?<=[;:{}(),[\]]|return[ !]|throw[ !]|=>|&&|[\w$ ]=)([_a-zA-Z$][\w$]*)(\??)\.([_a-zA-Z$][\w$]*)(\??)\.?([_a-zA-Z$][\w$]*)&&\1\2\.\3\.\5\.?([_a-zA-Z$][\w$]*|\(|\[)/g, '$1$2.$3$4.$5?.$6') // a.b.c&&a.b.c.d ==> a?.b?.c?.d
+                // Arrows
+                // .replace(/function ([\w$]+)\(([\w$=, ]*)\)\{return((?:(?!this)[^,}{])*(?:\{(?:(?!this)[^}{])*\}(?:(?!this)[^}{])*)*)\}/g, 'let $1=($2)=>$3;')
+                // Remove closing tag </svg> from SVG
+                .replace(/><\/svg>(["']\))/g, '>$1')
                 // Solid
-                .replace(/(?:const|let) ([$\w]+)=\(([$\w]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, '')
-                .replace(/[$\w]+\.[$\w]+\?([$\w]+\(\)):\(\)=>\{if\([$\w]+\([$\w]+\)\(\)\?\.\[0\]!==[$\w]+\)throw"Stale read from <Match>\.";return \1\}/, '$1') // Remove Keyed Match
-                .replace(/\{if\(![$\w]+\([$\w]+\)\)throw"Stale read from <Show>\.";return ([$\w]+(?:\.[$\w]+|\(\)))\}/, '$1') // Remove Keyed Show
-                // .replace(/else if\((["'])oncapture:\1===([$\w]+)\.slice\(0,10\)\)\{(?:const|let) ([$\w]+)=\2\.slice\(10\);([$\w]+)&&([$\w]+)\.removeEventListener\(\3,\4,!0\),([$\w]+)&&\5\.addEventListener\(\3,\6,!0\)\}/, '') // Remove runtime on:capture
+                .replace(/(?:const|let) ([\w$]+)=\(([\w$]+)=>\2 instanceof Error\?\2:Error\("string"==typeof \2\?\2:"Unknown error",\{cause:\2\}\)\)\(\2\);throw \1/, '')
+                .replace(/[\w$]+\.[\w$]+\?([\w$]+\(\)):\(\)=>\{if\([\w$]+\([\w$]+\)\(\)\?\.\[0\]!==[\w$]+\)throw"Stale read from <Match>\.";return \1\}/, '$1') // Remove Keyed Match
+                .replace(/\{if\(![\w$]+\([\w$]+\)\)throw"Stale read from <Show>\.";return ([\w$]+(?:\.[\w$]+|\(\)))\}/, '$1') // Remove Keyed Show
+                // .replace(/if\(([\w$]+)\.tOwned\)\{for\(([\w$]+)=\1\.tOwned\.length-1;\2>=0;\2--\)[\w$]+\(\1\.tOwned\[\2\]\);delete \1\.tOwned\}/, '') // v1.8.23
+                // .replace(/else if\((["'])oncapture:\1===([\w$]+)\.slice\(0,10\)\)\{(?:const|let) ([\w$]+)=\2\.slice\(10\);([\w$]+)&&([\w$]+)\.removeEventListener\(\3,\4,!0\),([\w$]+)&&\5\.addEventListener\(\3,\6,!0\)\}/, '') // Remove runtime on:capture
                 // Solid router
                 .replace(/if\("POST"!==\w+\.target\.method\.toUpperCase\(\)\)throw Error\("Only POST forms are supported for Actions"\);/, "")
-                .replace(/\(([$\w]+)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
-                .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
-                .replace(/\(\(([$\w]+),[$\w]+\)=>\{if\(null==\1\)throw Error\("<A> and 'use' router primitives can be only used inside a Route\."\);return \1\}\)\(([$\w]+\([$\w]+\))\)/, "$2")
-                .replace(/if\(void 0===([$\w]+)\)throw Error\(\1\+" is not a valid base path"\);/, "")
-                .replace(/if\(void 0===[$\w]+\)throw Error\(`Path '\$\{[$\w]+\}' is not a routable path`\);if\([$\w]+\.length>=100\)throw Error\("Too many redirects"\);/, "")
-                .trim(); //prettier-ignore
+                .replace(/\(([\w$]+)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([\w$]+\([\w$]+\))\)/, "$2")
+                .replace(/\(\(([\w$]+),[\w$]+\)=>\{if\(null==\1\)throw Error\("Make sure your app is wrapped in a <Router \/>"\);return \1\}\)\(([\w$]+\([\w$]+\))\)/, "$2")
+                .replace(/\(\(([\w$]+),[\w$]+\)=>\{if\(null==\1\)throw Error\("<A> and 'use' router primitives can be only used inside a Route\."\);return \1\}\)\(([\w$]+\([\w$]+\))\)/, "$2")
+                .replace(/if\(void 0===([\w$]+)\)throw Error\(\1\+" is not a valid base path"\);/, "")
+                .replace(/if\(void 0===[\w$]+\)throw Error\(`Path '\$\{[\w$]+\}' is not a routable path`\);if\([\w$]+\.length>=100\)throw Error\("Too many redirects"\);/, ""); //prettier-ignore
 
               // Remove Solid junk
-              if ((o.code.match(/\bform[Nn]o[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(/,formnovalidate:\{\$:"formNoValidate",[$\w]+:1,INPUT:1\}/g, ''); //prettier-ignore
-              if ((o.code.match(/\bno[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',novalidate:{$:"noValidate",FORM:1}', ''); /*TODO: FIX */ //prettier-ignore
+              if ((o.code.match(/\bform[Nn]o[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(/,formnovalidate:\{\$:"formNoValidate",[\w$]+:1,INPUT:1\}/g, ''); //prettier-ignore
+              if ((o.code.match(/\bno[Vv]alidate\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',novalidate:{$:"noValidate",FORM:1}', ''); //prettier-ignore
               if ((o.code.match(/\bis[Mm]ap\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',ismap:{$:"isMap",IMG:1}', ''); //prettier-ignore
               if ((o.code.match(/\bno[Mm]odule\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',nomodule:{$:"noModule",SCRIPT:1}', ''); //prettier-ignore
               if ((o.code.match(/\bplays[Ii]nline\b/g)?.length ?? 0) < 5) o.code = o.code.replace(',playsinline:{$:"playsInline",VIDEO:1}', ''); //prettier-ignore
@@ -140,21 +141,25 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
                     o.code = o.code.replace(`${prop},`, '').replace(`,${prop}`, '');
                 })
               );
+
+              o.code = minifySync(o.code, { module: true, ecma: 2020, compress: { passes: 0, unsafe_methods: true }, format: { preamble: `//${version}\n` }, mangle: false }).code; //prettier-ignore
             });
 
           Object.values(bundle)
             .filter(x => x.fileName?.includes('.css') && 'source' in x)
-            .forEach((css: any) => postcss([postcssSortMediaQueries({ onlyTopLevel: true })]).process(css.source).then(result => (css.source = result.css.trim()))); //prettier-ignore
+            .forEach((css: any) => postcss([postcssSortMediaQueries()]).process(css.source).then(result => (css.source = result.css.trim()))); //prettier-ignore
         },
-        writeBundle: async ({ dir }) => void Promise.all(readDir(dir!).filter(f => f.endsWith('.json')).map(f => write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf-8'))), 'utf-8'))), //prettier-ignore
+        writeBundle: ({ dir }) =>
+          void Promise.all(
+            readDir(dir!).map(f =>
+              f.endsWith('.html')
+                ? write(`${dir}/${f}`, minifyHTML(read(`${dir}/${f}`), { collapseWhitespaces: 'smart', minifyCss: f === 'index.html' }).code, 'utf8') //prettier-ignore
+                : f.endsWith('.json')
+                  ? write(`${dir}/${f}`, JSON.stringify(JSON.parse(read(`${dir}/${f}`, 'utf8'))), 'utf8')
+                  : undefined
+            )
+          ),
       } as Plugin,
-      swcPlugin({
-        include: /\.js$/,
-        swc: {
-          minify: true,
-          jsc: { minify: { compress: { passes: 0, unsafe_methods: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true } } }, //prettier-ignore
-        },
-      }),
     ].filter(Boolean),
     resolve: { alias: { '@': resolve(import.meta.dirname, 'src') } },
     test: {
@@ -167,7 +172,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       coverage: {
         reporter: ['text', 'lcov'],
         include: ['src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-        exclude: configDefaults.coverage.exclude!.concat(['**/__test__/', 'src/services/mock', 'src/index.tsx']),
+        exclude: [...configDefaults.coverage.exclude!, '**/__test__/', 'src/index.tsx', 'src/services/mock'],
         clean: false,
       },
       pool: 'vmThreads',

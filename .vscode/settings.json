@@ -1,5 +1,5 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "files.eol": "\n",
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -10,17 +10,16 @@
     "source.fixAll.stylelint": "explicit",
     "source.fixAll.prettier": "explicit"
   },
+  "editor.unicodeHighlight.allowedCharacters": { "’": true },
+  "files.associations": { ".env.{production-prod,production-local,development,test}": "dotenv" },
   "search.exclude": {
     "**/{node_modules,bower_components,*.code-search}": true,
     "**/.yarn/{cache,releases}/**": true,
     "**/*.module.scss.d.ts": true
   },
-  "javascript.format.enable": false,
-  "typescript.format.enable": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.format.enabled": false,
+  "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],

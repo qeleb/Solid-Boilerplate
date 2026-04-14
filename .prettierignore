@@ -1,7 +1,7 @@
-.yarn
 coverage
 dist
+.yarn
 .yarnrc.yml
-package-lock.json
 README.md
 yarn.lock
+*.snap
