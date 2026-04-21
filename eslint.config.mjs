@@ -97,7 +97,7 @@ export default defineConfig([
       'regexp/prefer-quantifier': ['warn', { allows: ['\\d\\d'] }],
       'regexp/prefer-regexp-test': 'warn',
       'rest-spread-spacing': ['warn', 'never'],
-      'spaced-comment': ['warn', 'always', { markers: ['/', 'MARK:', 'TODO:', 'region', '#region', '@ts-expect-error', 'v8'], exceptions: ['endregion', '#endregion', '@once', '@__INLINE__', '@__KEY__', '@__MANGLE_PROP__', '@__NOINLINE__', '@__PURE__', 'prettier-ignore'] }], //prettier-ignore
+      'spaced-comment': ['warn', 'always', { markers: ['/', 'MARK:', 'TODO:', 'region', '#region', '@ts-expect-error', 'eslint', 'eslint-disable', 'eslint-disable-line', 'eslint-disable-next-line', 'eslint-enable', 'eslint-enable-line', 'eslint-enable-next-line', 'v8'], exceptions: ['endregion', '#endregion', '@once', '@__INLINE__', '@__KEY__', '@__MANGLE_PROP__', '@__NOINLINE__', '@__PURE__', 'prettier-ignore'] }], //prettier-ignore
       strict: ['warn', 'never'],
       '@typescript-eslint/adjacent-overload-signatures': 'warn',
       '@typescript-eslint/array-type': 'off',
@@ -207,7 +207,7 @@ export default defineConfig([
       '@typescript-eslint/no-unnecessary-qualifier': 'warn',
       '@typescript-eslint/no-unnecessary-template-expression': 'warn',
       '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+      '@typescript-eslint/no-unnecessary-type-assertion': ['warn', { typesToIgnore: ['Error'] }],
       '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
       '@typescript-eslint/no-unsafe-unary-minus': 'warn',
       '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false, variables: false, typedefs: false }], //prettier-ignore
