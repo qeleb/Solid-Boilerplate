@@ -32,7 +32,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
       minify: 'terser',
       cssMinify: 'lightningcss',
       terserOptions: {
-        ecma: 2020,
+        ecma: 2022,
         compress: { arguments: true, hoist_funs: true, keep_fargs: false, passes: 3, unsafe: true, unsafe_arrows: true, unsafe_comps: true, unsafe_proto: true, unsafe_regexp: true, unsafe_symbols: true }, //prettier-ignore
         format: { comments: false },
         mangle: { properties: { regex: /^(?:observers|observerSlots|comparator|updatedAt|owned|route|score|sourceSlots|fn|cleanups|owner|pure|suspense|inFallback|isRouting|beforeLeave|Provider|preloadRoute|outlet|utils|explicitLinks|actionBase|resolvePath|branches|routerState|parsePath|renderPath|originalPath|tState|disposed|sensitivity|navigatorFactory|keyed|intent)$/ } }, //prettier-ignore
@@ -142,7 +142,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
                 })
               );
 
-              o.code = minifySync(o.code, { module: true, ecma: 2020, compress: { passes: 0, unsafe_methods: true }, format: { preamble: `//${version}\n` }, mangle: false }).code; //prettier-ignore
+              o.code = minifySync(o.code, { module: true, ecma: 2022, compress: { passes: 0, unsafe_methods: true }, format: { preamble: `//${version}\n` }, mangle: false }).code; //prettier-ignore
             });
 
           Object.values(bundle)

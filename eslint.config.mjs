@@ -1,7 +1,7 @@
 import js from '@eslint/js';
 import vitest from '@vitest/eslint-plugin';
 import { defineConfig } from 'eslint/config';
-import importPlugin from 'eslint-plugin-import';
+import { importX } from 'eslint-plugin-import-x';
 import prettier from 'eslint-plugin-prettier';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import * as regexp from 'eslint-plugin-regexp';
@@ -14,7 +14,7 @@ import tseslint from 'typescript-eslint';
 export default defineConfig([
   {
     ignores: ['.yarn/**', 'dist/**', 'coverage/**', 'public/*.js'],
-    plugins: { prettier, 'testing-library': testingLibrary, '@typescript-eslint': tseslint.plugin, unicorn, vitest },
+    plugins: { 'import-x': importX, prettier, 'testing-library': testingLibrary, '@typescript-eslint': tseslint.plugin, unicorn, vitest }, //prettier-ignore
     extends: [prettierRecommended],
     languageOptions: { ecmaVersion: 'latest', sourceType: 'module', globals: globals.browser, parser: tseslint.parser },
     rules: { 'prettier/prettier': 'warn' },
@@ -23,19 +23,19 @@ export default defineConfig([
     /* TypeScript/JavaScript */
     files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     ignores: ['dist/**', 'coverage/**', 'public/*.js'],
-    extends: [importPlugin.flatConfigs.warnings, js.configs.recommended, regexp.configs['flat/recommended'], tseslint.configs.recommended, tseslint.configs.stylistic], //prettier-ignore
+    extends: [js.configs.recommended, tseslint.configs.recommended, tseslint.configs.stylistic, regexp.configs['flat/recommended']], //prettier-ignore
     rules: {
       'array-callback-return': 'warn',
       'consistent-return': 'error',
       'dot-location': ['warn', 'property'],
       eqeqeq: ['warn', 'smart'],
-      'import/enforce-node-protocol-usage': ['warn', 'always'],
-      'import/first': 'warn',
-      'import/newline-after-import': 'warn',
-      'import/no-empty-named-blocks': 'warn',
-      'import/no-named-as-default-member': 'off',
-      'import/no-useless-path-segments': 'warn',
-      'import/order': ['warn', { alphabetize: { order: 'asc' }, named: true, 'newlines-between': 'never' }],
+      'import-x/first': 'warn',
+      'import-x/newline-after-import': 'warn',
+      'import-x/no-duplicates': 'warn',
+      'import-x/no-empty-named-blocks': 'warn',
+      'import-x/no-named-as-default-member': 'off',
+      'import-x/no-useless-path-segments': 'warn',
+      'import-x/order': ['warn', { alphabetize: { order: 'asc' }, named: true, 'newlines-between': 'never' }],
       'logical-assignment-operators': ['warn', 'always', { enforceForIfStatements: true }],
       'new-parens': 'warn',
       'no-caller': 'warn',
@@ -163,6 +163,7 @@ export default defineConfig([
       'unicorn/prefer-math-min-max': 'warn',
       'unicorn/prefer-native-coercion-functions': 'warn',
       'unicorn/prefer-negative-index': 'warn',
+      'unicorn/prefer-node-protocol': 'warn',
       'unicorn/prefer-object-from-entries': 'warn',
       'unicorn/prefer-optional-catch-binding': 'warn',
       'unicorn/prefer-regexp-test': 'warn',
