@@ -175,7 +175,6 @@ export default defineConfig([
       'unicorn/prefer-string-starts-ends-with': 'warn',
       'unicorn/prefer-structured-clone': 'warn',
       'unicorn/prefer-ternary': 'warn',
-      'unicorn/prefer-top-level-await': 'warn',
       'unicorn/relative-url-style': 'warn',
       'unicorn/text-encoding-identifier-case': 'warn',
     },
