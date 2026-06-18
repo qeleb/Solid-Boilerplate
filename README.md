@@ -27,6 +27,7 @@ Solid Boilerplate
 
 ### Test
 1. 🧪 `yarn test` - run unit tests & generate coverage report in `coverage/`
+1. 🧾 `yarn test:ui` - open unit test UI
 
 ### Lint
 1. 🧹 `yarn lint` - lint files in `src/`
@@ -66,11 +67,13 @@ ____|Required|____|Recommended
 ### Linting
 Linting is provided by [ESLint](https://github.com/eslint/eslint) with a custom configuration & the following plugins:
 - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
-- [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
+- [eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)
-- [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest)
 - [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid)
+- [eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library)
+- [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
+- [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest)
 
 ---
 </details>
