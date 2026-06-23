@@ -13,7 +13,7 @@
   "editor.unicodeHighlight.allowedCharacters": { "’": true },
   "files.associations": { ".env.{production-prod,production-local,development,test}": "dotenv" },
   "search.exclude": {
-    "**/{node_modules,bower_components,*.code-search}": true,
+    "**/{node_modules,*.code-search}": true,
     "**/.yarn/{cache,releases}/**": true,
     "**/*.module.scss.d.ts": true
   },
