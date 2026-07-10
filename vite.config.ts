@@ -87,7 +87,7 @@ export default ({ mode }: { mode: 'production' | 'development' | 'test' }) => {
                 .replace(/\bwindow\.(CustomStateSet|ElementInternals|addEventListener|clearInterval|clearTimeout|crypto|document|fetch|getComputedStyle|location|removeEventListener|requestAnimationFrame|setInterval|setTimeout)/g, '$1')
                 .replace(/\bclearInterval\b/g, 'clearTimeout') // clearInterval -> clearTimeout
                 .replaceAll('"undefined"!=typeof window', 'true') // Window is defined
-                .replace(/([\w$]+)\[\1\.length(-\d+)\]/g, '$1.at($2)') // Array.at, String.at
+                .replace(/(\b(?!arguments\b)[\w$]+)\[\1\.length(-\d+)\]/g, '$1.at($2)') // Array.at, String.at
                 .replaceAll('(new Date).getTime', 'Date.now') // Date.now
                 // Unused catch binding
                 // .replace(/catch\(([\w$])+\)(\{(?:(?!\b\1\b)[^}{])*\})/g, "catch$2") // Fails on unmatched }
