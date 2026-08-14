@@ -307,7 +307,7 @@ export default defineConfig([
   },
   {
     /* Test */
-    files: ['**/*.{test,spec}.*', '**/__test__/setupTests.ts'],
+    files: ['**/*.{test,spec}.*', '**/__test__/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     languageOptions: { globals: globals.node },
     settings: { vitest: { typecheck: true } },
     rules: {
