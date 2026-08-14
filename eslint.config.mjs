@@ -308,8 +308,8 @@ export default defineConfig([
   {
     /* Test */
     files: ['**/*.{test,spec}.*', '**/__test__/setupTests.ts'],
-    settings: { vitest: { typecheck: true } },
     languageOptions: { globals: globals.node },
+    settings: { vitest: { typecheck: true } },
     rules: {
       'testing-library/await-async-events': 'error',
       'testing-library/await-async-queries': 'error',
