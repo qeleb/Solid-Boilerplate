@@ -33,7 +33,7 @@ export default defineConfig([
       'import-x/newline-after-import': 'warn',
       'import-x/no-duplicates': 'warn',
       'import-x/no-empty-named-blocks': 'warn',
-      'import-x/no-named-as-default-member': 'off',
+      'import-x/no-named-as-default': 'warn',
       'import-x/no-useless-path-segments': 'warn',
       'import-x/order': ['warn', { alphabetize: { order: 'asc' }, named: true, 'newlines-between': 'never' }],
       'logical-assignment-operators': ['warn', 'always', { enforceForIfStatements: true }],
