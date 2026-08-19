@@ -1,11 +1,11 @@
 import { createSignal } from 'solid-js';
-import { useMouse } from 'solidjs-use';
 import { IconLogo } from '@/components/svg';
+import { useMouse } from '@/hooks/useMouse';
 import styles from '@/pages/Home/Home.module.scss';
 import { type UserFetchResponse, fetchUser } from '@/services/userService';
 
 export const Home = () => {
-  const { x, y } = useMouse();
+  const [mouseX, mouseY] = useMouse();
   const [counter, setCounter] = createSignal(0);
   const [userData, setUserData] = createSignal<UserFetchResponse | undefined>();
 
@@ -17,7 +17,7 @@ export const Home = () => {
       <h1>Solid + Vite + TypeScript</h1>
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <p>
-        Mouse: {x()} x {y()}
+        Mouse: {mouseX()} x {mouseY()}
       </p>
       <h3>
         Counter: {counter()}

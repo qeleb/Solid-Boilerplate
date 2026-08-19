@@ -93,8 +93,7 @@
   },
   "dependencies": {
     "@solidjs/router": "0.10.1",
-    "solid-js": "1.8.5",
-    "solidjs-use": "^2.3.0"
+    "solid-js": "1.8.5"
   },
   "resolutions": {
     "@babel/helper-module-imports": "^7.29.7",
