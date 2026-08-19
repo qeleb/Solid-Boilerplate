@@ -1,12 +1,12 @@
 import { createSignal } from 'solid-js';
-import { useCounter, useMouse } from 'solidjs-use';
+import { useMouse } from 'solidjs-use';
 import { IconLogo } from '@/components/svg';
 import styles from '@/pages/Home/Home.module.scss';
 import { type UserFetchResponse, fetchUser } from '@/services/userService';
 
 export const Home = () => {
   const { x, y } = useMouse();
-  const { count, inc, dec } = useCounter();
+  const [counter, setCounter] = createSignal(0);
   const [userData, setUserData] = createSignal<UserFetchResponse | undefined>();
 
   fetchUser().then(setUserData);
@@ -20,9 +20,9 @@ export const Home = () => {
         Mouse: {x()} x {y()}
       </p>
       <h3>
-        Counter: {count()}
-        <button onClick={() => dec()}>-</button>
-        <button onClick={() => inc()}>+</button>
+        Counter: {counter()}
+        <button onClick={() => setCounter(p => p - 1)}>-</button>
+        <button onClick={() => setCounter(p => p + 1)}>+</button>
       </h3>
     </div>
   );
